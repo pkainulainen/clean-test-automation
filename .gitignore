@@ -1,0 +1,6 @@
+*.iml
+.gradle
+.idea
+build 
+target
+.DS_Store
