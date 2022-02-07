@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
- * This test class demonstrates the execution order of
+ * This test class demonstrates the invocation order of
  * setup, teardown, and test methods.
  */
 @DisplayName("JUnit 5 Example")
