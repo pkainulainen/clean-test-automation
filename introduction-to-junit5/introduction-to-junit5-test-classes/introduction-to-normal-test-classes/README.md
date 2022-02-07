@@ -2,7 +2,7 @@
 
 This is an example project of a lesson that describes how you can:
 
-* Get the required dependencies with Maven.
+* 
 
 [Watch (or read) the lesson: Introduction to "Normal" Test Classes](https://www.cleantestautomation.com/lessons/introduction-to-normal-test-classes/)
 
