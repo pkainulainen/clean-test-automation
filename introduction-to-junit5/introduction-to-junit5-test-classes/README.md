@@ -6,7 +6,7 @@ This directory contains the example of the [Introduction to JUnit 5 Test Classes
   directory contains an example application which demonstrates how you can create simple
   test classes and add both setup and teardown methods to your test classes. This example will
   also help you to understand the invocation order of setup, teardown, and test methods.
-* The [_introduction_to_nested_test_classes](https://github.com/pkainulainen/clean-test-automation/tree/main/introduction-to-junit5/introduction-to-junit5-test-classes/introduction-to-nested-test-classes) 
+* The [_introduction-to-nested-test-classes_](https://github.com/pkainulainen/clean-test-automation/tree/main/introduction-to-junit5/introduction-to-junit5-test-classes/introduction-to-nested-test-classes) 
   directory contains an example application which demonstrates how you can create nested test 
   classes with JUnit 5 and add setup, teardown, and test methods to your nested test classes. 
   This example will also help you to understand the invocation order of setup, teardown, and 
