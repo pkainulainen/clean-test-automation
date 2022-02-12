@@ -51,18 +51,6 @@ class JUnit5ExampleTest {
         System.out.println("After all test methods");
     }
 
-    @Test
-    @DisplayName("First test")
-    void firstTest() {
-        System.out.println("First test method");
-    }
-
-    @Test
-    @DisplayName("Second test")
-    void secondTest() {
-        System.out.println("Second test method");
-    }
-
     @Nested
     @DisplayName("Tests for the method A")
     class A {
