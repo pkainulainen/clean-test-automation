@@ -2,6 +2,7 @@
 
 This is an example project of a lesson that helps you to:
  
+* Understand what a nested test class is.
 * Create nested test classes with JUnit 5.
 * Add setup, teardown, and test methods to nested test classes. 
 * Understand the invocation order of setup, teardown, and test methods.
