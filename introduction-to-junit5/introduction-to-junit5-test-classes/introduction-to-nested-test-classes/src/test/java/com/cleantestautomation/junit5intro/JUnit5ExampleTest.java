@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * setup, teardown, and test methods when you are writing
  * nested tests with JUnit 5.
  */
-@DisplayName("JUnit 5 Example")
+@DisplayName("JUnit 5 Nested Test Example")
 class JUnit5ExampleTest {
 
     /**
