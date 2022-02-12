@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * nested tests with JUnit 5.
  */
 @DisplayName("JUnit 5 Example")
-class JUnit5NestedExampleTest {
+class JUnit5ExampleTest {
 
     /**
      * This setup method is run once before any test
