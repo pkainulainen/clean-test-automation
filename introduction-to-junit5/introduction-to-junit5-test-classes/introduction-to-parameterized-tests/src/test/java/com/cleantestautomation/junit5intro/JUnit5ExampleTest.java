@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @DisplayName("JUnit 5 Parameterized Test Example")
 class JUnit5ExampleTest {
 
-    @DisplayName("Should pass a non-null message to our test method")
+    @DisplayName("Should pass a non-null message to your test method")
     @ParameterizedTest
     @ValueSource(strings = {"Hello", "World"})
     void shouldPassNonNullMessageAsMethodParameter(String message) {
         assertNotNull(message);
     }
 
-    @DisplayName("Should pass a non-null message to our test method")
+    @DisplayName("Should pass a non-null message to your test method")
     @ParameterizedTest(name = "{index} => message=''{0}''")
     @ValueSource(strings = {"Hello", "World"})
     void shouldPassNonNullMessageAsMethodParameterWithCustomInvocationDescription(String message) {
