@@ -17,14 +17,14 @@ class JUnit5ExampleTest {
     @DisplayName("Should pass a non-null message to your test method")
     @ParameterizedTest
     @ValueSource(strings = {"Hello", "World"})
-    void shouldPassNonNullMessageAsMethodParameter(String message) {
+    void shouldPassNonNullMessageAsMethodArgument(String message) {
         assertNotNull(message);
     }
 
     @DisplayName("Should pass a non-null message to your test method")
     @ParameterizedTest(name = "{index} => message=''{0}''")
     @ValueSource(strings = {"Hello", "World"})
-    void shouldPassNonNullMessageAsMethodParameterWithCustomInvocationDescription(String message) {
+    void shouldPassNonNullMessageAsMethodArgumentWithCustomInvocationDescription(String message) {
         assertNotNull(message);
     }
 }
