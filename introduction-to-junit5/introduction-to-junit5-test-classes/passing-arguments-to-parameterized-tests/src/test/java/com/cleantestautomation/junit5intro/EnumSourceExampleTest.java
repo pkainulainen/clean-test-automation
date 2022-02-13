@@ -10,10 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * This test class demonstrates how you can pass enum values to
  * your parameterized test methods.
  */
-@DisplayName("Pass enum values to our test method")
+@DisplayName("Pass enum values to your test method")
 class EnumSourceExampleTest {
 
-    @DisplayName("Should pass non-null enum values as method argument")
+    @DisplayName("Should pass non-null enum values as method arguments")
     @ParameterizedTest(name = "{index} => programmingLanguage=''{0}''")
     @EnumSource(ProgrammingLanguage.class)
     void shouldPassNonNullEnumValuesAsMethodArgument(ProgrammingLanguage programmingLanguage) {
