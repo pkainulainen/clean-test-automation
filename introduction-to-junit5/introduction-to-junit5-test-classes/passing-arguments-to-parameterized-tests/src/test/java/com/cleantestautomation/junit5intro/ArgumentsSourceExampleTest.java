@@ -20,19 +20,8 @@ class ArgumentsSourceExampleTest {
 
     @DisplayName("Should use the arguments provided by the CustomArgumentProvider")
     @ParameterizedTest(name = "{index} => a={0}, b={1}, sum={2}")
-    @ArgumentsSource(CustomArgumentProvider.class)
+    @ArgumentsSource(CustomArgumentsProvider.class)
     void shouldUseArgumentsProvidedByCustomArgumentProvider(int a, int b, int sum) {
         assertEquals(sum, a + b);
-    }
-
-    static class CustomArgumentProvider implements ArgumentsProvider {
-
-        @Override
-        public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
-            return Stream.of(
-                    Arguments.of(1, 1, 2),
-                    Arguments.of(2, 3, 5)
-            );
-        }
     }
 }
