@@ -1,11 +1,8 @@
 package com.cleantestautomation.junit5intro;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
-
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
