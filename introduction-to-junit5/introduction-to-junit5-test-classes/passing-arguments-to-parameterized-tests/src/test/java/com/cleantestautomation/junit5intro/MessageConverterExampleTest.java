@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * This test class demonstrates how you can implement a custom {@link MessageConverter}
- * which provides method arguments to your parameterized test method.
+ * which provides arguments to your parameterized test method.
  */
-@DisplayName("Should pass the method arguments provided by the MessageConverter class")
+@DisplayName("Should pass the arguments provided by the MessageConverter class")
 class MessageConverterExampleTest {
 
     @DisplayName("Should use the arguments provided by the MessageConverter class")

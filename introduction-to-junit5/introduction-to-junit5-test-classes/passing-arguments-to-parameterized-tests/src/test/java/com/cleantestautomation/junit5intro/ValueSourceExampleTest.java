@@ -16,7 +16,7 @@ class ValueSourceExampleTest {
     @DisplayName("Should pass a non-null message to your test method")
     @ParameterizedTest(name = "{index} => message=''{0}''")
     @ValueSource(strings = {"Hello", "World"})
-    void shouldPassNonNullMessageAsMethodArgument(String message) {
+    void shouldPassNonNullMessageAsArgument(String message) {
         assertNotNull(message);
     }
 }

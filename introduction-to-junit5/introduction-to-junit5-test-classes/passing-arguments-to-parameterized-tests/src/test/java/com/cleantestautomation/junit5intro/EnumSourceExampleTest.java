@@ -13,17 +13,17 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @DisplayName("Pass enum values to your test method")
 class EnumSourceExampleTest {
 
-    @DisplayName("Should pass non-null enum values as method arguments")
+    @DisplayName("Should pass non-null enum values as arguments")
     @ParameterizedTest(name = "{index} => programmingLanguage=''{0}''")
     @EnumSource(ProgrammingLanguage.class)
-    void shouldPassNonNullEnumValuesAsMethodArgument(ProgrammingLanguage programmingLanguage) {
+    void shouldPassNonNullEnumValuesAsArguments(ProgrammingLanguage programmingLanguage) {
         assertNotNull(programmingLanguage);
     }
 
-    @DisplayName("Should pass only the specified enum value as a method argument")
+    @DisplayName("Should pass only the specified enum value as an argument")
     @ParameterizedTest(name = "{index} => programmingLanguage=''{0}''")
     @EnumSource(value = ProgrammingLanguage.class, names = {"JAVA"})
-    void shouldPassNonNullEnumValueAsMethodArgument(ProgrammingLanguage programmingLanguage) {
+    void shouldPassNonNullEnumValueAsArgument(ProgrammingLanguage programmingLanguage) {
         assertNotNull(programmingLanguage);
     }
 }
