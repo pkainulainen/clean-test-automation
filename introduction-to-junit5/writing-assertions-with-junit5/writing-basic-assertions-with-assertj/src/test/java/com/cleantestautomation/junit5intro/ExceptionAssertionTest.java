@@ -84,6 +84,13 @@ class ExceptionAssertionTest {
             @DisplayName("Should throw an exception that has the correct message")
             void shouldThrowAnExceptionWithCorrectMessage() {
                 final Throwable thrown = catchThrowable(() -> { throw new NullPointerException(ERROR_MESSAGE); });
+                assertThat(thrown.getMessage()).isEqualTo(ERROR_MESSAGE);
+            }
+
+            @Test
+            @DisplayName("Should throw an exception that has the correct message (with custom error message)")
+            void shouldThrowAnExceptionWithCorrectMessageWithCustomErrorMessage() {
+                final Throwable thrown = catchThrowable(() -> { throw new NullPointerException(ERROR_MESSAGE); });
                 assertThat(thrown.getMessage())
                         .overridingErrorMessage(
                                 "Expected the error message of the exception to be: %s but it was: %s",
