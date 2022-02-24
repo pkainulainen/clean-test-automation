@@ -2,6 +2,9 @@
 
 This is an example project of a lesson that helps you to:
 
+* Get the required dependencies with Maven and Gradle.
+* Write basic assertions with AssertJ.
+* Customize the error message which is shown when an assertion fails.
 
 [Watch (or read) the lesson: Writing Basic Assertions With AssertJ](https://www.cleantestautomation.com/lessons/writing-basic-assertions-with-assertj)
 
