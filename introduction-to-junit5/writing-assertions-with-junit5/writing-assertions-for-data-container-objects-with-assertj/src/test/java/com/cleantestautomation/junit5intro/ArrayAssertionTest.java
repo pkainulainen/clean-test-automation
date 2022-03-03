@@ -16,6 +16,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ArrayAssertionTest {
 
     @Nested
+    @DisplayName("When you verify that size of an array is correct")
+    class WhenYouVerifyThatSizeOfArrayIsCorrect {
+
+        final int[] ARRAY = new int[]{2, 5, 7};
+
+        @Test
+        @DisplayName("Should be empty")
+        void shouldBeEmpty() {
+            assertThat(new int[]{}).isEmpty();
+        }
+
+        @Test
+        @DisplayName("Shouldn't be empty")
+        void shouldNotBeEmpty() {
+            assertThat(ARRAY).isNotEmpty();
+        }
+
+        @Test
+        @DisplayName("Should contain three values")
+        void shouldContainThreeValues() {
+            assertThat(ARRAY).hasSize(3);
+        }
+    }
+
+    @Nested
     @DisplayName("When two arrays are equal")
     class WhenArraysAreEqual {
 

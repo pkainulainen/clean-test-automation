@@ -40,6 +40,12 @@ class MapAssertionTest {
         }
 
         @Test
+        @DisplayName("Shouldn't be empty")
+        void shouldNotBeEmpty() {
+            assertThat(map).isNotEmpty();
+        }
+
+        @Test
         @DisplayName("Should contain one key-value pair")
         void shouldContainOneKeyValuePair() {
             assertThat(map).hasSize(1);
