@@ -56,34 +56,9 @@ class ListAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain two elements (with custom error message)")
-        void shouldContainTwoElementsWithCustomErrorMessage() {
-            assertThat(list)
-                    .overridingErrorMessage(
-                            "Expected the size of the list to be: %d but it was: %d",
-                            EXPECTED_SIZE,
-                            list.size()
-                    )
-                    .hasSize(EXPECTED_SIZE);
-        }
-
-        @Test
         @DisplayName("Should contain the correct elements in the given order")
         void shouldContainCorrectElementsInGivenOrder() {
             assertThat(list).containsExactly(first, second);
-        }
-
-        @Test
-        @DisplayName("Should contain the correct elements in the given order (with custom error message)")
-        void shouldContainCorrectElementsInGivenOrderWithCustomErrorMessage() {
-            assertThat(list)
-                    .overridingErrorMessage(
-                            "Expected the list to contain the objects: %s and %s but it contained: %s",
-                            first,
-                            second,
-                            Arrays.toString(list.toArray())
-                    )
-                    .containsExactly(first, second);
         }
 
         @Test
@@ -93,51 +68,15 @@ class ListAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain the correct elements in any order (with custom error message)")
-        void shouldContainCorrectElementsInAnyWithCustomErrorMessage() {
-            assertThat(list)
-                    .overridingErrorMessage(
-                            "Expected the list to contain the objects: %s and %s in any order but it contained: %s",
-                            second,
-                            first,
-                            Arrays.toString(list.toArray())
-                    )
-                    .containsExactlyInAnyOrder(second, first);
-        }
-
-        @Test
         @DisplayName("Should contain the correct element once")
         void shouldContainCorrectElementOnce() {
             assertThat(list).containsOnlyOnce(first);
         }
 
         @Test
-        @DisplayName("Should contain the correct element once (with custom error message)")
-        void shouldContainCorrectElementOnceWithCustomErrorMessage() {
-            assertThat(list)
-                    .overridingErrorMessage(
-                            "Expected the list to contain the object: %s only",
-                            first
-                    )
-                    .containsOnlyOnce(first);
-        }
-
-        @Test
         @DisplayName("Should not contain an incorrect element")
         void shouldNotContainIncorrectElement() {
             assertThat(list).doesNotContain(new Object());
-        }
-
-        @Test
-        @DisplayName("Should not contain an incorrect element (with custom error message)")
-        void shouldNotContainIncorrectElementWithCustomErrorMessage() {
-            Object incorrect = new Object();
-            assertThat(list)
-                    .overridingErrorMessage(
-                            "Expected the list to not contain the object: %s",
-                            incorrect
-                    )
-                    .doesNotContain(new Object());
         }
     }
 
@@ -152,18 +91,6 @@ class ListAssertionTest {
         @DisplayName("Should contain the same elements")
         void shouldContainSameElements() {
             assertThat(FIRST).isEqualTo(SECOND);
-        }
-
-        @Test
-        @DisplayName("Should contain the same elements (with custom error message)")
-        void shouldContainSameElementsWithCustomErrorMessage() {
-            assertThat(FIRST)
-                    .overridingErrorMessage(
-                            "Expected the list to contain: %s but it contained: %s",
-                            Arrays.toString(SECOND.toArray()),
-                            Arrays.toString(FIRST.toArray())
-                    )
-                    .isEqualTo(SECOND);
         }
     }
 }
