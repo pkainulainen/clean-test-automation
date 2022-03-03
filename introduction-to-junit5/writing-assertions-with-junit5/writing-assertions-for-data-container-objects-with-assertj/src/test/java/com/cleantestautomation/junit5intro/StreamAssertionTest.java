@@ -56,85 +56,27 @@ class StreamAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain two elements (with custom error message)")
-        void shouldContainTwoElementsWithCustomErrorMessage() {
-            assertThat(stream)
-                    .overridingErrorMessage(
-                            "Incorrect number of elements. Expected that the stream has: %d elements",
-                            EXPECTED_NUMBER_OF_ELEMENTS
-                    )
-                    .hasSize(EXPECTED_NUMBER_OF_ELEMENTS);
-        }
-
-        @Test
-        @DisplayName("Should contain the correct elements in the given order")
-        void shouldContainCorrectElementsInGivenOrder() {
+        @DisplayName("Should contain the given elements in the given order")
+        void shouldContainGivenElementsInGivenOrder() {
             assertThat(stream).containsExactly(first, second);
         }
 
         @Test
-        @DisplayName("Should contain the correct elements in the given order (with custom error message)")
-        void shouldContainCorrectElementsInGivenOrderWithCustomErrorMessage() {
-            assertThat(stream)
-                    .overridingErrorMessage(
-                            "Incorrect elements. Expected the stream to contain the elements: %s and %s",
-                            first,
-                            second
-                    )
-                    .containsExactly(first, second);
-        }
-
-        @Test
-        @DisplayName("Should contain the correct elements in any order")
-        void shouldContainCorrectElementsInAnyOrder() {
+        @DisplayName("Should contain the given elements in any order")
+        void shouldContainGivenElementsInAnyOrder() {
             assertThat(stream).containsExactlyInAnyOrder(second, first);
         }
 
         @Test
-        @DisplayName("Should contain the correct elements in any order (with custom error message)")
-        void shouldContainCorrectElementsInAnyWithCustomErrorMessage() {
-            assertThat(stream)
-                    .overridingErrorMessage(
-                            "Incorrect elements. Expected the stream to contain the elements: %s and %s in any order",
-                            second,
-                            first
-                    )
-                    .containsExactlyInAnyOrder(second, first);
-        }
-
-        @Test
-        @DisplayName("Should contain the correct element once")
-        void shouldContainCorrectElementOnce() {
+        @DisplayName("Should contain the given element once")
+        void shouldContainGivenElementOnce() {
             assertThat(stream).containsOnlyOnce(first);
         }
 
         @Test
-        @DisplayName("Should contain the correct element once (with custom error message)")
-        void shouldContainCorrectElementOnceWithCustomErrorMessage() {
-            assertThat(stream)
-                    .overridingErrorMessage(
-                            "Expected that the stream contains the element: %s only once",
-                            first
-                    )
-                    .containsOnlyOnce(first);
-        }
-
-        @Test
-        @DisplayName("Should not contain an incorrect element")
-        void shouldNotContainIncorrectElement() {
+        @DisplayName("Shouldn't contain the given element")
+        void shouldNotContainGivenElement() {
             assertThat(stream).doesNotContain(new Object());
-        }
-
-        @Test
-        @DisplayName("Should not contain an incorrect element (with custom error message)")
-        void shouldNotContainIncorrectElementWithCustomErrorMessage() {
-            Object incorrect = new Object();
-            assertThat(stream)
-                    .overridingErrorMessage(
-                            "Expected the stream to not contain the element: %s",
-                            incorrect
-                    )
-                    .doesNotContain(incorrect);
         }
     }
 }

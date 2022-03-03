@@ -16,8 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ArrayAssertionTest {
 
     @Nested
-    @DisplayName("When you verify that size of an array is correct")
-    class WhenYouVerifyThatSizeOfArrayIsCorrect {
+    @DisplayName("When you write assertions for values")
+    class WhenYouWriteAssertionsForValues {
 
         final int[] ARRAY = new int[]{2, 5, 7};
 
@@ -38,70 +38,99 @@ class ArrayAssertionTest {
         void shouldContainThreeValues() {
             assertThat(ARRAY).hasSize(3);
         }
-    }
 
-    @Nested
-    @DisplayName("When two arrays are equal")
-    class WhenArraysAreEqual {
-
-        @Nested
-        @DisplayName("When arrays contain integers")
-        class WhenArraysContainIntegers {
-
-            final int[] ACTUAL = new int[]{2, 5, 7};
-            final int[] EXPECTED = new int[]{2, 5, 7};
-
-            @Test
-            @DisplayName("Should contain the same integers")
-            void shouldContainSameIntegers() {
-                assertThat(ACTUAL).isEqualTo(EXPECTED);
-            }
+        @Test
+        @DisplayName("Should contain the given values in the given order")
+        void shouldContainGivenValuesInGivenOrder() {
+            assertThat(ARRAY).containsExactly(2, 5, 7);
         }
 
-        @Nested
-        @DisplayName("When arrays contain strings")
-        class WhenArraysContainStrings {
+        @Test
+        @DisplayName("Should contain the given values in any order")
+        void shouldContainGivenValuesInAnyOrder() {
+            assertThat(ARRAY).containsExactlyInAnyOrder(5, 7, 2);
+        }
 
-            final String[] ACTUAL = new String[] {"foo", "bar"};
-            final String[] EXPECTED = new String[] {"foo", "bar"};
+        @Test
+        @DisplayName("Should contain the given value once")
+        void shouldContainGivenValueOnce() {
+            assertThat(ARRAY).containsOnlyOnce(5);
+        }
 
-            @Test
-            @DisplayName("Should contain the same strings")
-            void shouldContainSameStrings() {
-                assertThat(ACTUAL).isEqualTo(EXPECTED);
-            }
+        @Test
+        @DisplayName("Shouldn't contain the given value")
+        void shouldNotContainGivenValue() {
+            assertThat(ARRAY).doesNotContain(99);
         }
     }
 
     @Nested
-    @DisplayName("When two arrays are not equal")
-    class WhenArraysAreNotEqual {
+    @DisplayName("When you compare two arrays")
+    class WhenYouCompareTwoArrays {
 
         @Nested
-        @DisplayName("When arrays contain integers")
-        class WhenArraysContainIntegers {
+        @DisplayName("When the arrays are equal")
+        class WhenArraysAreEqual {
 
-            final int[] ACTUAL = new int[]{2, 6, 7};
-            final int[] EXPECTED = new int[]{2, 5, 7};
+            @Nested
+            @DisplayName("When the arrays contain integers")
+            class WhenArraysContainIntegers {
 
-            @Test
-            @DisplayName("Should not contain the same integers")
-            void shouldNotContainSameIntegers() {
-                assertThat(ACTUAL).isNotEqualTo(EXPECTED);
+                final int[] ACTUAL = new int[]{2, 5, 7};
+                final int[] EXPECTED = new int[]{2, 5, 7};
+
+                @Test
+                @DisplayName("Should contain the same integers")
+                void shouldContainSameIntegers() {
+                    assertThat(ACTUAL).isEqualTo(EXPECTED);
+                }
+            }
+
+            @Nested
+            @DisplayName("When the arrays contain strings")
+            class WhenArraysContainStrings {
+
+                final String[] ACTUAL = new String[] {"foo", "bar"};
+                final String[] EXPECTED = new String[] {"foo", "bar"};
+
+                @Test
+                @DisplayName("Should contain the same strings")
+                void shouldContainSameStrings() {
+                    assertThat(ACTUAL).isEqualTo(EXPECTED);
+                }
             }
         }
-
+        
         @Nested
-        @DisplayName("When arrays contain strings")
-        class WhenArraysContainStrings {
+        @DisplayName("When the arrays aren't equal")
+        class WhenArraysAreNotEqual {
 
-            final String[] ACTUAL = new String[] {"foo", "bar1"};
-            final String[] EXPECTED = new String[] {"foo", "bar"};
+            @Nested
+            @DisplayName("When arrays contain integers")
+            class WhenArraysContainIntegers {
 
-            @Test
-            @DisplayName("Should not contain the same strings")
-            void shouldNotContainSameStrings() {
-                assertThat(ACTUAL).isNotEqualTo(EXPECTED);
+                final int[] ACTUAL = new int[]{2, 6, 7};
+                final int[] EXPECTED = new int[]{2, 5, 7};
+
+                @Test
+                @DisplayName("Should not contain the same integers")
+                void shouldNotContainSameIntegers() {
+                    assertThat(ACTUAL).isNotEqualTo(EXPECTED);
+                }
+            }
+
+            @Nested
+            @DisplayName("When arrays contain strings")
+            class WhenArraysContainStrings {
+
+                final String[] ACTUAL = new String[] {"foo", "bar1"};
+                final String[] EXPECTED = new String[] {"foo", "bar"};
+
+                @Test
+                @DisplayName("Should not contain the same strings")
+                void shouldNotContainSameStrings() {
+                    assertThat(ACTUAL).isNotEqualTo(EXPECTED);
+                }
             }
         }
     }

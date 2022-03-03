@@ -56,26 +56,26 @@ class ListAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain the correct elements in the given order")
-        void shouldContainCorrectElementsInGivenOrder() {
+        @DisplayName("Should contain the given elements in the given order")
+        void shouldContainGivenElementsInGivenOrder() {
             assertThat(list).containsExactly(first, second);
         }
 
         @Test
-        @DisplayName("Should contain the correct elements in any order")
-        void shouldContainCorrectElementsInAnyOrder() {
+        @DisplayName("Should contain the given elements in any order")
+        void shouldContainGivenElementsInAnyOrder() {
             assertThat(list).containsExactlyInAnyOrder(second, first);
         }
 
         @Test
-        @DisplayName("Should contain the correct element once")
-        void shouldContainCorrectElementOnce() {
+        @DisplayName("Should contain the given element once")
+        void shouldContainGivenElementOnce() {
             assertThat(list).containsOnlyOnce(first);
         }
 
         @Test
-        @DisplayName("Should not contain an incorrect element")
-        void shouldNotContainIncorrectElement() {
+        @DisplayName("Shouldn't contain the given element")
+        void shouldNotContainGivenElement() {
             assertThat(list).doesNotContain(new Object());
         }
     }

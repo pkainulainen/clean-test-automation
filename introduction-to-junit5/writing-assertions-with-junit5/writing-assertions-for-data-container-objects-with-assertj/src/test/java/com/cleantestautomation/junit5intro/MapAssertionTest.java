@@ -57,19 +57,19 @@ class MapAssertionTest {
     class WhenYouVerifyThatMapContainsGivenKey {
 
         @Test
-        @DisplayName("Should contain the correct key")
-        void shouldContainCorrectKey() {
+        @DisplayName("Should contain the given key")
+        void shouldContainGivenKey() {
             assertThat(map).containsKey(KEY);
         }
     }
 
     @Nested
-    @DisplayName("When you verify that the map does not contain the given key")
+    @DisplayName("When you verify that the map doesn't contain the given key")
     class WhenYouVerifyThatMapDoesNotContainGivenKey {
 
         @Test
-        @DisplayName("Should not contain the incorrect key")
-        void shouldNotContainIncorrectKey() {
+        @DisplayName("Shouldn't contain the given key")
+        void shouldNotContainGivenKey() {
             assertThat(map).doesNotContainKey(INCORRECT_KEY);
         }
     }
@@ -90,7 +90,7 @@ class MapAssertionTest {
     class WhenYouVerifyThatMapDoesNotContainGivenEntry {
 
         @Test
-        @DisplayName("Should not contain the given entry")
+        @DisplayName("Shouldn't contain the given entry")
         void shouldContainGivenEntry() {
             assertThat(map).doesNotContainEntry(INCORRECT_KEY, VALUE);
         }
