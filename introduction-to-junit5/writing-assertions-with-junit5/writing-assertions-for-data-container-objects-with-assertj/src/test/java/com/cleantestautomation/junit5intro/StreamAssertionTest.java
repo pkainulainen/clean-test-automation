@@ -38,6 +38,18 @@ class StreamAssertionTest {
         }
 
         @Test
+        @DisplayName("Should be empty")
+        void shouldBeEmpty() {
+            assertThat(Stream.of()).isEmpty();
+        }
+
+        @Test
+        @DisplayName("Shouldn't be empty")
+        void shouldNotBeEmpty() {
+            assertThat(stream).isNotEmpty();
+        }
+
+        @Test
         @DisplayName("Should contain two elements")
         void shouldContainTwoElements() {
             assertThat(stream).hasSize(EXPECTED_NUMBER_OF_ELEMENTS);

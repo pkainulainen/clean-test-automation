@@ -30,6 +30,23 @@ class MapAssertionTest {
     }
 
     @Nested
+    @DisplayName("When you verify that the size of the map is correct")
+    class WhenYouVerifyThatSizeOfMapIsCorrect {
+
+        @Test
+        @DisplayName("Should be empty")
+        void shouldBeEmpty() {
+            assertThat(new HashMap<String, String>()).isEmpty();
+        }
+
+        @Test
+        @DisplayName("Should contain one key-value pair")
+        void shouldContainOneKeyValuePair() {
+            assertThat(map).hasSize(1);
+        }
+    }
+
+    @Nested
     @DisplayName("When you verify that the map contains the given key")
     class WhenYouVerifyThatMapContainsGivenKey {
 

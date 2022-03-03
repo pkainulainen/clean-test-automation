@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,6 +35,18 @@ class ListAssertionTest {
             second = new Object();
 
             list = Arrays.asList(first, second);
+        }
+
+        @Test
+        @DisplayName("Should be empty")
+        void shouldBeEmpty() {
+            assertThat(new ArrayList<>()).isEmpty();
+        }
+
+        @Test
+        @DisplayName("Shouldn't be empty")
+        void shouldNotBeEmpty() {
+            assertThat(list).isNotEmpty();
         }
 
         @Test
