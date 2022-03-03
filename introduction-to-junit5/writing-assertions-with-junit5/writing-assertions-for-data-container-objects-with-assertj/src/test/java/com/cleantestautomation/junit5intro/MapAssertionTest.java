@@ -61,14 +61,6 @@ class MapAssertionTest {
         void shouldContainCorrectKey() {
             assertThat(map).containsKey(KEY);
         }
-
-        @Test
-        @DisplayName("Should contain the correct key (with custom error message)")
-        void shouldContainCorrectKeyWithCustomErrorMessage() {
-            assertThat(map)
-                    .overridingErrorMessage("The map doesn't contain the key: %s", KEY)
-                    .containsKey(KEY);
-        }
     }
 
     @Nested
@@ -79,14 +71,6 @@ class MapAssertionTest {
         @DisplayName("Should not contain the incorrect key")
         void shouldNotContainIncorrectKey() {
             assertThat(map).doesNotContainKey(INCORRECT_KEY);
-        }
-
-        @Test
-        @DisplayName("Should not contain the incorrect key (with custom error message)")
-        void shouldNotContainIncorrectKeyWithCustomErrorMessage() {
-            assertThat(map)
-                    .overridingErrorMessage("The map contains the key: %s", INCORRECT_KEY)
-                    .doesNotContainKey(INCORRECT_KEY);
         }
     }
 
@@ -99,18 +83,6 @@ class MapAssertionTest {
         void shouldContainGivenEntry() {
             assertThat(map).containsEntry(KEY, VALUE);
         }
-
-        @Test
-        @DisplayName("Should contain the given entry (with custom error message)")
-        void shouldContainGivenEntryWithCustomErrorMessage() {
-            assertThat(map)
-                    .overridingErrorMessage(
-                            "The map didn't contain the value: %s for the key: %s",
-                            VALUE,
-                            KEY
-                    )
-                    .containsEntry(KEY, VALUE);
-        }
     }
 
     @Nested
@@ -121,18 +93,6 @@ class MapAssertionTest {
         @DisplayName("Should not contain the given entry")
         void shouldContainGivenEntry() {
             assertThat(map).doesNotContainEntry(INCORRECT_KEY, VALUE);
-        }
-
-        @Test
-        @DisplayName("Should contain the given entry (with custom error message)")
-        void shouldContainGivenEntryWithCustomErrorMessage() {
-            assertThat(map)
-                    .overridingErrorMessage(
-                            "Expected the map to not contain the value: %s for the key: %s but it contained it",
-                            VALUE,
-                            INCORRECT_KEY
-                    )
-                    .doesNotContainEntry(INCORRECT_KEY, VALUE);
         }
     }
 
@@ -150,20 +110,6 @@ class MapAssertionTest {
                 final String returned = map.get(KEY);
                 assertThat(returned).isEqualTo(VALUE);
             }
-
-            @Test
-            @DisplayName("Should return the found value (with custom error message)")
-            void shouldReturnFoundValueWithCustomErrorMessage() {
-                final String returned = map.get(KEY);
-                assertThat(returned)
-                        .overridingErrorMessage(
-                                "Expected the map to return: %s by using the key: %s but it returned: %s",
-                                VALUE,
-                                KEY,
-                                returned
-                        )
-                        .isEqualTo(VALUE);
-            }
         }
 
         @Nested
@@ -175,19 +121,6 @@ class MapAssertionTest {
             void shouldReturnNull() {
                 final String returned = map.get(INCORRECT_KEY);
                 assertThat(returned).isNull();
-            }
-
-            @Test
-            @DisplayName("Should return null (with custom error message)")
-            void shouldReturnNullWithCustomErrorMessage() {
-                final String returned = map.get(INCORRECT_KEY);
-                assertThat(returned)
-                        .overridingErrorMessage(
-                                "Expected the map to return null for the key: %s but it returned: %s",
-                                KEY,
-                                returned
-                        )
-                        .isNull();
             }
         }
     }
