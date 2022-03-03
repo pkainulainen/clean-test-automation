@@ -56,18 +56,6 @@ class ArrayAssertionTest {
             void shouldContainSameIntegers() {
                 assertThat(ACTUAL).isEqualTo(EXPECTED);
             }
-
-            @Test
-            @DisplayName("Should contain the same integers (with custom error message)")
-            void shouldContainSameIntegersWithCustomErrorMessage() {
-                assertThat(ACTUAL)
-                        .overridingErrorMessage(
-                                "Expected array: %s but got array: %s",
-                                Arrays.toString(EXPECTED),
-                                Arrays.toString(ACTUAL)
-                        )
-                        .isEqualTo(EXPECTED);
-            }
         }
 
         @Nested
@@ -81,18 +69,6 @@ class ArrayAssertionTest {
             @DisplayName("Should contain the same strings")
             void shouldContainSameStrings() {
                 assertThat(ACTUAL).isEqualTo(EXPECTED);
-            }
-
-            @Test
-            @DisplayName("Should contain the same strings (with custom error message)")
-            void shouldContainSameStringsWithCustomErrorMessage() {
-                assertThat(ACTUAL)
-                        .overridingErrorMessage(
-                                "Expected array: %s but got array: %s",
-                                Arrays.toString(EXPECTED),
-                                Arrays.toString(ACTUAL)
-                        )
-                        .isEqualTo(EXPECTED);
             }
         }
     }
@@ -113,17 +89,6 @@ class ArrayAssertionTest {
             void shouldNotContainSameIntegers() {
                 assertThat(ACTUAL).isNotEqualTo(EXPECTED);
             }
-
-            @Test
-            @DisplayName("Should not contain the same integers (with custom error message)")
-            void shouldNotContainSameIntegersWithCustomErrorMessage() {
-                assertThat(ACTUAL)
-                        .overridingErrorMessage(
-                                "Expected arrays to not be equal but both are: %s",
-                                Arrays.toString(EXPECTED)
-                        )
-                        .isNotEqualTo(EXPECTED);
-            }
         }
 
         @Nested
@@ -137,17 +102,6 @@ class ArrayAssertionTest {
             @DisplayName("Should not contain the same strings")
             void shouldNotContainSameStrings() {
                 assertThat(ACTUAL).isNotEqualTo(EXPECTED);
-            }
-
-            @Test
-            @DisplayName("Should not contain the same strings (with custom error message)")
-            void shouldNotContainSameStringsWithCustomErrorMessage() {
-                assertThat(ACTUAL)
-                        .overridingErrorMessage(
-                                "Expected arrays to not be equal but both are: %s",
-                                Arrays.toString(EXPECTED)
-                        )
-                        .isNotEqualTo(EXPECTED);
             }
         }
     }
