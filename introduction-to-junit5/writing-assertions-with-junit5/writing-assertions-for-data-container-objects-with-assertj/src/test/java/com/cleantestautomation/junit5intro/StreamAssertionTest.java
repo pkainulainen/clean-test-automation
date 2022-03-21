@@ -30,7 +30,7 @@ class StreamAssertionTest {
         private Stream<Object> stream;
 
         @BeforeEach
-        void createAndInitializeList() {
+        void createAndInitializeStream() {
             first = new Object();
             second = new Object();
 
