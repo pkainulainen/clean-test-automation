@@ -84,13 +84,32 @@ class ListAssertionTest {
     @DisplayName("When you compare two lists")
     class WhenYouCompareTwoLists {
 
-        private final List<Integer> FIRST = Arrays.asList(1, 2, 3);
-        private final List<Integer> SECOND = Arrays.asList(1, 2, 3);
+        @Nested
+        @DisplayName("When the lists are equal")
+        class WhenListsAreEqual {
 
-        @Test
-        @DisplayName("Should contain the same elements")
-        void shouldContainSameElements() {
-            assertThat(FIRST).isEqualTo(SECOND);
+            private final List<Integer> FIRST = Arrays.asList(1, 2, 3);
+            private final List<Integer> SECOND = Arrays.asList(1, 2, 3);
+
+            @Test
+            @DisplayName("Should contain the same elements")
+            void shouldContainSameElements() {
+                assertThat(FIRST).isEqualTo(SECOND);
+            }
+        }
+
+        @Nested
+        @DisplayName("When the lists aren't equal")
+        class WhenListsAreNotEqual {
+
+            private final List<Integer> FIRST = Arrays.asList(1, 2, 3);
+            private final List<Integer> SECOND = Arrays.asList(4, 5, 6);
+
+            @Test
+            @DisplayName("Should contain the same elements")
+            void shouldContainSameElements() {
+                assertThat(FIRST).isNotEqualTo(SECOND);
+            }
         }
     }
 }
