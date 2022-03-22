@@ -1,6 +1,5 @@
 package com.cleantestautomation.junit5intro;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -24,18 +23,10 @@ class ListAssertionTest {
 
         private final int EXPECTED_SIZE = 2;
 
-        private Object first;
-        private Object second;
+        private final Object FIRST = new Object();
+        private final Object SECOND = new Object();
 
-        private List<Object> list;
-
-        @BeforeEach
-        void createAndInitializeList() {
-            first = new Object();
-            second = new Object();
-
-            list = Arrays.asList(first, second);
-        }
+        private final List<Object> LIST = Arrays.asList(FIRST, SECOND);
 
         @Test
         @DisplayName("Should be empty")
@@ -46,37 +37,37 @@ class ListAssertionTest {
         @Test
         @DisplayName("Shouldn't be empty")
         void shouldNotBeEmpty() {
-            assertThat(list).isNotEmpty();
+            assertThat(LIST).isNotEmpty();
         }
 
         @Test
         @DisplayName("Should contain two elements")
         void shouldContainTwoElements() {
-            assertThat(list).hasSize(EXPECTED_SIZE);
+            assertThat(LIST).hasSize(EXPECTED_SIZE);
         }
 
         @Test
         @DisplayName("Should contain the given elements in the given order")
         void shouldContainGivenElementsInGivenOrder() {
-            assertThat(list).containsExactly(first, second);
+            assertThat(LIST).containsExactly(FIRST, SECOND);
         }
 
         @Test
         @DisplayName("Should contain the given elements in any order")
         void shouldContainGivenElementsInAnyOrder() {
-            assertThat(list).containsExactlyInAnyOrder(second, first);
+            assertThat(LIST).containsExactlyInAnyOrder(SECOND, FIRST);
         }
 
         @Test
         @DisplayName("Should contain the given element once")
         void shouldContainGivenElementOnce() {
-            assertThat(list).containsOnlyOnce(first);
+            assertThat(LIST).containsOnlyOnce(FIRST);
         }
 
         @Test
         @DisplayName("Shouldn't contain the given element")
         void shouldNotContainGivenElement() {
-            assertThat(list).doesNotContain(new Object());
+            assertThat(LIST).doesNotContain(new Object());
         }
     }
 
