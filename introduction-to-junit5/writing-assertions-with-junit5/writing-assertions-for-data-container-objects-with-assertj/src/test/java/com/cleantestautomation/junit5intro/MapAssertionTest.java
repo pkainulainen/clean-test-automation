@@ -84,7 +84,7 @@ class MapAssertionTest {
 
         @Test
         @DisplayName("Shouldn't contain the given entry")
-        void shouldContainGivenEntry() {
+        void shouldNotContainGivenEntry() {
             assertThat(MAP).doesNotContainEntry(INCORRECT_KEY, VALUE);
         }
     }
