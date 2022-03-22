@@ -1,6 +1,5 @@
 package com.cleantestautomation.junit5intro;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -21,13 +20,7 @@ class MapAssertionTest {
     private static final String KEY = "key";
     private static final String VALUE = "value";
 
-    private Map<String, String> map;
-
-    @BeforeEach
-    void createAndInitializeMap() {
-        map = new HashMap<>();
-        map.put(KEY, VALUE);
-    }
+    private final Map<String, String> MAP = Map.of(KEY, VALUE);
 
     @Nested
     @DisplayName("When you verify that the size of the map is correct")
@@ -42,13 +35,13 @@ class MapAssertionTest {
         @Test
         @DisplayName("Shouldn't be empty")
         void shouldNotBeEmpty() {
-            assertThat(map).isNotEmpty();
+            assertThat(MAP).isNotEmpty();
         }
 
         @Test
         @DisplayName("Should contain one key-value pair")
         void shouldContainOneKeyValuePair() {
-            assertThat(map).hasSize(1);
+            assertThat(MAP).hasSize(1);
         }
     }
 
@@ -59,7 +52,7 @@ class MapAssertionTest {
         @Test
         @DisplayName("Should contain the given key")
         void shouldContainGivenKey() {
-            assertThat(map).containsKey(KEY);
+            assertThat(MAP).containsKey(KEY);
         }
     }
 
@@ -70,7 +63,7 @@ class MapAssertionTest {
         @Test
         @DisplayName("Shouldn't contain the given key")
         void shouldNotContainGivenKey() {
-            assertThat(map).doesNotContainKey(INCORRECT_KEY);
+            assertThat(MAP).doesNotContainKey(INCORRECT_KEY);
         }
     }
 
@@ -81,7 +74,7 @@ class MapAssertionTest {
         @Test
         @DisplayName("Should contain the given entry")
         void shouldContainGivenEntry() {
-            assertThat(map).containsEntry(KEY, VALUE);
+            assertThat(MAP).containsEntry(KEY, VALUE);
         }
     }
 
@@ -92,7 +85,7 @@ class MapAssertionTest {
         @Test
         @DisplayName("Shouldn't contain the given entry")
         void shouldContainGivenEntry() {
-            assertThat(map).doesNotContainEntry(INCORRECT_KEY, VALUE);
+            assertThat(MAP).doesNotContainEntry(INCORRECT_KEY, VALUE);
         }
     }
 
@@ -107,7 +100,7 @@ class MapAssertionTest {
             @Test
             @DisplayName("Should return the found value")
             void shouldReturnFoundValue() {
-                final String returned = map.get(KEY);
+                final String returned = MAP.get(KEY);
                 assertThat(returned).isEqualTo(VALUE);
             }
         }
@@ -119,7 +112,7 @@ class MapAssertionTest {
             @Test
             @DisplayName("Should return null")
             void shouldReturnNull() {
-                final String returned = map.get(INCORRECT_KEY);
+                final String returned = MAP.get(INCORRECT_KEY);
                 assertThat(returned).isNull();
             }
         }
