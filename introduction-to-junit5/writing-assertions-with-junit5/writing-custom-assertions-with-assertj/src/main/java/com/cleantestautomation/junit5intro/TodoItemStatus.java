@@ -5,5 +5,6 @@ package com.cleantestautomation.junit5intro;
  */
 public enum TodoItemStatus {
     CLOSED,
+    IN_PROGRESS,
     OPEN
 }
