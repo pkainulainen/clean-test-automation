@@ -8,11 +8,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  * This class demonstrates how you can write custom assertions
  * for {@link TodoItem} objects.
  */
-public final class TodoItemAssertion {
+public final class TodoItemAssert {
 
     private final TodoItem actual;
 
-    private TodoItemAssertion(TodoItem actual) {
+    private TodoItemAssert(TodoItem actual) {
         this.actual = actual;
     }
 
@@ -21,8 +21,8 @@ public final class TodoItemAssertion {
      * @param actual    The actual todo item.
      * @return  Returns the created assertion object.
      */
-    public static TodoItemAssertion assertThatTodoItem(TodoItem actual) {
-        return new TodoItemAssertion(actual);
+    public static TodoItemAssert assertThatTodoItem(TodoItem actual) {
+        return new TodoItemAssert(actual);
     }
 
     /**
@@ -31,7 +31,7 @@ public final class TodoItemAssertion {
      * @return  A reference to an assertion object which can be
      *          used for chaining assertions.
      */
-    public TodoItemAssertion hasTitle(String expectedTitle) {
+    public TodoItemAssert hasTitle(String expectedTitle) {
         assertThat(actual.getTitle())
                 .as("title")
                 .isEqualTo(expectedTitle);
@@ -43,7 +43,7 @@ public final class TodoItemAssertion {
      * @return  A reference to an assertion object which can be
      *          used for chaining assertions.
      */
-    public TodoItemAssertion isOpen() {
+    public TodoItemAssert isOpen() {
         SoftAssertions softAssertions = new SoftAssertions();
 
         softAssertions.assertThat(actual.getStatus())
@@ -80,7 +80,7 @@ public final class TodoItemAssertion {
      * @return  A reference to an assertion object which can be
      *          used for chaining assertions.
      */
-    public TodoItemAssertion wasClosedAsDuplicateByUser(Long expectedCloserId) {
+    public TodoItemAssert wasClosedAsDuplicateByUser(Long expectedCloserId) {
         SoftAssertions softAssertions = new SoftAssertions();
 
         softAssertions.assertThat(actual.getStatus())

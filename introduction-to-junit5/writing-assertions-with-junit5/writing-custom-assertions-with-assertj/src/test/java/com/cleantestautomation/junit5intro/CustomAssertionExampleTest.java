@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static com.cleantestautomation.junit5intro.TodoItemAssertion.assertThatTodoItem;
+import static com.cleantestautomation.junit5intro.TodoItemAssert.assertThatTodoItem;
 
 @DisplayName("Write assertions by using custom assertions")
 public class CustomAssertionExampleTest {
