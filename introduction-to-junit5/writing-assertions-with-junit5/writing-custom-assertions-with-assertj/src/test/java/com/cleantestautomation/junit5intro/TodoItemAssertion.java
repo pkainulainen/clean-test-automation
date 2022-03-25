@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * This class demonstrates how you can write custom assertions
  * for {@link TodoItem} objects.
  */
-public class TodoItemAssertion {
+public final class TodoItemAssertion {
 
     private final TodoItem actual;
 
