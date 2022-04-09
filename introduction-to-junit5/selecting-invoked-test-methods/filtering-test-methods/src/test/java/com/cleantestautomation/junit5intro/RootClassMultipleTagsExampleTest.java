@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class RootClassMultipleTagsExampleTest {
 
     @Test
-    @DisplayName("Should be run when we run tests which have either the tag A or B")
-    void shouldBeRunWeRunTestsWhichEitherTagAOrB() {
-        System.out.println("Should be run when we run tests which have either the tag A or B");
+    @DisplayName("This method has the tags A and B")
+    void testHasTagsAAndB() {
+        System.out.println("This method has the tags A and B");
     }
 }

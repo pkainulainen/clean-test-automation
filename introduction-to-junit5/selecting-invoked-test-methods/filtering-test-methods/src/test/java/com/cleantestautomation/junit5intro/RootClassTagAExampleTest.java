@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 class RootClassTagAExampleTest {
 
     @Test
-    @DisplayName("Should be invoked when we run tests which have the tag: A")
-    void shouldBeInvokedInvokedWhenWeRunTestsWhichHaveTagA() {
-        System.out.println("Should be invoked when we run tests which have the tag: A");
+    @DisplayName("This test method has the tag A")
+    void testHasTagA() {
+        System.out.println("This test method has the tag A");
     }
 }

@@ -8,15 +8,15 @@ import org.junit.jupiter.api.Test;
 class NestedClassMultipleTagsExampleTest {
 
     @Nested
-    @DisplayName("When the test has the tag: A or the tag: B")
+    @DisplayName("When the test has the tags A and B")
     @Tag("A")
     @Tag("B")
-    class WhenTestHasTagAOrB {
+    class WhenTestHasTagAAndB {
 
         @Test
-        @DisplayName("Should be run when we run tests which have either the tag A or B")
-        void shouldBeRunWeRunTestsWhichEitherTagAOrB() {
-            System.out.println("Should be run when we run tests which have either the tag A or B");
+        @DisplayName("This test method has the tags A and B")
+        void testHasTagsAAndB() {
+            System.out.println("This test method has the tags A and B");
         }
     }
 }
