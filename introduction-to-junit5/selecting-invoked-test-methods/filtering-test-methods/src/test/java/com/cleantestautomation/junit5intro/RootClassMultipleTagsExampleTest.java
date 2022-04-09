@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class RootClassMultipleTagsExampleTest {
 
     @Test
-    @DisplayName("This method has the tags A and B")
+    @DisplayName("This test method has the tags A and B")
     void testHasTagsAAndB() {
-        System.out.println("This method has the tags A and B");
+        System.out.println("This test method has the tags A and B");
     }
 }
