@@ -14,4 +14,20 @@ class RootClassMethodMultipleTagsExampleTest {
     void testHasTagsAAndB() {
         System.out.println("This test method has the tags A and B");
     }
+
+    @Test
+    @DisplayName("This test method has the tags A and integrationTest")
+    @Tag("A")
+    @Tag("integrationTest")
+    void testHasTagsAAndIntegrationTest() {
+        System.out.println("This test method has the tags A and integrationTest");
+    }
+
+    @Test
+    @DisplayName("This test method has the tags B and integrationTest")
+    @Tag("B")
+    @Tag("integrationTest")
+    void testHasTagsBAndIntegrationTest() {
+        System.out.println("This test method has the tags B and integrationTest");
+    }
 }
