@@ -8,8 +8,7 @@ repositories {
 
 dependencies {
     testImplementation(
-            'org.junit.jupiter:junit-jupiter:5.9.1',
-            'org.assertj:assertj-core:3.22.0'
+            'org.junit.jupiter:junit-jupiter:5.9.1'
     )
 }
 
