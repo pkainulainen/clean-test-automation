@@ -35,7 +35,7 @@ class CustomErrorMessageTest {
 
         @Test
         @DisplayName("Should provide custom error message")
-        void shouldBeFalseWithCustomErrorMessage() {
+        void shouldReturnExpectedMessageWithCustomErrorMessage() {
             assertEquals(EXPECTED,
                     ACTUAL,
                     String.format(
@@ -56,7 +56,7 @@ class CustomErrorMessageTest {
 
         @Test
         @DisplayName("Should provide custom error message")
-        void shouldBeFalseWithCustomErrorMessage() {
+        void shouldReturnExpectedMessageWithCustomErrorMessage() {
             assertEquals(EXPECTED,
                     ACTUAL,
                     () -> String.format(
