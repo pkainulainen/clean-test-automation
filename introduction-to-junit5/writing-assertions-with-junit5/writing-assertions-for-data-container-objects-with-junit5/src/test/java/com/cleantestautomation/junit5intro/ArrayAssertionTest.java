@@ -48,9 +48,7 @@ class ArrayAssertionTest {
         @Test
         @DisplayName("Should contain the given values in the given order")
         void shouldContainGivenValuesInGivenOrder() {
-            assertEquals(2, ARRAY[0]);
-            assertEquals(5, ARRAY[1]);
-            assertEquals(7, ARRAY[2]);
+            assertTrue(toIntegerList(ARRAY).equals(List.of(2, 5, 7)));
         }
 
         @Test
