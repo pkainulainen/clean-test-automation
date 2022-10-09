@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,7 +27,7 @@ class ListAssertionTest {
         private final Object FIRST = new Object();
         private final Object SECOND = new Object();
 
-        private final List<Object> DATA_CONTAINER = Arrays.asList(FIRST, SECOND);
+        private final List<Object> DATA_CONTAINER = List.of(FIRST, SECOND);
 
         @Test
         @DisplayName("Should be empty")
@@ -81,8 +80,8 @@ class ListAssertionTest {
         @DisplayName("When the lists are equal")
         class WhenListsAreEqual {
 
-            private final List<Integer> FIRST = Arrays.asList(1, 2, 3);
-            private final List<Integer> SECOND = Arrays.asList(1, 2, 3);
+            private final List<Integer> FIRST = List.of(1, 2, 3);
+            private final List<Integer> SECOND = List.of(1, 2, 3);
 
             @Test
             @DisplayName("Should contain the same elements")
@@ -95,8 +94,8 @@ class ListAssertionTest {
         @DisplayName("When the lists aren't equal")
         class WhenListsAreNotEqual {
 
-            private final List<Integer> FIRST = Arrays.asList(1, 2, 3);
-            private final List<Integer> SECOND = Arrays.asList(4, 5, 6);
+            private final List<Integer> FIRST = List.of(1, 2, 3);
+            private final List<Integer> SECOND = List.of(4, 5, 6);
 
             @Test
             @DisplayName("Shouldn't contain the same elements")
