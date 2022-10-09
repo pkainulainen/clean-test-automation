@@ -61,7 +61,7 @@ class ListAssertionTest {
 
         @Test
         @DisplayName("Should contain the given element")
-        void shouldContainGivenElementOnce() {
+        void shouldContainGivenElement() {
             assertTrue(DATA_CONTAINER.contains(FIRST));
         }
 
