@@ -28,7 +28,7 @@ class ListAssertionTest {
         private final Object FIRST = new Object();
         private final Object SECOND = new Object();
 
-        private final List<Object> LIST = Arrays.asList(FIRST, SECOND);
+        private final List<Object> DATA_CONTAINER = Arrays.asList(FIRST, SECOND);
 
         @Test
         @DisplayName("Should be empty")
@@ -39,37 +39,37 @@ class ListAssertionTest {
         @Test
         @DisplayName("Shouldn't be empty")
         void shouldNotBeEmpty() {
-            assertFalse(LIST.isEmpty());
+            assertFalse(DATA_CONTAINER.isEmpty());
         }
 
         @Test
         @DisplayName("Should contain two elements")
         void shouldContainTwoElements() {
-            assertEquals(EXPECTED_SIZE, LIST.size());
+            assertEquals(EXPECTED_SIZE, DATA_CONTAINER.size());
         }
 
         @Test
         @DisplayName("Should contain the given elements in the given order")
         void shouldContainGivenElementsInGivenOrder() {
-            assertTrue(LIST.equals(List.of(FIRST, SECOND)));
+            assertTrue(DATA_CONTAINER.equals(List.of(FIRST, SECOND)));
         }
 
         @Test
         @DisplayName("Should contain the given elements in any order")
         void shouldContainGivenElementsInAnyOrder() {
-            assertTrue(LIST.containsAll(List.of(SECOND, FIRST)));
+            assertTrue(DATA_CONTAINER.containsAll(List.of(SECOND, FIRST)));
         }
 
         @Test
         @DisplayName("Should contain the given element")
         void shouldContainGivenElementOnce() {
-            assertTrue(LIST.contains(FIRST));
+            assertTrue(DATA_CONTAINER.contains(FIRST));
         }
 
         @Test
         @DisplayName("Shouldn't contain the given element")
         void shouldNotContainGivenElement() {
-            assertFalse(LIST.contains(new Object()));
+            assertFalse(DATA_CONTAINER.contains(new Object()));
         }
     }
 
