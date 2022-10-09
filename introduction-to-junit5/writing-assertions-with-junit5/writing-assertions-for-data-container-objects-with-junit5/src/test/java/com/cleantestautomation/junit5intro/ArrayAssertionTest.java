@@ -146,7 +146,8 @@ class ArrayAssertionTest {
     /**
      * You have to implement a utility method because because your
      * array contain primitive types. If you array contains objects,
-     * you can transform it into a list by using the {@link Arrays#asList(Object[])} method.
+     * you can transform it into a list by using the {@link Arrays#asList(Object[])}
+     * or the {@link List#of(Object[])} method.
      */
     private static List<Integer> toIntegerList(int[] array) {
         return Arrays.stream(array)
