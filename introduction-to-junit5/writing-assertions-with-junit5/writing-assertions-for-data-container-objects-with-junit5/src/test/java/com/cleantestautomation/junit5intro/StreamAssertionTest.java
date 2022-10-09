@@ -1,5 +1,6 @@
 package com.cleantestautomation.junit5intro;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -28,52 +29,57 @@ class StreamAssertionTest {
         private final Object FIRST = new Object();
         private final Object SECOND = new Object();
 
-        private final Stream<Object> STREAM = Stream.of(FIRST, SECOND);
+        private Stream<Object> dataStream;
+        
+        @BeforeEach
+        void createTestData() {
+            dataStream = Stream.of(FIRST, SECOND);
+        }
 
         @Test
         @DisplayName("Should be empty")
         void shouldBeEmpty() {
-            assertTrue(toObjectList(Stream.of()).isEmpty());
+            assertEquals(0, Stream.of().count());
         }
 
         @Test
         @DisplayName("Shouldn't be empty")
         void shouldNotBeEmpty() {
-            assertFalse(toObjectList(STREAM).isEmpty());
+            assertTrue(dataStream.count() > 0);
         }
 
         @Test
         @DisplayName("Should contain two elements")
         void shouldContainTwoElements() {
-            assertEquals(EXPECTED_NUMBER_OF_ELEMENTS, toObjectList(STREAM).size());
+            assertEquals(EXPECTED_NUMBER_OF_ELEMENTS, dataStream.count());
         }
 
         @Test
         @DisplayName("Should contain the given elements in the given order")
         void shouldContainGivenElementsInGivenOrder() {
-            assertTrue(toObjectList(STREAM).equals(List.of(FIRST, SECOND)));
+            assertTrue(dataStream.collect(Collectors.toList()).equals(List.of(FIRST, SECOND)));
         }
 
         @Test
         @DisplayName("Should contain the given elements in any order")
         void shouldContainGivenElementsInAnyOrder() {
-            assertTrue(toObjectList(STREAM).containsAll(List.of(SECOND, FIRST)));
+            boolean containElements = dataStream.allMatch(candidate -> candidate.equals(SECOND) || candidate.equals(FIRST));
+            assertTrue(containElements);
         }
 
         @Test
         @DisplayName("Should contain the given element")
         void shouldContainGivenElement() {
-            assertTrue(toObjectList(STREAM).contains(FIRST));
+            boolean containsElement = dataStream.anyMatch(candidate -> candidate.equals(FIRST));
+            assertTrue(containsElement);
         }
 
         @Test
         @DisplayName("Shouldn't contain the given element")
         void shouldNotContainGivenElement() {
-            assertFalse(toObjectList(STREAM).contains(new Object()));
-        }
-
-        private List<Object> toObjectList(Stream<Object> stream) {
-            return stream.collect(Collectors.toList());
+            Object unknown = new Object();
+            boolean doesNotContainElement = dataStream.noneMatch(candidate -> candidate.equals(unknown));
+            assertTrue(doesNotContainElement);
         }
     }
 }
