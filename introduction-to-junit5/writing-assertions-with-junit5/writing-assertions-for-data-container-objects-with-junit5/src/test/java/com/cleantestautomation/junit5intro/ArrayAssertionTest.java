@@ -24,7 +24,7 @@ class ArrayAssertionTest {
     @DisplayName("When you write assertions for values")
     class WhenYouWriteAssertionsForValues {
 
-        final int[] ARRAY = new int[]{2, 5, 7};
+        private final int[] ARRAY = new int[]{2, 5, 7};
 
         @Test
         @DisplayName("Should be empty")
@@ -82,8 +82,8 @@ class ArrayAssertionTest {
             @DisplayName("When the arrays contain integers")
             class WhenArraysContainIntegers {
 
-                final int[] ACTUAL = new int[]{2, 5, 7};
-                final int[] EXPECTED = new int[]{2, 5, 7};
+                private final int[] ACTUAL = new int[]{2, 5, 7};
+                private final int[] EXPECTED = new int[]{2, 5, 7};
 
                 @Test
                 @DisplayName("Should contain the same integers")
@@ -96,8 +96,8 @@ class ArrayAssertionTest {
             @DisplayName("When the arrays contain strings")
             class WhenArraysContainStrings {
 
-                final String[] ACTUAL = new String[] {"foo", "bar"};
-                final String[] EXPECTED = new String[] {"foo", "bar"};
+                private final String[] ACTUAL = new String[] {"foo", "bar"};
+                private final String[] EXPECTED = new String[] {"foo", "bar"};
 
                 @Test
                 @DisplayName("Should contain the same strings")
@@ -115,8 +115,8 @@ class ArrayAssertionTest {
             @DisplayName("When arrays contain integers")
             class WhenArraysContainIntegers {
 
-                final int[] ACTUAL = new int[]{2, 6, 7};
-                final int[] EXPECTED = new int[]{2, 5, 7};
+                private final int[] ACTUAL = new int[]{2, 6, 7};
+                private final int[] EXPECTED = new int[]{2, 5, 7};
 
                 @Test
                 @DisplayName("Should not contain the same integers")
@@ -129,8 +129,8 @@ class ArrayAssertionTest {
             @DisplayName("When arrays contain strings")
             class WhenArraysContainStrings {
 
-                final String[] ACTUAL = new String[] {"foo", "bar1"};
-                final String[] EXPECTED = new String[] {"foo", "bar"};
+                private final String[] ACTUAL = new String[] {"foo", "bar1"};
+                private final String[] EXPECTED = new String[] {"foo", "bar"};
 
                 @Test
                 @DisplayName("Should not contain the same strings")
