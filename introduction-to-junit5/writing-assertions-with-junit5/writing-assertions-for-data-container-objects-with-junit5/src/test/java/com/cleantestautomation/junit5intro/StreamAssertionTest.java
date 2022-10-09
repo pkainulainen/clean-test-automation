@@ -63,22 +63,22 @@ class StreamAssertionTest {
         @Test
         @DisplayName("Should contain the given elements in any order")
         void shouldContainGivenElementsInAnyOrder() {
-            boolean containElements = dataStream.allMatch(candidate -> candidate.equals(SECOND) || candidate.equals(FIRST));
+            final boolean containElements = dataStream.allMatch(candidate -> candidate.equals(SECOND) || candidate.equals(FIRST));
             assertTrue(containElements);
         }
 
         @Test
         @DisplayName("Should contain the given element")
         void shouldContainGivenElement() {
-            boolean containsElement = dataStream.anyMatch(candidate -> candidate.equals(FIRST));
+            final boolean containsElement = dataStream.anyMatch(candidate -> candidate.equals(FIRST));
             assertTrue(containsElement);
         }
 
         @Test
         @DisplayName("Shouldn't contain the given element")
         void shouldNotContainGivenElement() {
-            Object unknown = new Object();
-            boolean doesNotContainElement = dataStream.noneMatch(candidate -> candidate.equals(unknown));
+            final Object unknown = new Object();
+            final boolean doesNotContainElement = dataStream.noneMatch(candidate -> candidate.equals(unknown));
             assertTrue(doesNotContainElement);
         }
     }
