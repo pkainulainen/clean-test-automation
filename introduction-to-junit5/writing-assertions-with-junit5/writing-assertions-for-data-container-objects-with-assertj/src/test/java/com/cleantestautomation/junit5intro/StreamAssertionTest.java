@@ -1,5 +1,6 @@
 package com.cleantestautomation.junit5intro;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,12 @@ class StreamAssertionTest {
         private final Object FIRST = new Object();
         private final Object SECOND = new Object();
 
-        private final Stream<Object> STREAM = Stream.of(FIRST, SECOND);
+        private Stream<Object> dataStream;
+
+        @BeforeEach
+        void createTestData() {
+            dataStream = Stream.of(FIRST, SECOND);
+        }
 
         @Test
         @DisplayName("Should be empty")
@@ -35,37 +41,37 @@ class StreamAssertionTest {
         @Test
         @DisplayName("Shouldn't be empty")
         void shouldNotBeEmpty() {
-            assertThat(STREAM).isNotEmpty();
+            assertThat(dataStream).isNotEmpty();
         }
 
         @Test
         @DisplayName("Should contain two elements")
         void shouldContainTwoElements() {
-            assertThat(STREAM).hasSize(EXPECTED_NUMBER_OF_ELEMENTS);
+            assertThat(dataStream).hasSize(EXPECTED_NUMBER_OF_ELEMENTS);
         }
 
         @Test
         @DisplayName("Should contain the given elements in the given order")
         void shouldContainGivenElementsInGivenOrder() {
-            assertThat(STREAM).containsExactly(FIRST, SECOND);
+            assertThat(dataStream).containsExactly(FIRST, SECOND);
         }
 
         @Test
         @DisplayName("Should contain the given elements in any order")
         void shouldContainGivenElementsInAnyOrder() {
-            assertThat(STREAM).containsExactlyInAnyOrder(SECOND, FIRST);
+            assertThat(dataStream).containsExactlyInAnyOrder(SECOND, FIRST);
         }
 
         @Test
         @DisplayName("Should contain the given element once")
         void shouldContainGivenElementOnce() {
-            assertThat(STREAM).containsOnlyOnce(FIRST);
+            assertThat(dataStream).containsOnlyOnce(FIRST);
         }
 
         @Test
         @DisplayName("Shouldn't contain the given element")
         void shouldNotContainGivenElement() {
-            assertThat(STREAM).doesNotContain(new Object());
+            assertThat(dataStream).doesNotContain(new Object());
         }
     }
 }
