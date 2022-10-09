@@ -59,7 +59,7 @@ class ArrayAssertionTest {
 
         @Test
         @DisplayName("Should contain the given value")
-        void shouldContainGivenValueOnce() {
+        void shouldContainGivenValue() {
             assertTrue(toIntegerList(ARRAY).contains(5));
         }
 
