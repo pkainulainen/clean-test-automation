@@ -48,8 +48,8 @@ class ListAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain the given elements in the given order")
-        void shouldContainGivenElementsInGivenOrder() {
+        @DisplayName("Should contain only the given elements in the given order")
+        void shouldContainOnlyGivenElementsInGivenOrder() {
             assertTrue(DATA_CONTAINER.equals(List.of(FIRST, SECOND)));
         }
 
