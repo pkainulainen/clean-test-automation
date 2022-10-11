@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -50,7 +51,7 @@ class ListAssertionTest {
         @Test
         @DisplayName("Should contain only the given elements in the given order")
         void shouldContainOnlyGivenElementsInGivenOrder() {
-            assertTrue(DATA_CONTAINER.equals(List.of(FIRST, SECOND)));
+            assertIterableEquals(List.of(FIRST, SECOND), DATA_CONTAINER);
         }
 
         @Test
