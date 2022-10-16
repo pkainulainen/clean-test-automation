@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -55,9 +56,9 @@ class StreamAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain the given elements in the given order")
-        void shouldContainGivenElementsInGivenOrder() {
-            assertTrue(dataStream.collect(Collectors.toList()).equals(List.of(FIRST, SECOND)));
+        @DisplayName("Should contain only the given elements in the given order")
+        void shouldContainOnlyGivenElementsInGivenOrder() {
+            assertIterableEquals(List.of(FIRST, SECOND), dataStream.collect(Collectors.toList()));
         }
 
         @Test
