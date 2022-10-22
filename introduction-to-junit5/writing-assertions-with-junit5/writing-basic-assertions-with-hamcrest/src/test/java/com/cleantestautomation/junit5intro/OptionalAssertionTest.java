@@ -40,25 +40,25 @@ class OptionalAssertionTest {
     }
 
     @Nested
-    @DisplayName("When the optional is not empty")
-    class WhenOptionalIsNotEmpty {
+    @DisplayName("When the contains a value")
+    class WhenOptionalContainsValue {
 
         private final String STRING = "object";
 
         @Test
-        @DisplayName("Should not be empty")
-        void shouldNotBeEmpty() {
+        @DisplayName("Should contain a value")
+        void shouldContainValue() {
             final Optional<Object> actual = Optional.of(STRING);
-            assertThat(actual.isEmpty(), is(false));
+            assertThat(actual.isPresent(), is(true));
         }
 
         @Test
-        @DisplayName("Should not be empty (with custom error message)")
-        void shouldNotBeEmptyWithCustomErrorMessage() {
+        @DisplayName("Should contain a value (with custom error message)")
+        void shouldContainValueWithCustomErrorMessage() {
             final Optional<Object> actual = Optional.of(STRING);
-            assertThat("Expected optional to not be empty but it was empty",
-                    actual.isEmpty(),
-                    is(false)
+            assertThat("Expected optional to contain a value but it was empty",
+                    actual.isPresent(),
+                    is(true)
             );
         }
 
