@@ -56,7 +56,7 @@ class OptionalAssertionTest {
         void shouldContainValueWithCustomErrorMessage() {
             final Optional<Object> actual = Optional.of(STRING);
             assertTrue(actual.isPresent(),
-                    "Expected optional to not be empty but it was empty"
+                    "Expected optional to contain a value but it was empty"
             );
         }
 
