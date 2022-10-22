@@ -51,7 +51,7 @@ class OptionalAssertionTest {
         @DisplayName("Should contain a value (with custom error message)")
         void shouldContainValueWithCustomErrorMessage() {
             assertThat(Optional.of(OBJECT))
-                    .overridingErrorMessage("Expected optional to not be empty but it was empty")
+                    .overridingErrorMessage("Expected optional to contain a value but it was empty")
                     .isPresent();
         }
 
