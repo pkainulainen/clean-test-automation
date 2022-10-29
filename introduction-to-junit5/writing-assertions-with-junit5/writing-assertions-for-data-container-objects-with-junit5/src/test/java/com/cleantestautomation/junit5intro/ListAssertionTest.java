@@ -81,13 +81,13 @@ class ListAssertionTest {
         @DisplayName("When the lists are equal")
         class WhenListsAreEqual {
 
-            private final List<Integer> FIRST = List.of(1, 2, 3);
-            private final List<Integer> SECOND = List.of(1, 2, 3);
+            private final List<Integer> ACTUAL = List.of(1, 2, 3);
+            private final List<Integer> EXPECTED = List.of(1, 2, 3);
 
             @Test
             @DisplayName("Should contain the same elements")
             void shouldContainSameElements() {
-                assertTrue(FIRST.equals(SECOND));
+                assertTrue(ACTUAL.equals(EXPECTED));
             }
         }
 
@@ -95,13 +95,13 @@ class ListAssertionTest {
         @DisplayName("When the lists aren't equal")
         class WhenListsAreNotEqual {
 
-            private final List<Integer> FIRST = List.of(1, 2, 3);
-            private final List<Integer> SECOND = List.of(4, 5, 6);
+            private final List<Integer> ACTUAL = List.of(1, 2, 3);
+            private final List<Integer> UNEXPECTED = List.of(4, 5, 6);
 
             @Test
             @DisplayName("Shouldn't contain the same elements")
             void shouldNotContainSameElements() {
-                assertFalse(FIRST.equals(SECOND));
+                assertFalse(ACTUAL.equals(UNEXPECTED));
             }
         }
     }

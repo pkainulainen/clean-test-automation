@@ -23,7 +23,7 @@ class MapAssertionTest {
     private static final String KEY = "key";
     private static final String VALUE = "value";
 
-    private final Map<String, String> MAP = Map.of(KEY, VALUE);
+    private static final Map<String, String> MAP = Map.of(KEY, VALUE);
 
     @Nested
     @DisplayName("When you verify that the size of the map is correct")
