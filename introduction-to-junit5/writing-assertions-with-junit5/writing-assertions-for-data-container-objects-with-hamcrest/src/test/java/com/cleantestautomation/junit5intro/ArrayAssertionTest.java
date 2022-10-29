@@ -4,10 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.arrayContaining;
 import static org.hamcrest.Matchers.arrayContainingInAnyOrder;
@@ -121,12 +117,12 @@ class ArrayAssertionTest {
             class WhenArraysContainIntegers {
 
                 private final int[] ACTUAL = new int[]{2, 6, 7};
-                private final int[] EXPECTED = new int[]{2, 5, 7};
+                private final int[] UNEXPECTED = new int[]{2, 5, 7};
 
                 @Test
-                @DisplayName("Should not contain the same integers")
+                @DisplayName("Shouldn't contain the same integers")
                 void shouldNotContainSameIntegers() {
-                    assertThat(ACTUAL, not(EXPECTED));
+                    assertThat(ACTUAL, not(UNEXPECTED));
                 }
             }
 
@@ -135,12 +131,12 @@ class ArrayAssertionTest {
             class WhenArraysContainStrings {
 
                 private final String[] ACTUAL = new String[] {"foo", "bar1"};
-                private final String[] EXPECTED = new String[] {"foo", "bar"};
+                private final String[] UNEXPECTED = new String[] {"foo", "bar"};
 
                 @Test
-                @DisplayName("Should not contain the same strings")
+                @DisplayName("Shouldn't contain the same strings")
                 void shouldNotContainSameStrings() {
-                    assertThat(ACTUAL, not(EXPECTED));
+                    assertThat(ACTUAL, not(UNEXPECTED));
                 }
             }
         }

@@ -29,6 +29,7 @@ class StreamAssertionTest {
     @DisplayName("When you write assertions for elements")
     class WhenYouWriteAssertionsForElements {
 
+        private final long EMPTY_STREAM_ELEMENT_COUNT = 0L;
         private final long EXPECTED_NUMBER_OF_ELEMENTS = 2L;
 
         private final Object FIRST = new Object();
@@ -44,13 +45,13 @@ class StreamAssertionTest {
         @Test
         @DisplayName("Should be empty")
         void shouldBeEmpty() {
-            assertThat(Stream.of().count(), equalTo(0L));
+            assertThat(Stream.of().count(), equalTo(EMPTY_STREAM_ELEMENT_COUNT));
         }
 
         @Test
         @DisplayName("Shouldn't be empty")
         void shouldNotBeEmpty() {
-            assertThat(dataStream.count(), greaterThan(0L));
+            assertThat(dataStream.count(), greaterThan(EMPTY_STREAM_ELEMENT_COUNT));
         }
 
         @Test

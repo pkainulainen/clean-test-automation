@@ -100,12 +100,12 @@ class ListAssertionTest {
         class WhenListsAreNotEqual {
 
             private final List<Integer> ACTUAL = List.of(1, 2, 3);
-            private final List<Integer> EXPECTED = List.of(4, 5, 6);
+            private final List<Integer> UNEXPECTED = List.of(4, 5, 6);
 
             @Test
             @DisplayName("Shouldn't contain the same elements")
             void shouldNotContainSameElements() {
-                assertThat(ACTUAL, not(EXPECTED));
+                assertThat(ACTUAL, not(UNEXPECTED));
             }
         }
     }
