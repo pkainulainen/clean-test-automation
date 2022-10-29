@@ -29,6 +29,8 @@ class MapAssertionTest {
     @DisplayName("When you verify that the size of the map is correct")
     class WhenYouVerifyThatSizeOfMapIsCorrect {
 
+        private final int EXPECTED_SIZE = 1;
+
         @Test
         @DisplayName("Should be empty")
         void shouldBeEmpty() {
@@ -44,7 +46,7 @@ class MapAssertionTest {
         @Test
         @DisplayName("Should contain one key-value pair")
         void shouldContainOneKeyValuePair() {
-           assertEquals(1, MAP.size());
+           assertEquals(EXPECTED_SIZE, MAP.size());
         }
     }
 
