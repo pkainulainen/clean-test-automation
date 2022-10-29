@@ -30,6 +30,7 @@ class ArrayAssertionTest {
     class WhenYouWriteAssertionsForValues {
 
         private final Integer[] ARRAY = new Integer[]{2, 5, 7};
+        private final int EXPECTED_SIZE = 3;
 
         @Test
         @DisplayName("Should be empty")
@@ -46,7 +47,7 @@ class ArrayAssertionTest {
         @Test
         @DisplayName("Should contain three values")
         void shouldContainThreeValues() {
-            assertThat(ARRAY, arrayWithSize(3));
+            assertThat(ARRAY, arrayWithSize(EXPECTED_SIZE));
         }
 
         @Test
