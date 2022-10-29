@@ -17,8 +17,8 @@ import static org.hamcrest.Matchers.is;
 class CustomErrorMessageTest {
 
     @Nested
-    @DisplayName("When you provide a hard-coded string")
-    class WhenYouProvideHardCodedString {
+    @DisplayName("When you use string literal")
+    class WhenYouUseStringLiteral {
 
         @Test
         @DisplayName("Should provide custom error message")

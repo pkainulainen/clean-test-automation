@@ -41,19 +41,19 @@ class ObjectAssertionTest {
     }
 
     @Nested
-    @DisplayName("When object is not null")
+    @DisplayName("When object isn't null")
     class WhenObjectIsNotNotNull {
 
         private final Object NOT_NULL = new Object();
 
         @Test
-        @DisplayName("Should not be null")
+        @DisplayName("Shouldn't be null")
         void shouldNotBeNull() {
             assertThat(NOT_NULL, notNullValue());
         }
 
         @Test
-        @DisplayName("Should not be null (with custom error message)")
+        @DisplayName("Shouldn't be null (with custom error message)")
         void shouldNotBeNullWithCustomErrorMessage() {
             assertThat("Expected the object to be not null but it was null",
                     NOT_NULL,
@@ -130,25 +130,25 @@ class ObjectAssertionTest {
         class WhenObjectsAreIntegers {
 
             private final Integer ACTUAL = 9;
-            private final Integer EXPECTED = 4;
+            private final Integer UNEXPECTED = 4;
 
             @Test
-            @DisplayName("Should not be equal")
+            @DisplayName("Shouldn't be equal")
             void shouldNotBeEqual() {
-                assertThat(ACTUAL, not(EXPECTED));
+                assertThat(ACTUAL, not(UNEXPECTED));
             }
 
             @Test
-            @DisplayName("Should not be equal (with custom error message)")
+            @DisplayName("Shouldn't be equal (with custom error message)")
             void shouldNotBeEqualWithCustomErrorMessage() {
                 assertThat(
                         String.format(
                                 "Expected that the integer: %d to not be equal to the integer: %d but they were equal",
                                 ACTUAL,
-                                EXPECTED
+                                UNEXPECTED
                         ),
                         ACTUAL,
-                        not(EXPECTED)
+                        not(UNEXPECTED)
                 );
             }
         }
@@ -158,25 +158,25 @@ class ObjectAssertionTest {
         class WhenObjectsAreStrings {
 
             private final String ACTUAL = "Foo";
-            private final String EXPECTED = "Bar";
+            private final String UNEXPECTED = "Bar";
 
             @Test
-            @DisplayName("Should not be equal")
+            @DisplayName("Shouldn't be equal")
             void shouldNotBeEqual() {
-                assertThat(ACTUAL, not(EXPECTED));
+                assertThat(ACTUAL, not(UNEXPECTED));
             }
 
             @Test
-            @DisplayName("Should not be equal (with custom error message)")
+            @DisplayName("Shouldn't be equal (with custom error message)")
             void shouldNotBeEqualWithCustomErrorMessage() {
                 assertThat(
                         String.format(
                                 "Expected that the string: %s to not be equal to the string: %s but they were equal",
                                 ACTUAL,
-                                EXPECTED
+                                UNEXPECTED
                         ),
                         ACTUAL,
-                        not(EXPECTED)
+                        not(UNEXPECTED)
                 );
             }
         }
@@ -207,18 +207,18 @@ class ObjectAssertionTest {
     class WhenTwoObjectsDoNotReferToSameObject {
 
         private final Object ACTUAL = new Object();
-        private final Object EXPECTED = new Object();
+        private final Object UNEXPECTED = new Object();
 
         @Test
-        @DisplayName("Should not refer to the same object")
+        @DisplayName("Shouldn't refer to the same object")
         void shouldNotReferToSameObject() {
-            assertThat(ACTUAL, not(sameInstance(EXPECTED)));
+            assertThat(ACTUAL, not(sameInstance(UNEXPECTED)));
         }
 
         @Test
-        @DisplayName("Should not refer to the same object (with custom error message)")
+        @DisplayName("Shouldn't refer to the same object (with custom error message)")
         void shouldNotReferToSameObjectWithCustomErrorMessage() {
-            assertThat("The objects refer to the same objects", ACTUAL, not(sameInstance(EXPECTED)));
+            assertThat("The objects refer to the same objects", ACTUAL, not(sameInstance(UNEXPECTED)));
         }
     }
 }

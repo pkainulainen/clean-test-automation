@@ -42,7 +42,7 @@ class OptionalLibraryAssertionTest {
     }
 
     @Nested
-    @DisplayName("When the optional is not empty")
+    @DisplayName("When the optional isn't empty")
     class WhenOptionalIsNotEmpty {
 
         private final String STRING = "object";
