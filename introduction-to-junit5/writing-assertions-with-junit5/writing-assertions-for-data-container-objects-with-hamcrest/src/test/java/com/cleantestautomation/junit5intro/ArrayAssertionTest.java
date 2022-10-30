@@ -41,32 +41,32 @@ class ArrayAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain three values")
-        void shouldContainThreeValues() {
+        @DisplayName("Should contain three elements")
+        void shouldContainThreeElements() {
             assertThat(ARRAY, arrayWithSize(EXPECTED_SIZE));
         }
 
         @Test
-        @DisplayName("Should contain the given values in the given order")
-        void shouldContainGivenValuesInGivenOrder() {
+        @DisplayName("Should contain only the expected elements in the given order")
+        void shouldContainOnlyExpectedElementsInGivenOrder() {
             assertThat(ARRAY, arrayContaining(2, 5, 7));
         }
 
         @Test
-        @DisplayName("Should contain the given values in any order")
-        void shouldContainGivenValuesInAnyOrder() {
+        @DisplayName("Should contain only the expected elements in any order")
+        void shouldContainOnlyExpectedElementsInAnyOrder() {
             assertThat(ARRAY, arrayContainingInAnyOrder(5, 7, 2));
         }
 
         @Test
-        @DisplayName("Should contain the given value")
-        void shouldContainGivenValue() {
+        @DisplayName("Should contain the given element")
+        void shouldContainGivenElement() {
             assertThat(ARRAY, hasItemInArray(5));
         }
 
         @Test
-        @DisplayName("Shouldn't contain the given value")
-        void shouldNotContainGivenValue() {
+        @DisplayName("Shouldn't contain the given element")
+        void shouldNotContainGivenElement() {
             assertThat(ARRAY, not(hasItemInArray(99)));
         }
     }

@@ -53,14 +53,14 @@ class ListAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain only the given elements in the given order")
-        void shouldContainOnlyGivenElementsInGivenOrder() {
+        @DisplayName("Should contain only the expected elements in the given order")
+        void shouldContainOnlyExpectedElementsInGivenOrder() {
             assertThat(DATA_CONTAINER, contains(FIRST, SECOND));
         }
 
         @Test
-        @DisplayName("Should contain the given elements in any order")
-        void shouldContainGivenElementsInAnyOrder() {
+        @DisplayName("Should contain only the expected elements in any order")
+        void shouldContainOnlyExpectedElementsInAnyOrder() {
             assertThat(DATA_CONTAINER, containsInAnyOrder(SECOND, FIRST));
         }
 
