@@ -47,14 +47,14 @@ class ListAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain only the given elements in the given order")
-        void shouldContainOnlyGivenElementsInGivenOrder() {
+        @DisplayName("Should contain only the expected elements in the given order")
+        void shouldContainOnlyExpectedElementsInGivenOrder() {
             assertThat(LIST).containsExactly(FIRST, SECOND);
         }
 
         @Test
-        @DisplayName("Should contain only the given elements in any order")
-        void shouldContainOnlyGivenElementsInAnyOrder() {
+        @DisplayName("Should contain only the expected elements in any order")
+        void shouldContainOnlyExpectedElementsInAnyOrder() {
             assertThat(LIST).containsExactlyInAnyOrder(SECOND, FIRST);
         }
 

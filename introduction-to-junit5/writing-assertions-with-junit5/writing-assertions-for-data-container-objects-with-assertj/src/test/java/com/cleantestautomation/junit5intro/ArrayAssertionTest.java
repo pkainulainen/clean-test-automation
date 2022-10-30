@@ -33,32 +33,32 @@ class ArrayAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain three values")
-        void shouldContainThreeValues() {
+        @DisplayName("Should contain three elements")
+        void shouldContainThreeElements() {
             assertThat(ARRAY).hasSize(EXPECTED_SIZE);
         }
 
         @Test
-        @DisplayName("Should contain only the given values in the given order")
-        void shouldContainOnlyGivenValuesInGivenOrder() {
+        @DisplayName("Should contain only the expected elements in the given order")
+        void shouldContainOnlyExpectedElementsInGivenOrder() {
             assertThat(ARRAY).containsExactly(2, 5, 7);
         }
 
         @Test
-        @DisplayName("Should contain only the given values in any order")
-        void shouldContainOnlyGivenValuesInAnyOrder() {
+        @DisplayName("Should contain only the expected elements in any order")
+        void shouldContainOnlyExpectedElementsInAnyOrder() {
             assertThat(ARRAY).containsExactlyInAnyOrder(5, 7, 2);
         }
 
         @Test
-        @DisplayName("Should contain the given value once")
-        void shouldContainGivenValueOnce() {
+        @DisplayName("Should contain the given element once")
+        void shouldContainGivenElementOnce() {
             assertThat(ARRAY).containsOnlyOnce(5);
         }
 
         @Test
-        @DisplayName("Shouldn't contain the given value")
-        void shouldNotContainGivenValue() {
+        @DisplayName("Shouldn't contain the given element")
+        void shouldNotContainGivenElement() {
             assertThat(ARRAY).doesNotContain(99);
         }
     }
