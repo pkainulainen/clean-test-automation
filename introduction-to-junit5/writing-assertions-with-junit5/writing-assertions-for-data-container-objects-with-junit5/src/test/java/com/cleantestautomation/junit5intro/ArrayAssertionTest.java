@@ -24,6 +24,7 @@ class ArrayAssertionTest {
     @DisplayName("When you write assertions for values")
     class WhenYouWriteAssertionsForValues {
 
+        private final int EXPECTED_SIZE = 3;
         private final int[] ARRAY = new int[]{2, 5, 7};
 
         @Test
@@ -42,30 +43,30 @@ class ArrayAssertionTest {
         @Test
         @DisplayName("Should contain three values")
         void shouldContainThreeValues() {
-            assertEquals(3, ARRAY.length);
+            assertEquals(EXPECTED_SIZE, ARRAY.length);
         }
 
         @Test
-        @DisplayName("Should contain the given values in the given order")
-        void shouldContainGivenValuesInGivenOrder() {
+        @DisplayName("Should contain the expected elements in the given order")
+        void shouldContainExpectedElementsInGivenOrder() {
             assertTrue(toIntegerList(ARRAY).equals(List.of(2, 5, 7)));
         }
 
         @Test
-        @DisplayName("Should contain the given values in any order")
-        void shouldContainGivenValuesInAnyOrder() {
+        @DisplayName("Should contain the expected elements in any order")
+        void shouldContainExpectedElementInAnyOrder() {
             assertTrue(toIntegerList(ARRAY).containsAll(List.of(5, 7, 2)));
         }
 
         @Test
-        @DisplayName("Should contain the given value")
-        void shouldContainGivenValue() {
+        @DisplayName("Should contain the given element")
+        void shouldContainGivenElement() {
             assertTrue(toIntegerList(ARRAY).contains(5));
         }
 
         @Test
-        @DisplayName("Shouldn't contain the given value")
-        void shouldNotContainGivenValue() {
+        @DisplayName("Shouldn't contain the given element")
+        void shouldNotContainGivenElement() {
             assertFalse(toIntegerList(ARRAY).contains(99));
         }
     }

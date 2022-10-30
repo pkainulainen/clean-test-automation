@@ -57,14 +57,14 @@ class StreamAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain only the given elements in the given order")
-        void shouldContainOnlyGivenElementsInGivenOrder() {
+        @DisplayName("Should contain only the expected elements in the given order")
+        void shouldContainOnlyExpectedElementsInGivenOrder() {
             assertIterableEquals(List.of(FIRST, SECOND), dataStream.collect(Collectors.toList()));
         }
 
         @Test
-        @DisplayName("Should contain the given elements in any order")
-        void shouldContainGivenElementsInAnyOrder() {
+        @DisplayName("Should contain the expected elements in any order")
+        void shouldContainExpectedElementsInAnyOrder() {
             final boolean containElements = dataStream.allMatch(candidate -> candidate.equals(SECOND) || candidate.equals(FIRST));
             assertTrue(containElements);
         }

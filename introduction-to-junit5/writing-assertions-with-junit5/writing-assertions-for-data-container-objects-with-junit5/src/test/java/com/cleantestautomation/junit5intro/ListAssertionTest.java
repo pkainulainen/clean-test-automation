@@ -49,14 +49,14 @@ class ListAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain only the given elements in the given order")
-        void shouldContainOnlyGivenElementsInGivenOrder() {
+        @DisplayName("Should contain only the expected elements in the given order")
+        void shouldContainOnlyExpectedElementsInGivenOrder() {
             assertIterableEquals(List.of(FIRST, SECOND), DATA_CONTAINER);
         }
 
         @Test
-        @DisplayName("Should contain the given elements in any order")
-        void shouldContainGivenElementsInAnyOrder() {
+        @DisplayName("Should contain the expected elements in any order")
+        void shouldContainExpectedElementsInAnyOrder() {
             assertTrue(DATA_CONTAINER.containsAll(List.of(SECOND, FIRST)));
         }
 
