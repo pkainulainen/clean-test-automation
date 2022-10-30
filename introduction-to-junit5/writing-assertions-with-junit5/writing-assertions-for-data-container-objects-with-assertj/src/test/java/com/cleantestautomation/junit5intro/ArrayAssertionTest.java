@@ -4,8 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -19,6 +17,7 @@ class ArrayAssertionTest {
     @DisplayName("When you write assertions for values")
     class WhenYouWriteAssertionsForValues {
 
+        private int EXPECTED_SIZE = 3;
         final int[] ARRAY = new int[]{2, 5, 7};
 
         @Test
@@ -36,18 +35,18 @@ class ArrayAssertionTest {
         @Test
         @DisplayName("Should contain three values")
         void shouldContainThreeValues() {
-            assertThat(ARRAY).hasSize(3);
+            assertThat(ARRAY).hasSize(EXPECTED_SIZE);
         }
 
         @Test
-        @DisplayName("Should contain the given values in the given order")
-        void shouldContainGivenValuesInGivenOrder() {
+        @DisplayName("Should contain only the given values in the given order")
+        void shouldContainOnlyGivenValuesInGivenOrder() {
             assertThat(ARRAY).containsExactly(2, 5, 7);
         }
 
         @Test
-        @DisplayName("Should contain the given values in any order")
-        void shouldContainGivenValuesInAnyOrder() {
+        @DisplayName("Should contain only the given values in any order")
+        void shouldContainOnlyGivenValuesInAnyOrder() {
             assertThat(ARRAY).containsExactlyInAnyOrder(5, 7, 2);
         }
 
@@ -110,12 +109,12 @@ class ArrayAssertionTest {
             class WhenArraysContainIntegers {
 
                 final int[] ACTUAL = new int[]{2, 6, 7};
-                final int[] EXPECTED = new int[]{2, 5, 7};
+                final int[] UNEXPECTED = new int[]{2, 5, 7};
 
                 @Test
-                @DisplayName("Should not contain the same integers")
+                @DisplayName("Shouldn't contain the same integers")
                 void shouldNotContainSameIntegers() {
-                    assertThat(ACTUAL).isNotEqualTo(EXPECTED);
+                    assertThat(ACTUAL).isNotEqualTo(UNEXPECTED);
                 }
             }
 
@@ -124,12 +123,12 @@ class ArrayAssertionTest {
             class WhenArraysContainStrings {
 
                 final String[] ACTUAL = new String[] {"foo", "bar1"};
-                final String[] EXPECTED = new String[] {"foo", "bar"};
+                final String[] UNEXPECTED = new String[] {"foo", "bar"};
 
                 @Test
-                @DisplayName("Should not contain the same strings")
+                @DisplayName("Shouldn't contain the same strings")
                 void shouldNotContainSameStrings() {
-                    assertThat(ACTUAL).isNotEqualTo(EXPECTED);
+                    assertThat(ACTUAL).isNotEqualTo(UNEXPECTED);
                 }
             }
         }

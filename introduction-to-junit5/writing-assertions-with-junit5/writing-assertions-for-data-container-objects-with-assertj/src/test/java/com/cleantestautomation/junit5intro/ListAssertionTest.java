@@ -47,14 +47,14 @@ class ListAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain the given elements in the given order")
-        void shouldContainGivenElementsInGivenOrder() {
+        @DisplayName("Should contain only the given elements in the given order")
+        void shouldContainOnlyGivenElementsInGivenOrder() {
             assertThat(LIST).containsExactly(FIRST, SECOND);
         }
 
         @Test
-        @DisplayName("Should contain the given elements in any order")
-        void shouldContainGivenElementsInAnyOrder() {
+        @DisplayName("Should contain only the given elements in any order")
+        void shouldContainOnlyGivenElementsInAnyOrder() {
             assertThat(LIST).containsExactlyInAnyOrder(SECOND, FIRST);
         }
 
@@ -94,12 +94,12 @@ class ListAssertionTest {
         class WhenListsAreNotEqual {
 
             private final List<Integer> FIRST = Arrays.asList(1, 2, 3);
-            private final List<Integer> SECOND = Arrays.asList(4, 5, 6);
+            private final List<Integer> UNEXPECTED = Arrays.asList(4, 5, 6);
 
             @Test
-            @DisplayName("Should contain the same elements")
-            void shouldContainSameElements() {
-                assertThat(FIRST).isNotEqualTo(SECOND);
+            @DisplayName("Shouldn't contain the same elements")
+            void shouldNotContainSameElements() {
+                assertThat(FIRST).isNotEqualTo(UNEXPECTED);
             }
         }
     }

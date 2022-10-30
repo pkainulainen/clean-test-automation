@@ -51,14 +51,14 @@ class StreamAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain the given elements in the given order")
-        void shouldContainGivenElementsInGivenOrder() {
+        @DisplayName("Should contain only the given elements in the given order")
+        void shouldContainOnlyGivenElementsInGivenOrder() {
             assertThat(dataStream).containsExactly(FIRST, SECOND);
         }
 
         @Test
-        @DisplayName("Should contain the given elements in any order")
-        void shouldContainGivenElementsInAnyOrder() {
+        @DisplayName("Should contain only the given elements in any order")
+        void shouldContainOnlyGivenElementsInAnyOrder() {
             assertThat(dataStream).containsExactlyInAnyOrder(SECOND, FIRST);
         }
 

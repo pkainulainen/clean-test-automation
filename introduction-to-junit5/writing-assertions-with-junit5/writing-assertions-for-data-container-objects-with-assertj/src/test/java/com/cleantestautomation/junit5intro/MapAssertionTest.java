@@ -16,6 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("Write assertions for maps")
 class MapAssertionTest {
 
+    private static final int EXPECTED_SIZE = 1;
     private static final String INCORRECT_KEY = "incorrectKey";
     private static final String KEY = "key";
     private static final String VALUE = "value";
@@ -41,7 +42,7 @@ class MapAssertionTest {
         @Test
         @DisplayName("Should contain one key-value pair")
         void shouldContainOneKeyValuePair() {
-            assertThat(MAP).hasSize(1);
+            assertThat(MAP).hasSize(EXPECTED_SIZE);
         }
     }
 
