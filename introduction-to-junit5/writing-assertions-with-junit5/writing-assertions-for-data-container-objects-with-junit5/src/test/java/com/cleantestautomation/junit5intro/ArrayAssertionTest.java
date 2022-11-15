@@ -47,8 +47,8 @@ class ArrayAssertionTest {
         }
 
         @Test
-        @DisplayName("Should contain the expected elements in the given order")
-        void shouldContainExpectedElementsInGivenOrder() {
+        @DisplayName("Should contain only the expected elements in the given order")
+        void shouldContainOnlyExpectedElementsInGivenOrder() {
             assertTrue(toIntegerList(ARRAY).equals(List.of(2, 5, 7)));
         }
 
