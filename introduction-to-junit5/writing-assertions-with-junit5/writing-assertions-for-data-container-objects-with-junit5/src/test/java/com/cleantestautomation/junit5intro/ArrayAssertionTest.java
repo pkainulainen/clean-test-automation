@@ -117,12 +117,12 @@ class ArrayAssertionTest {
             class WhenArraysContainIntegers {
 
                 private final int[] ACTUAL = new int[]{2, 6, 7};
-                private final int[] UNEXPECTED = new int[]{2, 5, 7};
+                private final List<Integer> UNEXPECTED = List.of(2, 5, 7);
 
                 @Test
-                @DisplayName("Should not contain the same integers")
+                @DisplayName("Shouldn't contain the same integers")
                 void shouldNotContainSameIntegers() {
-                    assertFalse(toIntegerList(UNEXPECTED).equals(toIntegerList(ACTUAL)));
+                    assertFalse(UNEXPECTED.equals(toIntegerList(ACTUAL)));
                 }
             }
 
@@ -131,12 +131,12 @@ class ArrayAssertionTest {
             class WhenArraysContainStrings {
 
                 private final String[] ACTUAL = new String[] {"foo", "bar1"};
-                private final String[] UNEXPECTED = new String[] {"foo", "bar"};
+                private final List<String> UNEXPECTED = List.of("foo", "bar");
 
                 @Test
                 @DisplayName("Should not contain the same strings")
                 void shouldNotContainSameStrings() {
-                    assertFalse(Arrays.asList(UNEXPECTED).equals(Arrays.asList(ACTUAL)));
+                    assertFalse(UNEXPECTED.equals(Arrays.asList(ACTUAL)));
                 }
             }
         }
