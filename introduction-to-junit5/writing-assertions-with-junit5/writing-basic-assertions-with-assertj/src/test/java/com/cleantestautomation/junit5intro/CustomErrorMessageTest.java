@@ -30,12 +30,59 @@ class CustomErrorMessageTest {
     @DisplayName("When you provide the entire error message")
     class WhenYouProvideEntireErrorMessage {
 
-        @Test
-        @DisplayName("Should override entire error message")
-        void shouldBeFalseWithCustomErrorMessage() {
-            assertThat(false)
-                    .overridingErrorMessage("The boolean is not false")
-                    .isFalse();
+        @Nested
+        @DisplayName("When you use a string literal")
+        class WhenYouUseStringLiteral {
+
+            @Test
+            @DisplayName("Should override entire error message")
+            void shouldBeFalseWithCustomErrorMessage() {
+                assertThat(false)
+                        .overridingErrorMessage("The boolean is not false")
+                        .isFalse();
+            }
+        }
+
+        @Nested
+        @DisplayName("When you use String.format()")
+        class WhenYouUseStringFormat {
+
+            private final String ACTUAL = "Foo";
+            private final String EXPECTED = "Foo";
+
+            @Test
+            @DisplayName("Should override entire error message")
+            void shouldOverrideEntireErrorMessage() {
+                assertThat(ACTUAL)
+                        .overridingErrorMessage(
+                                "Expected the object to be: %s but it was: %s",
+                                EXPECTED,
+                                ACTUAL
+                        )
+                        .isEqualTo(EXPECTED);
+            }
+        }
+
+        @Nested
+        @DisplayName("When you use a Supplier")
+        class WhenYouUseSupplier {
+
+            private final String ACTUAL = "Foo";
+            private final String EXPECTED = "Foo";
+
+            @Test
+            @DisplayName("Should override entire error message")
+            void shouldOverrideEntireErrorMessage() {
+                assertThat(ACTUAL)
+                        .overridingErrorMessage(
+                                () -> String.format(
+                                        "Expected the object to be: %s but it was: %s",
+                                        EXPECTED,
+                                        ACTUAL
+                                )
+                        )
+                        .isEqualTo(EXPECTED);
+            }
         }
     }
 }

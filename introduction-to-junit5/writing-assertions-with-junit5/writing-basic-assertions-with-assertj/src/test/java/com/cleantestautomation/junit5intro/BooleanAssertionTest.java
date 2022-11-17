@@ -22,14 +22,6 @@ class BooleanAssertionTest {
         void shouldBeFalse() {
             assertThat(false).isFalse();
         }
-
-        @Test
-        @DisplayName("Should be false (with custom error message)")
-        void shouldBeFalseWithCustomErrorMessage() {
-            assertThat(false)
-                    .overridingErrorMessage("The boolean is not false")
-                    .isFalse();
-        }
     }
 
     @Nested
@@ -40,14 +32,6 @@ class BooleanAssertionTest {
         @DisplayName("Should be true")
         void shouldBeTrue() {
             assertThat(true).isTrue();
-        }
-
-        @Test
-        @DisplayName("Should be true (with custom error message)")
-        void shouldBeTrueWithCustomErrorMessage() {
-            assertThat(true)
-                    .overridingErrorMessage("The boolean is not true")
-                    .isTrue();
         }
     }
 }
