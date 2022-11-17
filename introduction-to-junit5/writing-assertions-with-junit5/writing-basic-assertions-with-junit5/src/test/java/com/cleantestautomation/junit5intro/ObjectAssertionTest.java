@@ -29,12 +29,6 @@ class ObjectAssertionTest {
         void shouldBeNull() {
             assertNull(OBJECT);
         }
-
-        @Test
-        @DisplayName("Should be null (with custom error message)")
-        void shouldBeNullWithCustomErrorMessage() {
-            assertNull(OBJECT, String.format("Expected object to be null but it was: %s", OBJECT));
-        }
     }
 
     @Nested
@@ -47,12 +41,6 @@ class ObjectAssertionTest {
         @DisplayName("Shouldn't be null")
         void shouldNotBeNull() {
             assertNotNull(NOT_NULL);
-        }
-
-        @Test
-        @DisplayName("Shouldn't be null (with custom error message)")
-        void shouldNotBeNullWithCustomErrorMessage() {
-            assertNotNull(NOT_NULL, "Expected the object to be not null but it was null");
         }
     }
 
@@ -72,18 +60,6 @@ class ObjectAssertionTest {
             void shouldBeEqual() {
                 assertEquals(EXPECTED, ACTUAL);
             }
-
-            @Test
-            @DisplayName("Should be equal (with custom error message)")
-            void shouldBeEqualWithCustomErrorMessage() {
-                assertEquals(EXPECTED,
-                        ACTUAL,
-                        String.format("Expected the integer to be: %d but it was: %d",
-                                EXPECTED,
-                                ACTUAL
-                        )
-                );
-            }
         }
 
         @Nested
@@ -97,18 +73,6 @@ class ObjectAssertionTest {
             @DisplayName("Should be equal")
             void shouldBeEqual() {
                 assertEquals(EXPECTED, ACTUAL);
-            }
-
-            @Test
-            @DisplayName("Should be equal (with custom error message)")
-            void shouldBeEqualWithCustomErrorMessage() {
-                assertEquals(EXPECTED,
-                        ACTUAL,
-                        String.format(
-                                "Expected the string to be: %s but it was: %s",
-                                EXPECTED,
-                                ACTUAL
-                        ));
             }
         }
     }
@@ -129,19 +93,6 @@ class ObjectAssertionTest {
             void shouldNotBeEqual() {
                 assertNotEquals(UNEXPECTED, ACTUAL);
             }
-
-            @Test
-            @DisplayName("Shouldn't be equal (with custom error message)")
-            void shouldNotBeEqualWithCustomErrorMessage() {
-                assertNotEquals(UNEXPECTED,
-                        ACTUAL,
-                        String.format(
-                                "Expected the integer: %d to not be equal to the integer: %d but they were equal",
-                                UNEXPECTED,
-                                ACTUAL
-                        )
-                );
-            }
         }
 
         @Nested
@@ -155,19 +106,6 @@ class ObjectAssertionTest {
             @DisplayName("Shouldn't be equal")
             void shouldNotBeEqual() {
                 assertNotEquals(UNEXPECTED, ACTUAL);
-            }
-
-            @Test
-            @DisplayName("Shouldn't be equal (with custom error message)")
-            void shouldNotBeEqualWithCustomErrorMessage() {
-                assertNotEquals(UNEXPECTED,
-                        ACTUAL,
-                        String.format(
-                                "Expected that the string: %s is not equal to the string: %s but they were equal",
-                                UNEXPECTED,
-                                ACTUAL
-                        )
-                );
             }
         }
     }
@@ -184,12 +122,6 @@ class ObjectAssertionTest {
         void shouldReferToSameObject() {
             assertSame(EXPECTED, ACTUAL);
         }
-
-        @Test
-        @DisplayName("Should refer to the same object (with custom error message)")
-        void shouldReferToSameErrorObjectWithCustomErrorMessage() {
-            assertSame(EXPECTED, ACTUAL, "The objects don't refer to the same object");
-        }
     }
 
     @Nested
@@ -203,12 +135,6 @@ class ObjectAssertionTest {
         @DisplayName("Shouldn't refer to the same object")
         void shouldNotReferToSameObject() {
             assertNotSame(UNEXPECTED, ACTUAL);
-        }
-
-        @Test
-        @DisplayName("Shouldn't refer to the same object (with custom error message)")
-        void shouldNotReferToSameObjectWithCustomErrorMessage() {
-            assertNotSame(UNEXPECTED, ACTUAL, "The objects refer to the same object");
         }
     }
 }

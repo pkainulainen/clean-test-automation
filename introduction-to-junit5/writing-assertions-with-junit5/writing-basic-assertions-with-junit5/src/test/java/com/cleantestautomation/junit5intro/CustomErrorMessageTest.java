@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class CustomErrorMessageTest {
 
     @Nested
-    @DisplayName("When you provide a hard-coded string")
-    class WhenYouProvideHardCodedString {
+    @DisplayName("When you use a string literal")
+    class WhenYouUseStringLiteral {
 
         @Test
         @DisplayName("Should provide custom error message")
@@ -35,7 +35,7 @@ class CustomErrorMessageTest {
 
         @Test
         @DisplayName("Should provide custom error message")
-        void shouldReturnExpectedMessageWithCustomErrorMessage() {
+        void shouldProvideCustomErrorMessage() {
             assertEquals(EXPECTED,
                     ACTUAL,
                     String.format(
@@ -56,7 +56,7 @@ class CustomErrorMessageTest {
 
         @Test
         @DisplayName("Should provide custom error message")
-        void shouldReturnExpectedMessageWithCustomErrorMessage() {
+        void shouldProvideCustomErrorMessage() {
             assertEquals(EXPECTED,
                     ACTUAL,
                     () -> String.format(

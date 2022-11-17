@@ -23,12 +23,6 @@ class BooleanAssertionTest {
         void shouldBeFalse() {
             assertFalse(false);
         }
-
-        @Test
-        @DisplayName("Should be false (with custom error message)")
-        void shouldBeFalseWithCustomErrorMessage() {
-            assertFalse(false, "The boolean is not false");
-        }
     }
 
     @Nested
@@ -39,12 +33,6 @@ class BooleanAssertionTest {
         @DisplayName("Should be true")
         void shouldBeTrue() {
             assertTrue(true);
-        }
-
-        @Test
-        @DisplayName("Should be true (with custom error message)")
-        void shouldBeTrueWithCustomErrorMessage() {
-            assertTrue(true, "The boolean is not true");
         }
     }
 }
