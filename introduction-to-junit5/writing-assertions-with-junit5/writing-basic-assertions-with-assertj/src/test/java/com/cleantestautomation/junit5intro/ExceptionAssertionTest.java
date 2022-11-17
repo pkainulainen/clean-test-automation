@@ -20,12 +20,19 @@ class ExceptionAssertionTest {
     class WhenYouWriteAssertionsForThrownException {
 
         @Nested
-        @DisplayName("When the system under test throws the correct exception")
+        @DisplayName("When the system under test throws exception")
         class WhenSystemUnderTestThrowsException {
 
             @Test
             @DisplayName("Should throw the correct exception")
             void shouldThrowCorrectException() {
+                assertThatThrownBy(() -> { throw new NullPointerException(); })
+                        .isInstanceOf(RuntimeException.class);
+            }
+
+            @Test
+            @DisplayName("Should throw exactly the correct exception")
+            void shouldThrowExactlyCorrectException() {
                 assertThatThrownBy(() -> { throw new NullPointerException(); })
                         .isExactlyInstanceOf(NullPointerException.class);
             }
