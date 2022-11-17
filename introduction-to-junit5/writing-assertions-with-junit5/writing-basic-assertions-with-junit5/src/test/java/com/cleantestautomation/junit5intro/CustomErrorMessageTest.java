@@ -20,7 +20,7 @@ class CustomErrorMessageTest {
     class WhenYouUseStringLiteral {
 
         @Test
-        @DisplayName("Should provide custom error message")
+        @DisplayName("Should provide a custom error message")
         void shouldBeFalseWithCustomErrorMessage() {
             assertFalse(false, "The boolean isn't false");
         }
@@ -34,7 +34,7 @@ class CustomErrorMessageTest {
         private final String EXPECTED = "Hello World!";
 
         @Test
-        @DisplayName("Should provide custom error message")
+        @DisplayName("Should provide a custom error message")
         void shouldProvideCustomErrorMessage() {
             assertEquals(EXPECTED,
                     ACTUAL,
@@ -55,7 +55,7 @@ class CustomErrorMessageTest {
         private final String EXPECTED = "Hello World!";
 
         @Test
-        @DisplayName("Should provide custom error message")
+        @DisplayName("Should provide a custom error message")
         void shouldProvideCustomErrorMessage() {
             assertEquals(EXPECTED,
                     ACTUAL,
