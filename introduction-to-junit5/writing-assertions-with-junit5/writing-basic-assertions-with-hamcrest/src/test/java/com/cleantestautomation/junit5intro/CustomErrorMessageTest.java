@@ -22,7 +22,7 @@ class CustomErrorMessageTest {
 
         @Test
         @DisplayName("Should provide custom error message")
-        void shouldBeFalseWithCustomErrorMessage() {
+        void shouldProvideCustomErrorMessage() {
             assertThat("The boolean isn't false", false, is(false));
         }
     }
@@ -36,7 +36,7 @@ class CustomErrorMessageTest {
 
         @Test
         @DisplayName("Should provide custom error message")
-        void shouldReturnExpectedMessageWithCustomErrorMessage() {
+        void shouldProvideCustomErrorMessage() {
             assertThat(
                     String.format(
                             "Expected the message to be: %s but was: %s",

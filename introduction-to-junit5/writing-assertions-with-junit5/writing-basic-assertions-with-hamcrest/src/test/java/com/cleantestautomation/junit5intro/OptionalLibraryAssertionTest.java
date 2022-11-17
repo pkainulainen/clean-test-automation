@@ -55,35 +55,10 @@ class OptionalLibraryAssertionTest {
         }
 
         @Test
-        @DisplayName("Should be present (with custom error message)")
-        void shouldBePresentWithCustomErrorMessage() {
-            final Optional<Object> actual = Optional.of(STRING);
-            assertThat("Expected optional to not be empty but it was empty",
-                    actual,
-                    isPresent()
-            );
-        }
-
-        @Test
         @DisplayName("Should contain the correct object")
         void shouldContainCorrectObject() {
             final Optional<Object> actual = Optional.of(STRING);
             assertThat(actual, isPresentAndIs(STRING));
-        }
-
-        @Test
-        @DisplayName("Should contain the correct object (with custom error message)")
-        void shouldContainCorrectObjectWithCustomErrorMessage() {
-            final Optional<Object> actual = Optional.of(STRING);
-            assertThat(
-                    String.format(
-                            "Expected optional to contain the string: %s but it contained the string: %s",
-                            STRING,
-                            actual.get()
-                    ),
-                    actual,
-                    isPresentAndIs(STRING)
-            );
         }
     }
 }
