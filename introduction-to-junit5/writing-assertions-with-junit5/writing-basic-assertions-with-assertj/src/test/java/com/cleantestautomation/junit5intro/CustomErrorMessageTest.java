@@ -55,7 +55,7 @@ class CustomErrorMessageTest {
             void shouldOverrideEntireErrorMessage() {
                 assertThat(ACTUAL)
                         .overridingErrorMessage(
-                                "Expected the object to be: %s but it was: %s",
+                                "Expected the string to be: %s but it was: %s",
                                 EXPECTED,
                                 ACTUAL
                         )
@@ -76,7 +76,7 @@ class CustomErrorMessageTest {
                 assertThat(ACTUAL)
                         .overridingErrorMessage(
                                 () -> String.format(
-                                        "Expected the object to be: %s but it was: %s",
+                                        "Expected the string to be: %s but it was: %s",
                                         EXPECTED,
                                         ACTUAL
                                 )
