@@ -18,8 +18,8 @@ class CustomErrorMessageTest {
     class WhenYouProvideOnlyDescription {
 
         @Test
-        @DisplayName("Should override only the description")
-        void shouldBeFalseWithCustomDescription() {
+        @DisplayName("Should provide description")
+        void shouldProvideOnlyDescription() {
             assertThat(false)
                     .as("boolean")
                     .isFalse();
@@ -36,7 +36,7 @@ class CustomErrorMessageTest {
 
             @Test
             @DisplayName("Should override entire error message")
-            void shouldBeFalseWithCustomErrorMessage() {
+            void shouldOverrideEntireErrorMessage() {
                 assertThat(false)
                         .overridingErrorMessage("The boolean is not false")
                         .isFalse();
