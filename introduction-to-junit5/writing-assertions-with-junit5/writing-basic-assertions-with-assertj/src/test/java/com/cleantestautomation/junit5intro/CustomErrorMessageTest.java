@@ -64,8 +64,8 @@ class CustomErrorMessageTest {
         }
 
         @Nested
-        @DisplayName("When you use a Supplier")
-        class WhenYouUseSupplier {
+        @DisplayName("When you use a message supplier")
+        class WhenYouUseMessageSupplier {
 
             private final String ACTUAL = "Foo";
             private final String EXPECTED = "Foo";
