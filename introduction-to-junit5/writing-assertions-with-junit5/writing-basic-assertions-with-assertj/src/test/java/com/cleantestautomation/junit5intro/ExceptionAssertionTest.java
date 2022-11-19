@@ -65,6 +65,13 @@ class ExceptionAssertionTest {
             @DisplayName("Should throw the correct exception")
             void shouldThrowCorrectException() {
                 final Throwable thrown = catchThrowable(() -> { throw new NullPointerException(); });
+                assertThat(thrown).isInstanceOf(RuntimeException.class);
+            }
+
+            @Test
+            @DisplayName("Should throw exactly the correct exception")
+            void shouldThrowExatclyCorrectException() {
+                final Throwable thrown = catchThrowable(() -> { throw new NullPointerException(); });
                 assertThat(thrown).isExactlyInstanceOf(NullPointerException.class);
             }
         }
