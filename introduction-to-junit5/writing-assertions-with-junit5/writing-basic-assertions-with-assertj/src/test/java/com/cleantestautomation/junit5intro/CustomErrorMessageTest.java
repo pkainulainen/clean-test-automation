@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CustomErrorMessageTest {
 
     @Nested
-    @DisplayName("When you provide only the description")
+    @DisplayName("When you provide only description")
     class WhenYouProvideOnlyDescription {
 
         @Test
