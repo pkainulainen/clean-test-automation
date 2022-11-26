@@ -37,22 +37,4 @@ class GroupAssertionsExampleTest {
                 () -> assertEquals(LAST_NAME, person.getLastName())
         );
     }
-
-    @Test
-    @DisplayName("Person shouldn't be null and have the correct name")
-    void personShouldNotBeNullAndHaveCorrectName() {
-        assertAll(
-                () -> {
-                    assertNotNull(person, "The person must not be null");
-                    //These grouped assertions are run only if the previous
-                    //assertion passes.
-                    assertAll(
-                            "Name",
-                            () -> assertEquals(FIRST_NAME, person.getFirstName()),
-                            () -> assertEquals(LAST_NAME, person.getLastName())
-                    );
-                }
-        );
-    }
-
 }
