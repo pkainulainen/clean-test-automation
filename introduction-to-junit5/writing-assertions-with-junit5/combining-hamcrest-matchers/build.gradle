@@ -9,8 +9,7 @@ repositories {
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.9.1',
-            'org.hamcrest:hamcrest:2.2',
-            'com.github.npathai:hamcrest-optional:2.0.0'
+            'org.hamcrest:hamcrest:2.2'
     )
 }
 
