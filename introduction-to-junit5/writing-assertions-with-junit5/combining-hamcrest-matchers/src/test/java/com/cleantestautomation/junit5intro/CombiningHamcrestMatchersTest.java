@@ -61,8 +61,14 @@ class CombiningHamcrestMatchersTest {
     class NestedCombinedMatchers {
 
         @Test
-        @DisplayName("Name should be non-blank string with correct size that starts and ends with the correct string")
-        void nameShouldBeNonBlankStringWithCorrectSizeThatStartsAndEndsWithCorrectString() {
+        @DisplayName("Name should be non-blank string with correct size that starts and ends with the correct string #2")
+        void nameShouldBeNonBlankStringWithCorrectSizeThatStartsAndEndsWithCorrectString1() {
+            assertThat(NAME, both(allOf(not(blankOrNullString()), hasLength(8))).and(allOf(startsWith("Jane"), endsWith("Doe"))));
+        }
+
+        @Test
+        @DisplayName("Name should be non-blank string with correct size that starts and ends with the correct string #2")
+        void nameShouldBeNonBlankStringWithCorrectSizeThatStartsAndEndsWithCorrectString2() {
             assertThat(NAME, allOf(
                     allOf(not(blankOrNullString()), hasLength(8)),
                     allOf(startsWith("Jane"), endsWith("Doe"))
@@ -70,8 +76,14 @@ class CombiningHamcrestMatchersTest {
         }
 
         @Test
-        @DisplayName("Name should start and end with one of the provided options")
-        void nameShouldStartAndEndWithOneOfProvidedOptions() {
+        @DisplayName("Name should start and end with one of the provided options #1")
+        void nameShouldStartAndEndWithOneOfProvidedOptions1() {
+            assertThat(NAME, either(allOf(startsWith("John"), endsWith("Smith"))).or(allOf(startsWith("Jane"), endsWith("Doe"))));
+        }
+
+        @Test
+        @DisplayName("Name should start and end with one of the provided options #2")
+        void nameShouldStartAndEndWithOneOfProvidedOptions2() {
             assertThat(NAME, anyOf(
                     allOf(startsWith("John"), endsWith("Smith")),
                     allOf(startsWith("Jane"), endsWith("Doe")))
