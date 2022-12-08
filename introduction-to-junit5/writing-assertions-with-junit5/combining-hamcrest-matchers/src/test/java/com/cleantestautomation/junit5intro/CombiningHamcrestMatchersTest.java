@@ -63,7 +63,7 @@ class CombiningHamcrestMatchersTest {
         @Test
         @DisplayName("Name should be non-blank string with correct size that starts and ends with the correct string #2")
         void nameShouldBeNonBlankStringWithCorrectSizeThatStartsAndEndsWithCorrectString1() {
-            assertThat(NAME, both(allOf(not(blankOrNullString()), hasLength(8))).and(allOf(startsWith("Jane"), endsWith("Doe"))));
+            assertThat(NAME, both(both(not(blankOrNullString())).and(hasLength(8))).and(both(startsWith("Jane")).and(endsWith("Doe"))));
         }
 
         @Test
@@ -78,7 +78,7 @@ class CombiningHamcrestMatchersTest {
         @Test
         @DisplayName("Name should start and end with one of the provided options #1")
         void nameShouldStartAndEndWithOneOfProvidedOptions1() {
-            assertThat(NAME, either(allOf(startsWith("John"), endsWith("Smith"))).or(allOf(startsWith("Jane"), endsWith("Doe"))));
+            assertThat(NAME, either(both(startsWith("John")).and(endsWith("Smith"))).or(both(startsWith("Jane")).and(endsWith("Doe"))));
         }
 
         @Test
