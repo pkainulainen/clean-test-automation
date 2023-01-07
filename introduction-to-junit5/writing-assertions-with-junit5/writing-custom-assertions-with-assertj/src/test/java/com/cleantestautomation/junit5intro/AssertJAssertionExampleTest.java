@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 @DisplayName("Write assertions with AssertJ")
-@ExtendWith(SoftAssertionsExtension.class)
 public class AssertJAssertionExampleTest {
 
     private final String TITLE = "Write a new lesson";
@@ -45,28 +45,30 @@ public class AssertJAssertionExampleTest {
 
         @Test
         @DisplayName("Should be open")
-        void shouldBeOpen(SoftAssertions softAssertions) {
-            softAssertions.assertThat(actual.getStatus())
-                    .overridingErrorMessage(
-                            "Expected that the status is: %s but was: %s",
-                            TodoItemStatus.OPEN,
-                            actual.getStatus()
-                    )
-                    .isEqualTo(TodoItemStatus.OPEN);
+        void shouldBeOpen() {
+            assertSoftly((softAssertions) -> {
+                softAssertions.assertThat(actual.getStatus())
+                        .overridingErrorMessage(
+                                "Expected that the status is: %s but was: %s",
+                                TodoItemStatus.OPEN,
+                                actual.getStatus()
+                        )
+                        .isEqualTo(TodoItemStatus.OPEN);
 
-            softAssertions.assertThat(actual.getResolution())
-                    .overridingErrorMessage(
-                            "Expected that the resolution is null but was: %s",
-                            actual.getStatus()
-                    )
-                    .isNull();
+                softAssertions.assertThat(actual.getResolution())
+                        .overridingErrorMessage(
+                                "Expected that the resolution is null but was: %s",
+                                actual.getStatus()
+                        )
+                        .isNull();
 
-            softAssertions.assertThat(actual.getCloserId())
-                    .overridingErrorMessage(
-                            "Expected that the closerId is null but was: %d",
-                            actual.getCloserId()
-                    )
-                    .isNull();
+                softAssertions.assertThat(actual.getCloserId())
+                        .overridingErrorMessage(
+                                "Expected that the closerId is null but was: %d",
+                                actual.getCloserId()
+                        )
+                        .isNull();
+            });
         }
     }
 
@@ -85,30 +87,32 @@ public class AssertJAssertionExampleTest {
 
         @Test
         @DisplayName("Should be closed as duplicate by the correct user")
-        void shouldBeClosedAsDuplicateByCorrectUser(SoftAssertions softAssertions) {
-            softAssertions.assertThat(actual.getStatus())
-                    .overridingErrorMessage(
-                            "Expected that the status is: %s but was: %s",
-                            TodoItemStatus.CLOSED,
-                            actual.getStatus()
-                    )
-                    .isEqualTo(TodoItemStatus.CLOSED);
+        void shouldBeClosedAsDuplicateByCorrectUser() {
+            assertSoftly((softAssertions) -> {
+                softAssertions.assertThat(actual.getStatus())
+                        .overridingErrorMessage(
+                                "Expected that the status is: %s but was: %s",
+                                TodoItemStatus.CLOSED,
+                                actual.getStatus()
+                        )
+                        .isEqualTo(TodoItemStatus.CLOSED);
 
-            softAssertions.assertThat(actual.getResolution())
-                    .overridingErrorMessage(
-                            "Expected that the resolution is: %s but was: %s",
-                            TodoItemResolution.DUPLICATE,
-                            actual.getStatus()
-                    )
-                    .isEqualTo(TodoItemResolution.DUPLICATE);
+                softAssertions.assertThat(actual.getResolution())
+                        .overridingErrorMessage(
+                                "Expected that the resolution is: %s but was: %s",
+                                TodoItemResolution.DUPLICATE,
+                                actual.getStatus()
+                        )
+                        .isEqualTo(TodoItemResolution.DUPLICATE);
 
-            softAssertions.assertThat(actual.getCloserId())
-                    .overridingErrorMessage(
-                            "Expected that the closerId is: %d but was: %d",
-                            CLOSER_ID,
-                            actual.getCloserId()
-                    )
-                    .isEqualByComparingTo(CLOSER_ID);
+                softAssertions.assertThat(actual.getCloserId())
+                        .overridingErrorMessage(
+                                "Expected that the closerId is: %d but was: %d",
+                                CLOSER_ID,
+                                actual.getCloserId()
+                        )
+                        .isEqualByComparingTo(CLOSER_ID);
+            });
         }
     }
 }
