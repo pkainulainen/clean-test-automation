@@ -64,7 +64,7 @@ public class TodoItemMatchers {
      *                          {@link TodoItem}.
      * @return
      */
-    public static TypeSafeMatcher<TodoItem>wasClosedAsDuplicateByUser(Long expectedCloserId) {
+    public static TypeSafeMatcher<TodoItem> wasClosedAsDuplicateByUser(Long expectedCloserId) {
         return new WasClosedAsDuplicateByUserMatcher(expectedCloserId);
     }
 
