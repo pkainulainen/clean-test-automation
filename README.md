@@ -1,6 +1,6 @@
 # The Code Samples of the cleantestautomation.com Membership Site
 
-This Git repository contains code samples of testing courses which are 
+This Git repository contains the code samples of testing courses which are 
 published on the cleantestautomation.com website. At the moment I am 
 offering these courses:
 
