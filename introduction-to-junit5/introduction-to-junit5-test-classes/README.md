@@ -1,7 +1,7 @@
 # Introduction to JUnit 5 Test Classes
 
 This directory contains the example projects of the Introduction to JUnit 5 Test Classes 
-topic of the [I]ntroduction to JUnit 5 course](https://www.cleantestautomation.com/get-started-with-junit-5/). 
+topic of the [Introduction to JUnit 5 course](https://www.cleantestautomation.com/get-started-with-junit-5/). 
 The example projects found from this directory are described in the following:
 
 * The [_introduction-to-test-classes_](https://github.com/pkainulainen/clean-test-automation/tree/main/introduction-to-junit5/introduction-to-junit5-test-classes/introduction-to-test-classes) 
