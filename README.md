@@ -5,4 +5,6 @@ published on the cleantestautomation.com website. At the moment I am
 offering these courses:
 
 * [Introduction to JUnit 5](https://github.com/pkainulainen/clean-test-automation/tree/main/introduction-to-junit5) 
-  helps you get started with JUnit 5.
+  helps you get started with JUnit 5. 
+
+** All examples are licenced under the [Apache 2.0 license](https://github.com/pkainulainen/clean-test-automation/blob/main/LICENSE) **
