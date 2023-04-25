@@ -1,14 +1,14 @@
 # Running Tests With Maven
 
-This is an example project of a lesson that describes how you can:
+This is the example project of the Running Tests With Maven lesson of the 
+[Introduction to JUnit 5 course](https://www.cleantestautomation.com/get-started-with-junit-5/). 
+After you have finished this lesson, you:
 
-* Get the required dependencies with Maven.
-* Configure the Maven Surefire Plugin.
-* Run your tests with Maven.
+* Can get the required dependencies with Maven.
+* Understand how you can configure the Maven Surefire Plugin.
+* Know how you can run your tests with Maven.
 
-[Read the lesson: Running Tests With Maven](https://www.cleantestautomation.com/lessons/running-tests-with-maven/)
-
-When you want to run the tests found from this project with Maven, you have to run the
+When you want to run the tests found from this project, you have to run the
 following command at command prompt:
 
         mvn clean test
