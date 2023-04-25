@@ -1,12 +1,13 @@
 # Introduction to Parameterized Tests
 
-This is an example project of a lesson that helps you to:
+This is an example project of the Introduction to Parameterized Tests lesson of the
+[Introduction to JUnit 5 course](https://www.cleantestautomation.com/get-started-with-junit-5/). 
+After you have finished this lesson, you: 
 
-* Get the required dependencies with Maven and Gradle.
-* Write parameterized tests with JUnit 5.
+* Know what a parameterized test is.
+* Can get the required dependencies with Maven and Gradle.
+* Know how you can write parameterized tests with JUnit 5.
 * Understand how you can customize the display name of each method invocation.
-
-[Read the lesson: Introduction to Parameterized Tests](https://www.cleantestautomation.com/lessons/introduction-to-parameterized-tests/)
 
 When you want to run the tests found from this project with Maven, you have to run the
 following command at command prompt:
