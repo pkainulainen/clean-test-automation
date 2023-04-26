@@ -1,10 +1,14 @@
 # Writing Assertions for Data Container Objects With Hamcrest
 
-This is an example project of a lesson that helps you to:
+This is an example project of the Writing Assertions for Data Container Objects With Hamcrest
+lesson of the [Introduction to JUnit 5 course](https://www.cleantestautomation.com/get-started-with-junit-5/). 
+After you have finished this lesson, you: 
 
-*
-
-[Read the lesson: Writing Assertions for Data Container Objects With Hamcrest](https://www.cleantestautomation.com/lessons/writing-assertions-for-data-container-objects-with-hamcrest)
+* Know what a data container object is.
+* Can write assertions for collections.
+* Know how you can write assertions for arrays.
+* Understand how you can write assertions for streams.
+* Can write assertions for maps.
 
 When you want to run the tests found from this project with Maven, you have to run the
 following command at command prompt:
