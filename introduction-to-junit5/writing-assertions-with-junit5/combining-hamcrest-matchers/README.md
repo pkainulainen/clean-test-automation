@@ -1,6 +1,6 @@
 # Combining Hamcrest Matchers
 
-This is an example project of the Combining Hamcrest Matchers of the
+This is an example project of the Combining Hamcrest Matchers lesson of the
 [Introduction to JUnit 5 course](https://www.cleantestautomation.com/get-started-with-junit-5/). 
 After you have finished this lesson, you: 
 
