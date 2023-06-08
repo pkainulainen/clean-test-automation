@@ -2,12 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cleantestautomation.junit5intro</groupId>
-    <artifactId>introduction-to-test-classes</artifactId>
+    <artifactId>create-new-test-class-with-junit-5</artifactId>
     <version>0.1</version>
-    <name>Introduction to Test Classes</name>
+    <name>Create a New Test Class With JUnit</name>
     <description>
-        This example demonstrates how you can create your first test class
-        and add both setup and teardown methods to your test class.
+        This exercise helps you understand how you can create a new test class with JUnit 5
+        and add setup, teardown, and test methods to the created class. Also, after you have
+        finished this exercise, you understand the invocation order of setup, teardown, and
+        test methods.
     </description>
 
     <properties>
