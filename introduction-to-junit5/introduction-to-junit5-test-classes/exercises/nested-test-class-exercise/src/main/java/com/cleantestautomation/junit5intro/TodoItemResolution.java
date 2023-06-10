@@ -1,7 +1,7 @@
 package com.cleantestautomation.junit5intro;
 
 /**
- * Identifies the possible resolutions of a todo item.
+ * Specifies the possible resolutions of a todo item.
  */
 public enum TodoItemResolution {
 
