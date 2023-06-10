@@ -16,7 +16,7 @@ public enum ProgrammingParadigm {
     public static ProgrammingParadigm fromProgrammingLanguage(ProgrammingLanguage source) {
         return switch(source) {
             case C -> ProgrammingParadigm.PROCEDURAL;
-            case CLOSURE -> ProgrammingParadigm.FUNCTIONAL;
+            case CLOJURE -> ProgrammingParadigm.FUNCTIONAL;
             case SMALLTALK -> ProgrammingParadigm.OBJECT_ORIENTED;
         };
     }
