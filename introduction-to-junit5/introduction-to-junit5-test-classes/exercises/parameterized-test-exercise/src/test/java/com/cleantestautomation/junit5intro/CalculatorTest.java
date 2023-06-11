@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("Tests for the Calculator class")
+@DisplayName("Tests for the calculator")
 class CalculatorTest {
 
     @Nested
