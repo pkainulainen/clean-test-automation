@@ -12,7 +12,7 @@ dependencies {
 
 test {
     useJUnitPlatform {
-        includeTags 'A'
+        includeTags 'unitTest'
     }
     testLogging {
         showStandardStreams = true
