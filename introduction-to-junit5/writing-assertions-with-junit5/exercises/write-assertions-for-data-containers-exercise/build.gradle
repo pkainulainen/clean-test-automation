@@ -9,7 +9,9 @@ repositories {
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.9.3',
-            'org.mockito:mockito-core:5.3.1'
+            'org.mockito:mockito-core:5.3.1',
+            'org.hamcrest:hamcrest:2.2',
+            'org.assertj:assertj-core:3.24.2'
     )
 }
 
