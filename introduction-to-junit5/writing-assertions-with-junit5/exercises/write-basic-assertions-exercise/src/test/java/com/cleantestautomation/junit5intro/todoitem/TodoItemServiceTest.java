@@ -37,7 +37,13 @@ public class TodoItemServiceTest {
             @Test
             @DisplayName("Should throw the correct exception")
             void shouldThrowCorrectException() {
-                //Write the assertion
+                //TODO: Write the assertion
+            }
+
+            @Test
+            @DisplayName("Should throw an exception that has the correct message")
+            void shouldThrowExceptionThatHasCorrectMessage() {
+                //TODO: Write the assertion
             }
         }
 
