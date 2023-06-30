@@ -1,0 +1,22 @@
+plugins {
+    id  'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter:5.9.3',
+            'org.assertj:assertj-core:3.24.2',
+            'org.hamcrest:hamcrest:2.2'
+    )
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+    }
+}
