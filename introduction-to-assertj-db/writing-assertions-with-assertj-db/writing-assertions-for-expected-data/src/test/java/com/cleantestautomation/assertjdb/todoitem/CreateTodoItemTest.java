@@ -1,7 +1,6 @@
 package com.cleantestautomation.assertjdb.todoitem;
 
 import com.cleantestautomation.assertjdb.IdColumnReset;
-import com.cleantestautomation.assertjdb.common.ConstantDateTimeService;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +14,6 @@ import org.springframework.test.context.jdbc.Sql;
 import javax.sql.DataSource;
 
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
-import static org.assertj.db.api.Assertions.assertThat;
 
 /**
  * This exercise helps you understand how you can write assertions which ensure that
