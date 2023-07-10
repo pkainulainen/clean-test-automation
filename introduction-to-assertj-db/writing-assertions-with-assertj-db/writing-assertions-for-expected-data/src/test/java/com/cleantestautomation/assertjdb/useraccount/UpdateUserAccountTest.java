@@ -181,7 +181,8 @@ public class UpdateUserAccountTest {
                 .isEqualTo(UserAccounts.LeoVirtanen.NAME);
         assertThat(userAccountTable)
                 .row(rowIndex)
-                .value(UserAccountTable.COLUMN_NAME_PASSWORD);
+                .value(UserAccountTable.COLUMN_NAME_PASSWORD)
+                .isEqualTo(UserAccounts.LeoVirtanen.PASSWORD);
         assertThat(userAccountTable)
                 .row(rowIndex)
                 .value(UserAccountTable.COLUMN_NAME_STATUS)
