@@ -1,4 +1,4 @@
-# Introduction to AssertJ-DB
+# Writing Assertions for the Expected Data
 
 This is an example project of the Writing Assertions for the Expected Data lesson of the
 [Introduction AssertJ-DB course](). After you have finished this lesson, you:
