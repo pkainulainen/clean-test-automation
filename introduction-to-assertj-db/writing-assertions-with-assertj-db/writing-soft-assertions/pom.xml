@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cleantestautomation.assertjdb</groupId>
-	<artifactId>writing-soft-assertions</artifactId>
+	<artifactId>writing-soft-assertion-with-assertj-db</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Writing Soft Assertions</name>
+	<name>Writing Soft Assertions With AssertJ-DB</name>
 	<description>
 		This sample project demonstrates how you can write soft assertions for the data that's
 		found from a relational database.

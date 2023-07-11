@@ -1,6 +1,6 @@
-# Writing Soft Assertions
+# Writing Soft Assertions With AssertJ-DB
 
-This is an example project of the Writing Soft Assertions lesson of the [Introduction AssertJ-DB course](). 
+This is an example project of the Writing Soft Assertions With AssertJ-DB lesson of the [Introduction AssertJ-DB course](). 
 After you have finished this lesson, you:
 
 *
