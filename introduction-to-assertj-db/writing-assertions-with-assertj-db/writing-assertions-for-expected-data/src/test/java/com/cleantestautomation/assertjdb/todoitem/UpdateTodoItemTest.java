@@ -15,7 +15,7 @@ import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 /**
  * This exercise helps you to understand how you can write the assertions which ensure
- * that 
+ * that only the information of the given todo item is updated to the database.
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
