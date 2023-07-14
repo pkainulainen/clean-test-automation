@@ -186,7 +186,7 @@ public class UpdateUserAccountTest {
      * decision to use this approach.
      */
     @Test
-    @DisplayName("Shouldn't make any cnhages to the information of Leo Virtanen (with soft assertions)")
+    @DisplayName("Shouldn't make any changes to the information of Leo Virtanen (with soft assertions)")
     void shouldNotMakeAnyChangesToInformationOfLeoVirtanenWithSoftAssertions() {
         repository.update(INPUT);
         assertThatUserAccountTable(userAccountTable).hasDefaultInformationOfLeoVirtanen();
