@@ -15,10 +15,8 @@ import javax.sql.DataSource;
 @DisplayName("Tests for the content of the user_account database table")
 class TodoItemTableTest {
 
-    private final DataSource dataSource;
-
     @Autowired
     TodoItemTableTest(DataSource dataSource) {
-        this.dataSource = dataSource;
+
     }
 }

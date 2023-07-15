@@ -16,14 +16,11 @@ import static org.assertj.db.api.Assertions.assertThat;
 @DisplayName("Tests for the content of the user_account database table")
 class UserAccountTableTest {
 
-    private final DataSource dataSource;
-
     private final Table userAccountTable;
 
     @Autowired
     UserAccountTableTest(DataSource dataSource) {
-        this.dataSource = dataSource;
-        this.userAccountTable = new Table(this.dataSource, "user_account");
+        this.userAccountTable = new Table(dataSource, "user_account");
     }
 
     @Test
