@@ -34,7 +34,6 @@ class CreateTodoItemTest {
             .withTitle(TodoItems.ReadAllLessons.TITLE)
             .build();
 
-    private final DataSource dataSource;
     private final IdColumnReset idColumnReset;
     private final TodoItemRepository repository;
     private final Table todoItemTable;
@@ -43,10 +42,9 @@ class CreateTodoItemTest {
     CreateTodoItemTest(DataSource dataSource,
                        NamedParameterJdbcTemplate jdbcTemplate,
                        TodoItemRepository repository) {
-        this.dataSource = dataSource;
         this.idColumnReset = new IdColumnReset(jdbcTemplate);
         this.repository = repository;
-        this.todoItemTable = new Table(this.dataSource, TodoItemTable.NAME);
+        this.todoItemTable = new Table(dataSource, TodoItemTable.NAME);
     }
 
     @BeforeEach
