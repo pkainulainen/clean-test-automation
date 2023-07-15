@@ -34,16 +34,14 @@ class UpdateTodoItemTest {
             .withTitle(TodoItems.ReadAllLessons.UPDATED_TITLE)
             .build();
 
-    private final DataSource dataSource;
     private final TodoItemRepository repository;
     private final Table todoItemTable;
 
     @Autowired
     UpdateTodoItemTest(DataSource dataSource,
                        TodoItemRepository repository) {
-        this.dataSource = dataSource;
         this.repository = repository;
-        this.todoItemTable = new Table(this.dataSource, TodoItemTable.NAME);
+        this.todoItemTable = new Table(dataSource, TodoItemTable.NAME);
     }
 
     @Test
