@@ -36,15 +36,13 @@ public class UpdateUserAccountTest {
             .withName(UserAccounts.AnneOwens.UPDATED_NAME)
             .build();
 
-    private final DataSource dataSource;
     private final UserAccountRepository repository;
     private final Table userAccountTable;
 
     @Autowired
     UpdateUserAccountTest(DataSource dataSource, UserAccountRepository repository) {
-        this.dataSource = dataSource;
         this.repository = repository;
-        this.userAccountTable = new Table(this.dataSource, UserAccountTable.NAME);
+        this.userAccountTable = new Table(dataSource, UserAccountTable.NAME);
     }
 
     @Test

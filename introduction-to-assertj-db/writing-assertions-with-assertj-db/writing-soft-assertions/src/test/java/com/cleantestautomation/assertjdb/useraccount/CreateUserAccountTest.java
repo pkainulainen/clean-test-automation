@@ -36,7 +36,6 @@ public class CreateUserAccountTest {
             .withStatus(UserAccounts.AnneOwens.STATUS_ACTIVE)
             .build();
 
-    private final DataSource dataSource;
     private final IdColumnReset idColumnReset;
     private final UserAccountRepository repository;
     private final Table userAccountTable;
@@ -45,7 +44,6 @@ public class CreateUserAccountTest {
     CreateUserAccountTest(DataSource dataSource,
                           NamedParameterJdbcTemplate jdbcTemplate,
                           UserAccountRepository repository) {
-        this.dataSource = dataSource;
         this.idColumnReset = new IdColumnReset(jdbcTemplate);
         this.repository = repository;
         this.userAccountTable = new Table(dataSource, UserAccountTable.NAME);
