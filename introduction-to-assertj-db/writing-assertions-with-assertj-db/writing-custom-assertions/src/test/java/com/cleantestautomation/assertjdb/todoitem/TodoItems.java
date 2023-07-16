@@ -49,4 +49,9 @@ public class TodoItems {
         public static final String TITLE = "Finish all exercises";
         public static final Long VERSION = 0L;
     }
+
+    /**
+     * Prevents instantiation.
+     */
+    private TodoItems() {}
 }

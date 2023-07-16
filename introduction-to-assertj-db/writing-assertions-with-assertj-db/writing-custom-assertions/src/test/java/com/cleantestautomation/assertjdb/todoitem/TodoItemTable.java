@@ -17,4 +17,9 @@ public class TodoItemTable {
     public static final String COLUMN_NAME_VERSION = "version";
 
     public static final String NAME = "todo_item";
+
+    /**
+     * Prevents instantiation.
+     */
+    private TodoItemTable() {}
 }
