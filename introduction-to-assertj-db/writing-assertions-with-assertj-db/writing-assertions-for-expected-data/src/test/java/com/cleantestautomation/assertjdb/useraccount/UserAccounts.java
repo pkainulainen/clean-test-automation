@@ -41,4 +41,9 @@ public class UserAccounts {
         public static UserAccountStatus STATUS_ACTIVE = UserAccountStatus.ACTIVE;
         public static Long VERSION = 0L;
     }
+
+    /**
+     * Prevents instantiation.
+     */
+    private UserAccounts() {}
 }
