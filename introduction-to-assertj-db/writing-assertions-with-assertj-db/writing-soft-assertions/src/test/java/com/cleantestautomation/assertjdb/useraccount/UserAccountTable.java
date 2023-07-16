@@ -15,4 +15,9 @@ public class UserAccountTable {
     public static final String COLUMN_NAME_VERSION = "version";
 
     public static final String NAME = "user_account";
+
+    /**
+     * Prevents instantiation.
+     */
+    private UserAccountTable() {}
 }

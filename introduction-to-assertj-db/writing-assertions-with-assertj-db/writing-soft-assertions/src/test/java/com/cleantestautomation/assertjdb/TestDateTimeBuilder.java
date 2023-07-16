@@ -15,6 +15,11 @@ public class TestDateTimeBuilder {
     private static final DateTimeFormatter UTC_DATE_TIME_FORMAT = DateTimeFormatter.ISO_DATE_TIME;
 
     /**
+     * Prevents instantiation.
+     */
+    private TestDateTimeBuilder() {}
+
+    /**
      * Transforms the given UTC datetime to a local datetime.
      * @param dateTime The UTC date and time string that uses the ISO date and time format without an offset.
      * @return  The local datetime string.
