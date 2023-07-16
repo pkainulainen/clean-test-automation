@@ -17,7 +17,7 @@ public class UserAccounts {
     public static class AnneOwens {
 
         public static final Long ID = 1L;
-        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateToLocalDateTime("2023-05-09T10:46:00");
+        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-05-09T10:46:00");
         public static String EMAIL_ADDRESS = "anne.owens@example.com";
         public static String NAME = "Anne Owens";
         public static String UPDATED_NAME = "Owens Anne";
@@ -33,7 +33,7 @@ public class UserAccounts {
     public static class LeoVirtanen {
 
         public static Long ID = 2L;
-        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateToLocalDateTime("2023-05-10T12:46:00");
+        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-05-10T12:46:00");
         public static String EMAIL_ADDRESS = "leo.virtanen@example.com";
         public static final String MODIFICATION_TIME_DB = CREATION_TIME_DB;
         public static String NAME = "Leo Virtanen";
