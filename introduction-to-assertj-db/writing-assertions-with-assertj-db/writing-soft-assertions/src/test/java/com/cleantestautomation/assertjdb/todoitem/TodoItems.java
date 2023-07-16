@@ -20,7 +20,7 @@ public class TodoItems {
 
         public static final Long ID = 1L;
         public static final Long CREATED_BY_USER_ID = UserAccounts.AnneOwens.ID;
-        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateToLocalDateTime("2023-07-07T10:46:00");
+        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T10:46:00");
         public static final String DESCRIPTION = "Be diligent";
         public static final String UPDATED_DESCRIPTION = "Finish this todo item before the end of this month";
         public static final String MODIFICATION_TIME = CREATION_TIME_DB;
@@ -40,7 +40,7 @@ public class TodoItems {
 
         public static final Long ID = 2L;
         public static final Long CREATED_BY_USER_ID = UserAccounts.AnneOwens.ID;
-        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateToLocalDateTime("2023-07-07T12:46:00");
+        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T12:46:00");
         public static final String DESCRIPTION = "Do not use copy & paste";
         public static final String MODIFICATION_TIME_DB = CREATION_TIME_DB;
         public static final Long MODIFIED_BY_USER_ID = CREATED_BY_USER_ID;
