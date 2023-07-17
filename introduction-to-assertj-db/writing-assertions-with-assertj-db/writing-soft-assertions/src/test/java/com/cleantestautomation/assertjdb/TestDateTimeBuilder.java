@@ -13,6 +13,7 @@ public class TestDateTimeBuilder {
 
     private static final DateTimeFormatter LOCAL_DATE_TIME_FORMAT = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
     private static final DateTimeFormatter UTC_DATE_TIME_FORMAT = DateTimeFormatter.ISO_DATE_TIME;
+    private static final String ZONE_ID_UTC = "UTC";
 
     /**
      * Prevents instantiation.
@@ -31,7 +32,7 @@ public class TestDateTimeBuilder {
 
     private static ZonedDateTime transformUTCStringToZonedDateTime(String dateTime) {
         var utcDateTime = LocalDateTime.from(UTC_DATE_TIME_FORMAT.parse(dateTime));
-        var utcZonedDateTime = utcDateTime.atZone(ZoneId.of("UTC"));
+        var utcZonedDateTime = utcDateTime.atZone(ZoneId.of(ZONE_ID_UTC));
         return utcZonedDateTime.withZoneSameInstant(ZoneId.systemDefault());
     }
 }
