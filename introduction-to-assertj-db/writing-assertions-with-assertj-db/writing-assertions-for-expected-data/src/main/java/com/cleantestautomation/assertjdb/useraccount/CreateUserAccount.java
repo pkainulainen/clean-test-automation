@@ -1,17 +1,23 @@
 package com.cleantestautomation.assertjdb.useraccount;
 
+import java.time.LocalDate;
+
 /**
  * Contains the information of the created user account.
  */
 class CreateUserAccount {
 
+    private final LocalDate dateOfBirth;
     private final String emailAddress;
+    private final boolean grantMarketingPermission;
     private final String name;
     private final String password;
     private final UserAccountStatus status;
 
     private CreateUserAccount(Builder builder) {
+        this.dateOfBirth = builder.dateOfBirth;
         this.emailAddress = builder.emailAddress;
+        this.grantMarketingPermission = builder.grantMarketingPermission;
         this.name = builder.name;
         this.password = builder.password;
         this.status = builder.status;
@@ -21,19 +27,27 @@ class CreateUserAccount {
         return new Builder();
     }
 
-    public String getEmailAddress() {
+    LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    String getEmailAddress() {
         return emailAddress;
     }
 
-    public String getName() {
+    boolean isGrantMarketingPermission() {
+        return grantMarketingPermission;
+    }
+
+    String getName() {
         return name;
     }
 
-    public String getPassword() {
+    String getPassword() {
         return password;
     }
 
-    public UserAccountStatus getStatus() {
+    UserAccountStatus getStatus() {
         return status;
     }
 
@@ -42,13 +56,25 @@ class CreateUserAccount {
      */
     static class Builder {
 
+        private LocalDate dateOfBirth;
         private String emailAddress;
+        private boolean grantMarketingPermission;
         private String name;
         private String password;
         private UserAccountStatus status;
 
+        Builder withDateOfBirth(LocalDate dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+            return this;
+        }
+
         Builder withEmailAddress(String emailAddress) {
             this.emailAddress = emailAddress;
+            return this;
+        }
+
+        Builder withGrantMarketingPermission(boolean grantMarketingPermission) {
+            this.grantMarketingPermission = grantMarketingPermission;
             return this;
         }
 
