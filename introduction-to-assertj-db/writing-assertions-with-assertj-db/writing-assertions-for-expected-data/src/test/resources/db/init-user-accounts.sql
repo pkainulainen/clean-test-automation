@@ -26,6 +26,7 @@ VALUES (
 INSERT INTO user_account (
     id,
     creation_time,
+    date_of_birth,
     email_address,
     grant_marketing_permission,
     modification_time,
@@ -37,6 +38,7 @@ INSERT INTO user_account (
 VALUES (
     2,
     '2023-05-10 12:46:00+00',
+    null,
     'leo.virtanen@example.com',
     false,
     '2023-05-10 12:46:00+00',
