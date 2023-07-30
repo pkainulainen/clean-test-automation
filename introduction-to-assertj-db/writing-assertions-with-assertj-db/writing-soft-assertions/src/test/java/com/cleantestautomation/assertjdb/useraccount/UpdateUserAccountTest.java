@@ -4,12 +4,10 @@ import com.cleantestautomation.assertjdb.IdColumnReset;
 import com.cleantestautomation.assertjdb.common.ConstantDateTimeService;
 import org.assertj.db.api.SoftAssertions;
 import org.assertj.db.type.Table;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 
