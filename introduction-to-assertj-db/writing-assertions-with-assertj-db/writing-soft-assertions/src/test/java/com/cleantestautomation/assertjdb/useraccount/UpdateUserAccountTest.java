@@ -33,6 +33,8 @@ public class UpdateUserAccountTest {
 
     private final UpdateUserAccount INPUT = UpdateUserAccount.getBuilder()
             .withId(UserAccounts.AnneOwens.ID)
+            .withDateOfBirth(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH)
+            .withGrantMarketingPermission(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION)
             .withName(UserAccounts.AnneOwens.UPDATED_NAME)
             .build();
 
@@ -73,6 +75,16 @@ public class UpdateUserAccountTest {
     }
 
     @Test
+    @DisplayName("Should update the date of birth of the updated user account")
+    void shouldUpdateDateOfBirthOfUpdatedUserAccount() {
+        repository.update(INPUT);
+        assertThat(userAccountTable)
+                .row(UserAccountTableRow.ANNE_OWENS.getIndex())
+                .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
+                .isEqualTo(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH_DB);
+    }
+
+    @Test
     @DisplayName("Shouldn't update the email address of the updated user account")
     void shouldNotUpdateEmailAddressOfUpdatedUserAccount() {
         repository.update(INPUT);
@@ -80,6 +92,16 @@ public class UpdateUserAccountTest {
                 .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                 .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
                 .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+    }
+
+    @Test
+    @DisplayName("Should update the grant marketing permission of the updated user account")
+    void shouldUpdateGrantMarketingPermissionOfUpdatedUserAccount() {
+        repository.update(INPUT);
+        assertThat(userAccountTable)
+                .row(UserAccountTableRow.ANNE_OWENS.getIndex())
+                .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
+                .isEqualTo(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION);
     }
 
     @Test
@@ -140,9 +162,15 @@ public class UpdateUserAccountTest {
             softAssertions.assertThat(updated.getId())
                     .as("id")
                     .isEqualByComparingTo(IdColumnReset.NEXT_ID);
+            softAssertions.assertThat(updated.getDateOfBirth())
+                    .as("dateOfBirth")
+                    .isEqualTo(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH_DB);
             softAssertions.assertThat(updated.getEmailAddress())
                     .as("emailAddress")
                     .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+            softAssertions.assertThat(updated.isGrantMarketingPermission())
+                    .as("grantMarketingPermission")
+                    .isEqualTo(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION);
             softAssertions.assertThat(updated.getName())
                     .as("name")
                     .isEqualTo(UserAccounts.AnneOwens.UPDATED_NAME);
@@ -171,9 +199,19 @@ public class UpdateUserAccountTest {
                 .isEqualTo(UserAccounts.LeoVirtanen.CREATION_TIME_DB);
         softAssertions.assertThat(userAccountTable)
                 .row(rowIndex)
+                .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
+                .as("date_of_birth")
+                .isNull();
+        softAssertions.assertThat(userAccountTable)
+                .row(rowIndex)
                 .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
                 .as("email_address")
                 .isEqualTo(UserAccounts.LeoVirtanen.EMAIL_ADDRESS);
+        softAssertions.assertThat(userAccountTable)
+                .row(rowIndex)
+                .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
+                .as("grant_marketing_permission")
+                .isEqualTo(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION);
         softAssertions.assertThat(userAccountTable)
                 .row(rowIndex)
                 .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)

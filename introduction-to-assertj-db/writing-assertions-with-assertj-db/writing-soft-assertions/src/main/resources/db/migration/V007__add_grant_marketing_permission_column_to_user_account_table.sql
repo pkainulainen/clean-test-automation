@@ -1,0 +1,1 @@
+ALTER TABLE user_account ADD COLUMN grant_marketing_permission boolean NOT NULL DEFAULT false;

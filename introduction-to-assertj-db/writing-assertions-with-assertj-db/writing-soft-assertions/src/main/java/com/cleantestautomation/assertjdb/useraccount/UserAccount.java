@@ -1,18 +1,24 @@
 package com.cleantestautomation.assertjdb.useraccount;
 
+import java.time.LocalDate;
+
 /**
  * Contains the information of a user account.
  */
 class UserAccount {
 
     private final Long id;
+    private final LocalDate dateOfBirth;
     private final String emailAddress;
+    private final boolean grantMarketingPermission;
     private final String name;
     private final UserAccountStatus status;
 
     private UserAccount(Builder builder) {
         this.id = builder.id;
+        this.dateOfBirth = builder.dateOfBirth;
         this.emailAddress = builder.emailAddress;
+        this.grantMarketingPermission = builder.grantMarketingPermission;
         this.name = builder.name;
         this.status = builder.status;
     }
@@ -21,8 +27,16 @@ class UserAccount {
         return new Builder();
     }
 
+    LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
     String getEmailAddress() {
         return emailAddress;
+    }
+
+    boolean isGrantMarketingPermission() {
+        return grantMarketingPermission;
     }
 
     Long getId() {
@@ -42,13 +56,25 @@ class UserAccount {
      */
     static class Builder {
 
+        private LocalDate dateOfBirth;
         private String emailAddress;
+        private boolean grantMarketingPermission;
         private Long id;
         private String name;
         private UserAccountStatus status;
 
+        Builder withDateOfBirth(LocalDate dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+            return this;
+        }
+
         Builder withEmailAddress(String emailAddress) {
             this.emailAddress = emailAddress;
+            return this;
+        }
+
+        Builder withGrantMarketingPermission(boolean grantMarketingPermission) {
+            this.grantMarketingPermission = grantMarketingPermission;
             return this;
         }
 
