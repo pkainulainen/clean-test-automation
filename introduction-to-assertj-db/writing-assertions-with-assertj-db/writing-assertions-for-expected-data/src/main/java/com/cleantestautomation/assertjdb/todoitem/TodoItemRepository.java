@@ -12,7 +12,7 @@ import static com.cleantestautomation.assertjdb.jooq.Tables.TODO_ITEM;
  * Provides CRUD operations for todo items.
  */
 @Repository
-public class TodoItemRepository {
+class TodoItemRepository {
 
     private final DateTimeService dateTimeService;
     private final DSLContext jooq;
@@ -71,12 +71,14 @@ public class TodoItemRepository {
     /**
      * Updates the information of an existing todo item.
      * @param input The new information of the updated todo item.
-     * @return  The information of the updated todo item.
+     * @return  The information of the updated todo item. If the updated
+     *          todo item isn't found from the database, this method returns
+     *          <code>null</code>.
      */
     @Transactional
     public TodoItem update(UpdateTodoItem input) {
         var currentDateAndTime = dateTimeService.getCurrentDateAndTime().toOffsetDateTime();
-        var result = jooq.update(TODO_ITEM)
+        return jooq.update(TODO_ITEM)
                 .set(TODO_ITEM.DESCRIPTION, input.getDescription())
                 .set(TODO_ITEM.MODIFICATION_TIME, currentDateAndTime)
                 .set(TODO_ITEM.MODIFIED_BY_USER_ID, input.getModifierId())
@@ -90,15 +92,15 @@ public class TodoItemRepository {
                         TODO_ITEM.STATUS,
                         TODO_ITEM.TITLE
                 )
-                .fetchOptional().get();
-
-        return TodoItem.getBuilder()
-                .withId(result.getId())
-                .withDescription(result.getDescription())
-                .withResolution(parseResolution(result.getResolution()))
-                .withStatus(TodoItemStatus.valueOf(result.getStatus()))
-                .withTitle(result.getTitle())
-                .build();
+                .fetchOptional()
+                .map(result -> TodoItem.getBuilder()
+                        .withId(result.getId())
+                        .withDescription(result.getDescription())
+                        .withResolution(parseResolution(result.getResolution()))
+                        .withStatus(TodoItemStatus.valueOf(result.getStatus()))
+                        .withTitle(result.getTitle())
+                        .build())
+                .orElse(null);
     }
 
     private TodoItemResolution parseResolution(String input) {

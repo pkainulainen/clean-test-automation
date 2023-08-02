@@ -11,6 +11,7 @@ public class TodoItems {
 
     public static final Long DEFAULT_VERSION = 0L;
     public static final int TODO_ITEM_ROW_COUNT = 2;
+    public static final Long UNKNOWN_ID = 99L;
 
     /**
      * Contains the information that should be found from the first row of the <code>todo_item</code>

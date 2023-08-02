@@ -75,12 +75,13 @@ class UserAccountRepository {
     /**
      * Updates the information of an existing user account.
      * @param input The new information of the updated user account.
-     * @return  The new information of the updated user account.
+     * @return  The new information of the updated user account. If the updated user
+     *          account isn't found from the database, this method returns <code>null</code>.
      */
     @Transactional
     public UserAccount update(UpdateUserAccount input) {
         var currentDateAndTime = dateTimeService.getCurrentDateAndTime().toOffsetDateTime();
-        var result = jooq.update(USER_ACCOUNT)
+        return jooq.update(USER_ACCOUNT)
                 .set(USER_ACCOUNT.DATE_OF_BIRTH, input.getDateOfBirth())
                 .set(USER_ACCOUNT.GRANT_MARKETING_PERMISSION, input.isGrantMarketingPermission())
                 .set(USER_ACCOUNT.MODIFICATION_TIME, currentDateAndTime)
@@ -95,15 +96,15 @@ class UserAccountRepository {
                         USER_ACCOUNT.NAME,
                         USER_ACCOUNT.STATUS
                 )
-                .fetchOptional().get();
-
-        return UserAccount.getBuilder()
-                .withId(result.getId())
-                .withDateOfBirth(result.getDateOfBirth())
-                .withEmailAddress(result.getEmailAddress())
-                .withGrantMarketingPermission(result.getGrantMarketingPermission())
-                .withName(result.getName())
-                .withStatus(UserAccountStatus.valueOf(result.getStatus()))
-                .build();
+                .fetchOptional()
+                .map(result -> UserAccount.getBuilder()
+                        .withId(result.getId())
+                        .withDateOfBirth(result.getDateOfBirth())
+                        .withEmailAddress(result.getEmailAddress())
+                        .withGrantMarketingPermission(result.getGrantMarketingPermission())
+                        .withName(result.getName())
+                        .withStatus(UserAccountStatus.valueOf(result.getStatus()))
+                        .build())
+                .orElse(null);
     }
 }
