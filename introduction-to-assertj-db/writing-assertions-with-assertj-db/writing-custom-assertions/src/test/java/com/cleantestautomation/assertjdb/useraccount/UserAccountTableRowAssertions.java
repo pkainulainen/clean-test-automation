@@ -33,6 +33,35 @@ public class UserAccountTableRowAssertions {
     }
 
     /**
+     * Ensures that the date of birth of the user account (the value of the <code>date_of_birth</code>
+     * column) is <code>null</code>.
+     * @return  A reference to the assertion object which allows you to leverage its fluent API when
+     *          you have to add multiple assertions to one test method.
+     */
+    public UserAccountTableRowAssertions doesNotHaveDateOfBirth() {
+        assertThat(userAccountTable)
+                .row(tableRowIndex)
+                .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
+                .isNull();
+        return this;
+    }
+
+    /**
+     * Ensures that the date of birth of the user account (the value of the <code>date_of_birth</code>
+     * column) is equal to the expected date of birth.
+     * @param expectedDateOfBirth   The expected date of birth.
+     * @return  A reference to the assertion object which allows you to leverage its fluent API when
+     *          you have to add multiple assertions to one test method.
+     */
+    public UserAccountTableRowAssertions hasDateOfBirth(String expectedDateOfBirth) {
+        assertThat(userAccountTable)
+                .row(tableRowIndex)
+                .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
+                .isEqualTo(expectedDateOfBirth);
+        return this;
+    }
+
+    /**
      * Ensures that the email address of the user account (the value of the <code>email_address</code>
      * column) is equal to the expected email address.
      * @param expectedEmailAddress  The expected email address.
@@ -44,6 +73,21 @@ public class UserAccountTableRowAssertions {
                 .row(tableRowIndex)
                 .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
                 .isEqualTo(expectedEmailAddress);
+        return this;
+    }
+
+    /**
+     * Ensures that the user account's grantMarketingPermission property (the value of the
+     * <code>grant_marketing_permission</code> column) is equal to the expected property value.
+     * @param expectedGrantMarketingPermission   The expected value of the grantMarketingPermission property.
+     * @return  A reference to the assertion object which allows you to leverage its fluent API when
+     *          you have to add multiple assertions to one test method.
+     */
+    public UserAccountTableRowAssertions hasGrantMarketingPermission(boolean expectedGrantMarketingPermission) {
+        assertThat(userAccountTable)
+                .row(tableRowIndex)
+                .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
+                .isEqualTo(expectedGrantMarketingPermission);
         return this;
     }
 

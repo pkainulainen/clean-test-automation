@@ -49,9 +49,18 @@ public class UserAccountTableAssertions {
                 .isEqualTo(UserAccounts.LeoVirtanen.CREATION_TIME_DB);
         softAssertions.assertThat(userAccountTable)
                 .row(rowIndex)
+                .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
+                .as("date_of_birth")
+                .isNull();
+        softAssertions.assertThat(userAccountTable)
+                .row(rowIndex)
                 .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
                 .as("email_address")
                 .isEqualTo(UserAccounts.LeoVirtanen.EMAIL_ADDRESS);
+        softAssertions.assertThat(userAccountTable)
+                .row(rowIndex)
+                .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
+                .isEqualTo(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION);
         softAssertions.assertThat(userAccountTable)
                 .row(rowIndex)
                 .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)

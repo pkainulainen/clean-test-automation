@@ -34,7 +34,9 @@ class UserAccountRepository {
         var result = jooq.insertInto(USER_ACCOUNT)
                 .columns(
                         USER_ACCOUNT.CREATION_TIME,
+                        USER_ACCOUNT.DATE_OF_BIRTH,
                         USER_ACCOUNT.EMAIL_ADDRESS,
+                        USER_ACCOUNT.GRANT_MARKETING_PERMISSION,
                         USER_ACCOUNT.NAME,
                         USER_ACCOUNT.MODIFICATION_TIME,
                         USER_ACCOUNT.PASSWORD,
@@ -42,7 +44,9 @@ class UserAccountRepository {
                 )
                 .values(
                         currentDateAndTime,
+                        input.getDateOfBirth(),
                         input.getEmailAddress(),
+                        input.isGrantMarketingPermission(),
                         input.getName(),
                         currentDateAndTime,
                         input.getPassword(),
@@ -50,7 +54,9 @@ class UserAccountRepository {
                 )
                 .returning(
                         USER_ACCOUNT.ID,
+                        USER_ACCOUNT.DATE_OF_BIRTH,
                         USER_ACCOUNT.EMAIL_ADDRESS,
+                        USER_ACCOUNT.GRANT_MARKETING_PERMISSION,
                         USER_ACCOUNT.NAME,
                         USER_ACCOUNT.STATUS
                 )
@@ -58,7 +64,9 @@ class UserAccountRepository {
 
         return UserAccount.getBuilder()
                 .withId(result.getId())
+                .withDateOfBirth(result.getDateOfBirth())
                 .withEmailAddress(result.getEmailAddress())
+                .withGrantMarketingPermission(result.getGrantMarketingPermission())
                 .withName(result.getName())
                 .withStatus(UserAccountStatus.valueOf(result.getStatus()))
                 .build();
@@ -73,13 +81,17 @@ class UserAccountRepository {
     public UserAccount update(UpdateUserAccount input) {
         var currentDateAndTime = dateTimeService.getCurrentDateAndTime().toOffsetDateTime();
         var result = jooq.update(USER_ACCOUNT)
+                .set(USER_ACCOUNT.DATE_OF_BIRTH, input.getDateOfBirth())
+                .set(USER_ACCOUNT.GRANT_MARKETING_PERMISSION, input.isGrantMarketingPermission())
                 .set(USER_ACCOUNT.MODIFICATION_TIME, currentDateAndTime)
                 .set(USER_ACCOUNT.NAME, input.getName())
                 .set(USER_ACCOUNT.VERSION, USER_ACCOUNT.VERSION.add(1))
                 .where(USER_ACCOUNT.ID.eq(input.getId()))
                 .returning(
                         USER_ACCOUNT.ID,
+                        USER_ACCOUNT.DATE_OF_BIRTH,
                         USER_ACCOUNT.EMAIL_ADDRESS,
+                        USER_ACCOUNT.GRANT_MARKETING_PERMISSION,
                         USER_ACCOUNT.NAME,
                         USER_ACCOUNT.STATUS
                 )
@@ -87,7 +99,9 @@ class UserAccountRepository {
 
         return UserAccount.getBuilder()
                 .withId(result.getId())
+                .withDateOfBirth(result.getDateOfBirth())
                 .withEmailAddress(result.getEmailAddress())
+                .withGrantMarketingPermission(result.getGrantMarketingPermission())
                 .withName(result.getName())
                 .withStatus(UserAccountStatus.valueOf(result.getStatus()))
                 .build();
