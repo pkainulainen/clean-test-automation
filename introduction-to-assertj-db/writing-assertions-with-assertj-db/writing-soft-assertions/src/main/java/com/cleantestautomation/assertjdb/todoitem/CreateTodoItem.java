@@ -3,7 +3,7 @@ package com.cleantestautomation.assertjdb.todoitem;
 /**
  * Contains the information of the created todo item.
  */
-public class CreateTodoItem {
+class CreateTodoItem {
 
     private final Long creatorId;
     private final String description;
