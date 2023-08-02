@@ -24,7 +24,7 @@ public class TodoItems {
         public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T10:46:00");
         public static final String DESCRIPTION = "Be diligent";
         public static final String UPDATED_DESCRIPTION = "Finish this todo item before the end of this month";
-        public static final String MODIFICATION_TIME = CREATION_TIME_DB;
+        public static final String MODIFICATION_TIME_DB = CREATION_TIME_DB;
         public static final Long MODIFIED_BY_USER_ID = CREATED_BY_USER_ID;
         public static final TodoItemResolution NO_RESOLUTION = null;
         public static final TodoItemStatus STATUS_OPEN = TodoItemStatus.OPEN;
