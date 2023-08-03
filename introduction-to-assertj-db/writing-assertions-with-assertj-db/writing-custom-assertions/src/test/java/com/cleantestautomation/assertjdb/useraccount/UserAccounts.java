@@ -11,6 +11,7 @@ public class UserAccounts {
 
     public static final Long DEFAULT_VERSION = 0L;
     public static final int USER_ACCOUNT_ROW_COUNT = 2;
+    public static final Long UNKNOWN_ID = 99L;
 
     /**
      * Contains the information that should be found from the first row of the <code>user_account</code>
@@ -26,6 +27,7 @@ public class UserAccounts {
         public static final LocalDate UPDATED_DATE_OF_BIRTH = LocalDate.parse(UPDATED_DATE_OF_BIRTH_DB);
         public static final String EMAIL_ADDRESS = "anne.owens@example.com";
         public static final boolean GRANT_MARKETING_PERMISSION = true;
+        public static final String MODIFICATION_TIME_DB = CREATION_TIME_DB;
         public static final boolean UPDATED_GRANT_MARKETING_PERMISSION = false;
         public static final String NAME = "Anne Owens";
         public static final String UPDATED_NAME = "Owens Anne";
