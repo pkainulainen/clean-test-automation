@@ -1,0 +1,1 @@
+ALTER TABLE user_account ADD COLUMN date_of_birth DATE;
