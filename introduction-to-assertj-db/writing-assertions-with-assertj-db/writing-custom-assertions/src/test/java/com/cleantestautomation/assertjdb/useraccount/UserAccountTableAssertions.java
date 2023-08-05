@@ -7,7 +7,7 @@ import org.assertj.db.type.Table;
  * An assertion utility class which allows you to write "table level" assertions for the
  * <code>user_account</code> database table.
  */
-public class UserAccountTableAssertions {
+public final class UserAccountTableAssertions {
 
     private final Table userAccountTable;
 

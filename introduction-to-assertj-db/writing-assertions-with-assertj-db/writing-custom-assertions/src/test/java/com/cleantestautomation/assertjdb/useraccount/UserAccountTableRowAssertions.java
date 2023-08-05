@@ -9,7 +9,7 @@ import static org.assertj.db.api.Assertions.assertThat;
  * of the specified database row which is found from the <code>user_account</code> database
  * table.
  */
-public class UserAccountTableRowAssertions {
+public final class UserAccountTableRowAssertions {
 
     private final int tableRowIndex;
     private final Table userAccountTable;
