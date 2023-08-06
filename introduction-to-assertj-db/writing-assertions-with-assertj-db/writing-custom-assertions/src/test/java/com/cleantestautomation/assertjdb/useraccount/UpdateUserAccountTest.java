@@ -14,7 +14,7 @@ import org.springframework.test.context.jdbc.Sql;
 
 import javax.sql.DataSource;
 
-import static com.cleantestautomation.assertjdb.useraccount.UserAccountTableAssertions.assertThatUserAccountTable;
+import static com.cleantestautomation.assertjdb.useraccount.UserAccountTableDefaultDataAssertions.assertThatUserAccountTable;
 import static com.cleantestautomation.assertjdb.useraccount.UserAccountTableRowAssertions.assertThatUserAccount;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 import static org.assertj.db.api.Assertions.assertThat;

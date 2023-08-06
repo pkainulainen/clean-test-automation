@@ -4,14 +4,14 @@ import org.assertj.db.api.SoftAssertions;
 import org.assertj.db.type.Table;
 
 /**
- * An assertion utility class which allows you to write "table level" assertions for the
- * <code>user_account</code> database table.
+ * An assertion utility class which allows you to ensure that no changes were made to
+ * the test data that was inserted into the <code>user_account</code> database table.
  */
-public final class UserAccountTableAssertions {
+public final class UserAccountTableDefaultDataAssertions {
 
     private final Table userAccountTable;
 
-    private UserAccountTableAssertions(Table userAccountTable) {
+    private UserAccountTableDefaultDataAssertions(Table userAccountTable) {
         this.userAccountTable = userAccountTable;
     }
 
@@ -24,8 +24,8 @@ public final class UserAccountTableAssertions {
      * @return  The created assertion object which allows you to write assertions for the data
      *          that's found from the <code>user_account</code> database table.
      */
-    public static UserAccountTableAssertions assertThatUserAccountTable(Table userAccountTable) {
-        return new UserAccountTableAssertions(userAccountTable);
+    public static UserAccountTableDefaultDataAssertions assertThatUserAccountTable(Table userAccountTable) {
+        return new UserAccountTableDefaultDataAssertions(userAccountTable);
     }
 
     /**
