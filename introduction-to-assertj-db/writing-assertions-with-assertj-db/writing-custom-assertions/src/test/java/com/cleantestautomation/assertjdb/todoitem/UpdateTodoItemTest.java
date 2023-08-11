@@ -1,6 +1,7 @@
 package com.cleantestautomation.assertjdb.todoitem;
 
 import com.cleantestautomation.assertjdb.IdColumnReset;
+import org.assertj.core.api.Assertions;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -75,7 +76,7 @@ class UpdateTodoItemTest {
         @DisplayName("Should return null")
         void shouldReturnNull() {
             var updated = repository.update(INPUT);
-            //TODO: Write assertion which ensures that the repository returns null.
+            Assertions.assertThat(updated).isNull();
         }
     }
 

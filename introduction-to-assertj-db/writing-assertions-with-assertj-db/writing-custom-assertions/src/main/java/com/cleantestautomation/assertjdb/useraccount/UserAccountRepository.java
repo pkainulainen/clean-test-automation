@@ -73,6 +73,37 @@ class UserAccountRepository {
     }
 
     /**
+     * Deletes the information of an existing user account.
+     * @param id    The id of the deleted user account.
+     * @return  The information of the deleted user account. If the deleted
+     *          user account isn't found from the database, this method
+     *          returns <code>null</code>.
+     */
+    @Transactional
+    public UserAccount delete(Long id) {
+        return jooq.delete(USER_ACCOUNT)
+                .where(USER_ACCOUNT.ID.eq(id))
+                .returning(
+                        USER_ACCOUNT.ID,
+                        USER_ACCOUNT.DATE_OF_BIRTH,
+                        USER_ACCOUNT.EMAIL_ADDRESS,
+                        USER_ACCOUNT.GRANT_MARKETING_PERMISSION,
+                        USER_ACCOUNT.NAME,
+                        USER_ACCOUNT.STATUS
+                )
+                .fetchOptional()
+                .map(result -> UserAccount.getBuilder()
+                        .withId(result.getId())
+                        .withDateOfBirth(result.getDateOfBirth())
+                        .withEmailAddress(result.getEmailAddress())
+                        .withGrantMarketingPermission(result.getGrantMarketingPermission())
+                        .withName(result.getName())
+                        .withStatus(UserAccountStatus.valueOf(result.getStatus()))
+                        .build())
+                .orElse(null);
+    }
+
+    /**
      * Updates the information of an existing user account.
      * @param input The new information of the updated user account.
      * @return  The new information of the updated user account. If the

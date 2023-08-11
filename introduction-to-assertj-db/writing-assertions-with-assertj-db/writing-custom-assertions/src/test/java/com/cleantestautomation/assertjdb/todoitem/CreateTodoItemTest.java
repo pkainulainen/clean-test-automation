@@ -105,7 +105,7 @@ class CreateTodoItemTest {
     @DisplayName("Should insert an open todo item into the database")
     void shouldInsertOpenTodoItemIntoDatabase() {
         repository.create(INPUT);
-        //TODO: Write the soft assertions which ensure that an open todo item is inserted into the database.
+        //TODO: Write the assertions which ensure that an open todo item is inserted into the database.
         //HINT: A todo is open when its status is: TodoItemStatus.OPEN and resolution is null.
     }
 
@@ -113,7 +113,7 @@ class CreateTodoItemTest {
     @DisplayName("Should insert the correct title into the database")
     void shouldInsertCorrectTitleIntoDatabase() {
         repository.create(INPUT);
-        //TDDO: Write the assertions which ensure that the correct title is inserted into the database.
+        //TODO: Write the assertion which ensures that the correct title is inserted into the database.
     }
 
     @Test
