@@ -17,7 +17,7 @@ import javax.sql.DataSource;
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
-@DisplayName("Update the information of an existing todo item")
+@DisplayName("Delete the information of an existing todo item")
 @Sql({
         "/db/clear-database.sql",
         "/db/init-user-accounts.sql",

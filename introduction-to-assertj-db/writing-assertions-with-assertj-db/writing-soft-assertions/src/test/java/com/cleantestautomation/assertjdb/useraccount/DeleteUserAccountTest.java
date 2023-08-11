@@ -21,7 +21,7 @@ import static org.assertj.db.api.Assertions.assertThat;
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
-@DisplayName("Update the information of an existing user account")
+@DisplayName("Delete the information of an existing user account")
 @Sql({
         "/db/clear-database.sql",
         "/db/init-user-accounts.sql"
