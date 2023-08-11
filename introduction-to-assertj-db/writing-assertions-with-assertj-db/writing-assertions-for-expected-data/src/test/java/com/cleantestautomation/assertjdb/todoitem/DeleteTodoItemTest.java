@@ -1,5 +1,6 @@
 package com.cleantestautomation.assertjdb.todoitem;
 
+import org.assertj.core.api.Assertions;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -11,6 +12,12 @@ import org.springframework.test.context.jdbc.Sql;
 
 import javax.sql.DataSource;
 
+import static org.assertj.core.api.SoftAssertions.assertSoftly;
+
+/**
+ * This exercise helps you to understand how you can write the assertions which ensure
+ * that the correct todo item is deleted from the database.
+ */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
 @DisplayName("Update the information of an existing todo item")
@@ -61,7 +68,7 @@ class DeleteTodoItemTest {
         @DisplayName("Should return null")
         void shouldReturnNull() {
             var deleted = repository.delete(TodoItems.UNKNOWN_ID);
-            //TODO: Write the assertion which ensures that the repository returns null.
+            Assertions.assertThat(deleted).isNull();
         }
     }
 
@@ -88,8 +95,23 @@ class DeleteTodoItemTest {
         @DisplayName("Should return the information of the deleted todo item")
         void shouldReturnInformationOfDeletedTodoItem() {
             var deleted = repository.delete(TodoItems.FinishAllExercises.ID);
-            //TODO: Write the assertions which ensure that the system under test returns the information of the
-            //deleted todo item.
+            assertSoftly(softAssertions -> {
+                softAssertions.assertThat(deleted.getId())
+                        .as("id")
+                        .isEqualByComparingTo(TodoItems.FinishAllExercises.ID);
+                softAssertions.assertThat(deleted.getDescription())
+                        .as("description")
+                        .isEqualTo(TodoItems.FinishAllExercises.DESCRIPTION);
+                softAssertions.assertThat(deleted.getResolution())
+                        .as("resolution")
+                        .isEqualTo(TodoItems.FinishAllExercises.NO_RESOLUTION);
+                softAssertions.assertThat(deleted.getStatus())
+                        .as("status")
+                        .isEqualTo(TodoItems.FinishAllExercises.STATUS_OPEN);
+                softAssertions.assertThat(deleted.getTitle())
+                        .as("title")
+                        .isEqualTo(TodoItems.FinishAllExercises.TITLE);
+            });
         }
     }
 }
