@@ -69,6 +69,34 @@ class TodoItemRepository {
     }
 
     /**
+     * Deletes the information of an existing todo item.
+     * @param id    The id of the deleted todo item.
+     * @return  The information of the deleted todo item. If the deleted todo
+     *          isn't found from the database, this method returns <code>null</code>.
+     */
+    @Transactional
+    public TodoItem delete(Long id) {
+        return jooq.delete(TODO_ITEM)
+                .where(TODO_ITEM.ID.eq(id))
+                .returning(
+                        TODO_ITEM.ID,
+                        TODO_ITEM.DESCRIPTION,
+                        TODO_ITEM.RESOLUTION,
+                        TODO_ITEM.STATUS,
+                        TODO_ITEM.TITLE
+                )
+                .fetchOptional()
+                .map(result -> TodoItem.getBuilder()
+                        .withId(result.getId())
+                        .withDescription(result.getDescription())
+                        .withResolution(parseResolution(result.getResolution()))
+                        .withStatus(TodoItemStatus.valueOf(result.getStatus()))
+                        .withTitle(result.getTitle())
+                        .build())
+                .orElse(null);
+    }
+
+    /**
      * Updates the information of an existing todo item.
      * @param input The new information of the updated todo item.
      * @return  The information of the updated todo item. If the updated
