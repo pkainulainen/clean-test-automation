@@ -1,4 +1,4 @@
-package com.cleantestautomation.assertjdb;
+package com.cleantestautomation.assertjdb.todoitem;
 
 import org.junit.jupiter.api.DisplayName;
 import org.springframework.beans.factory.annotation.Autowired;

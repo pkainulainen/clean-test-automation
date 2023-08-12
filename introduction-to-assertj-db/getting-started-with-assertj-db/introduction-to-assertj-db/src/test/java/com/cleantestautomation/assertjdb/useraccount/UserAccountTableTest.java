@@ -1,4 +1,4 @@
-package com.cleantestautomation.assertjdb;
+package com.cleantestautomation.assertjdb.useraccount;
 
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.DisplayName;
