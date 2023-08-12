@@ -1,10 +1,11 @@
 # Writing Custom Assertions With AssertJ-DB
 
-This is an example project of the Writing Custom Assertions With AssertJ-DB lesson of the [Introduction AssertJ-DB 
-course](). 
-After you have finished this lesson, you:
+This is an example project of the Writing Custom Assertions With AssertJ-DB lesson of the 
+[Introduction AssertJ-DB course](). After you have finished this lesson, you:
 
-*
+* Know why you should write custom assertions.
+* Can write custom assertions with AssertJ-DB.
+* Understand when you should write custom assertions.
 
 When you want to run the tests found from this example project, you can use this command:
 
