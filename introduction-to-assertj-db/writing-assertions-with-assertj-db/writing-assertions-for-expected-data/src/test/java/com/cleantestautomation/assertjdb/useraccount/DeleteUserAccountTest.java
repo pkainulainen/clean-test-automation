@@ -42,8 +42,8 @@ class DeleteUserAccountTest {
     class WhenDeletedUserAccountIsNotFound {
 
         @Test
-        @DisplayName("Shouldn't delete user accounts from the database")
-        void shouldNotDeleteUserAccountsFromDatabase() {
+        @DisplayName("Shouldn't delete user accounts from the database or insert user accounts into the database")
+        void shouldNotDeleteUserAccountsFromDatabaseOrInsertUserAccountsIntoDatabase() {
             repository.delete(UserAccounts.UNKNOWN_ID);
             assertThat(userAccountTable).hasNumberOfRows(UserAccounts.USER_ACCOUNT_ROW_COUNT);
         }
