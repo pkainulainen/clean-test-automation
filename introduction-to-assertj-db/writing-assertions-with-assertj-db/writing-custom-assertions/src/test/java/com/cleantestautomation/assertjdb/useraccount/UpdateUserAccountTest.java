@@ -53,8 +53,8 @@ public class UpdateUserAccountTest {
                 .build();
 
         @Test
-        @DisplayName("Shouldn't insert new user accounts into the database")
-        void shouldNotInsertNewUserAccountsIntoDatabase() {
+        @DisplayName("Shouldn't insert new user accounts into the database or delete user accounts from the database")
+        void shouldNotInsertNewUserAccountsIntoDatabaseOrDeleteUserAccountsFromDatabase() {
             repository.update(INPUT);
             assertThat(userAccountTable).hasNumberOfRows(UserAccounts.USER_ACCOUNT_ROW_COUNT);
         }
@@ -159,8 +159,8 @@ public class UpdateUserAccountTest {
                 .build();
 
         @Test
-        @DisplayName("Shouldn't insert new user accounts into the database")
-        void shouldNotInsertNewUserAccountsIntoDatabase() {
+        @DisplayName("Shouldn't insert new user accounts into the database or delete user accounts from the database")
+        void shouldNotInsertNewUserAccountsIntoDatabaseOrDeleteUserAccountsFromDatabase() {
             repository.update(INPUT);
             assertThat(userAccountTable).hasNumberOfRows(UserAccounts.USER_ACCOUNT_ROW_COUNT);
         }

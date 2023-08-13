@@ -50,8 +50,8 @@ class UpdateTodoItemTest {
                 .build();
 
         @Test
-        @DisplayName("Shouldn't insert new todo items into the database")
-        void shouldNotInsertNewTodoItemsIntoDatabase() {
+        @DisplayName("Shouldn't insert new todo items into the database or delete todo items from the database")
+        void shouldNotInsertNewTodoItemsIntoDatabaseOrDeleteTodoItemsFromDatabase() {
             repository.update(INPUT);
             //TODO: Write the assertion which ensures that the repository doesn't insert new todo items into the database.
         }
@@ -92,8 +92,8 @@ class UpdateTodoItemTest {
                 .build();
 
         @Test
-        @DisplayName("Shouldn't insert new todo items into the database")
-        void shouldNotInsertNewTodoItemsIntoDatabase() {
+        @DisplayName("Shouldn't insert new todo items into the database or delete todo items from the database")
+        void shouldNotInsertNewTodoItemsIntoDatabaseOrDeleteTodoItemsFromDatabase() {
             repository.update(INPUT);
             //TODO: Write the assertion which ensures that the repository doesn't insert new todo items into the database.
         }

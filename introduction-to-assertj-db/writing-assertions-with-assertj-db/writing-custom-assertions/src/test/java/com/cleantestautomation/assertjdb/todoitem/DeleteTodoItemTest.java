@@ -43,8 +43,8 @@ class DeleteTodoItemTest {
     class WhenDeletedTodoItemIsNotFound {
 
         @Test
-        @DisplayName("Shouldn't delete todo items from the database")
-        void shouldNotDeleteTodoItemsFromDatabase() {
+        @DisplayName("Shouldn't delete todo items from the database or insert new todo items into the database")
+        void shouldNotDeleteTodoItemsFromDatabaseOrInsertNewTodoItemsIntoDatabase() {
             repository.delete(TodoItems.UNKNOWN_ID);
             //TODO: Write the assertion which ensures that the system under test doesn't delete todo items from the database.
         }
