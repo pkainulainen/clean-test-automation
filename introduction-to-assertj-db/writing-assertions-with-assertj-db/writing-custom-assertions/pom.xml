@@ -20,7 +20,7 @@
 		<database.username>assertjdb</database.username>
 		<database.password>assertjdb</database.password>
 
-		<jdk.version>17</jdk.version>
+		<maven.compiler.release>21</maven.compiler.release>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -67,8 +67,6 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.13.0</version>
 				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
