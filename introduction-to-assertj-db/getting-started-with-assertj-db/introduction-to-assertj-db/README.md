@@ -12,8 +12,9 @@ After you have finished the lesson: Introduction to AssertJ-DB, you:
 
 After you have finished the lesson: Test Data Management 101, you:
 
-* Understand what a constant class is.
-* Know how constant classes help you to write tests which are easy to write and maintain.
+* Understand how you can manage your test data by using Java classes which contain the information of one
+  database table row.
+* Know how these test data classes help you to write tests which are easy to write and maintain.
 * Understand how you can define your database schema (table and column names).
 * Know what’s the best way to define the expected column values.
 

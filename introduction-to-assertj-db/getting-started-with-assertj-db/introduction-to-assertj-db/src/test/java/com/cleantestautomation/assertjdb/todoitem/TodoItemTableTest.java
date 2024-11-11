@@ -12,7 +12,7 @@ import javax.sql.DataSource;
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
-@DisplayName("Tests for the content of the user_account database table")
+@DisplayName("Tests for the content of the todo_item database table")
 class TodoItemTableTest {
 
     @Autowired

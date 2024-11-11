@@ -6,7 +6,7 @@ package com.cleantestautomation.assertjdb.todoitem;
  */
 public class TodoItems {
 
-    //TODO: Add nested classes and constants
+    //TODO: create the TodoItemRow class and add constants to this class.
 
     /**
      * prevents instantiation.
