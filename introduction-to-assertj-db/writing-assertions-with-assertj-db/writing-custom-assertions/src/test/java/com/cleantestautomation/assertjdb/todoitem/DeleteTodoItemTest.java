@@ -80,14 +80,14 @@ class DeleteTodoItemTest {
         @Test
         @DisplayName("Should delete one todo item from the database")
         void shouldDeleteOneTodoItemFromDatabase() {
-            repository.delete(TodoItems.FinishAllExercises.ID);
+            repository.delete(TodoItems.FinishAllExercises.getId());
             //TODO: Write the assertion which ensures that the system under test deletes one todo item from the database.
         }
 
         @Test
         @DisplayName("Shouldn't make any changes to the information of the Read all lessons todo item")
         void shouldNotMakeAnyChangesToInformationOfReadAllLessonsTodoItem() {
-            repository.delete(TodoItems.FinishAllExercises.ID);
+            repository.delete(TodoItems.FinishAllExercises.getId());
             //TODO: Write the assertions which ensure that the repository doesn't make any changes to the information
             //of the first todo item that's found from the todo_item table.
         }
@@ -95,23 +95,23 @@ class DeleteTodoItemTest {
         @Test
         @DisplayName("Should return the information of the deleted todo item")
         void shouldReturnInformationOfDeletedTodoItem() {
-            var deleted = repository.delete(TodoItems.FinishAllExercises.ID);
+            var deleted = repository.delete(TodoItems.FinishAllExercises.getId());
             assertSoftly(softAssertions -> {
                 softAssertions.assertThat(deleted.getId())
                         .as("id")
-                        .isEqualByComparingTo(TodoItems.FinishAllExercises.ID);
+                        .isEqualByComparingTo(TodoItems.FinishAllExercises.getId());
                 softAssertions.assertThat(deleted.getDescription())
                         .as("description")
-                        .isEqualTo(TodoItems.FinishAllExercises.DESCRIPTION);
+                        .isEqualTo(TodoItems.FinishAllExercises.getDescription());
                 softAssertions.assertThat(deleted.getResolution())
                         .as("resolution")
-                        .isEqualTo(TodoItems.FinishAllExercises.NO_RESOLUTION);
+                        .isEqualTo(TodoItems.FinishAllExercises.getResolution());
                 softAssertions.assertThat(deleted.getStatus())
                         .as("status")
-                        .isEqualTo(TodoItems.FinishAllExercises.STATUS_OPEN);
+                        .isEqualTo(TodoItems.FinishAllExercises.getStatus());
                 softAssertions.assertThat(deleted.getTitle())
                         .as("title")
-                        .isEqualTo(TodoItems.FinishAllExercises.TITLE);
+                        .isEqualTo(TodoItems.FinishAllExercises.getTitle());
             });
         }
     }

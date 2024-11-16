@@ -70,16 +70,16 @@ class DeleteUserAccountTest {
             repository.delete(UserAccounts.UNKNOWN_ID);
 
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasId(UserAccounts.AnneOwens.ID)
-                    .wasCreatedAt(UserAccounts.AnneOwens.CREATION_TIME_DB)
-                    .hasDateOfBirth(UserAccounts.AnneOwens.DATE_OF_BIRTH_DB)
-                    .hasEmailAddress(UserAccounts.AnneOwens.EMAIL_ADDRESS)
-                    .hasGrantMarketingPermission(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION)
-                    .wasModifiedAt(UserAccounts.AnneOwens.MODIFICATION_TIME_DB)
-                    .hasName(UserAccounts.AnneOwens.NAME)
-                    .hasPassword(UserAccounts.AnneOwens.PASSWORD)
-                    .hasStatus(UserAccounts.AnneOwens.STATUS_ACTIVE)
-                    .hasVersion(UserAccounts.AnneOwens.VERSION);
+                    .hasId(UserAccounts.AnneOwens.getId())
+                    .wasCreatedAt(UserAccounts.AnneOwens.getCreationTimeDb())
+                    .hasDateOfBirth(UserAccounts.AnneOwens.getDateOfBirthDb())
+                    .hasEmailAddress(UserAccounts.AnneOwens.getEmailAddress())
+                    .hasGrantMarketingPermission(UserAccounts.AnneOwens.isGrantMarketingPermission())
+                    .wasModifiedAt(UserAccounts.AnneOwens.getModificationTimeDb())
+                    .hasName(UserAccounts.AnneOwens.getName())
+                    .hasPassword(UserAccounts.AnneOwens.getPassword())
+                    .hasStatus(UserAccounts.AnneOwens.getStatus())
+                    .hasVersion(UserAccounts.AnneOwens.getVersion());
         }
 
         @Test
@@ -88,16 +88,16 @@ class DeleteUserAccountTest {
             repository.delete(UserAccounts.UNKNOWN_ID);
 
             assertThatUserAccount(userAccountTable, UserAccountTableRow.LEO_VIRTANEN)
-                    .hasId(UserAccounts.LeoVirtanen.ID)
-                    .wasCreatedAt(UserAccounts.LeoVirtanen.CREATION_TIME_DB)
+                    .hasId(UserAccounts.LeoVirtanen.getId())
+                    .wasCreatedAt(UserAccounts.LeoVirtanen.getCreationTimeDb())
                     .doesNotHaveDateOfBirth()
-                    .hasEmailAddress(UserAccounts.LeoVirtanen.EMAIL_ADDRESS)
-                    .hasGrantMarketingPermission(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION)
-                    .wasModifiedAt(UserAccounts.LeoVirtanen.MODIFICATION_TIME_DB)
-                    .hasName(UserAccounts.LeoVirtanen.NAME)
-                    .hasPassword(UserAccounts.LeoVirtanen.PASSWORD)
-                    .hasStatus(UserAccounts.LeoVirtanen.STATUS_ACTIVE)
-                    .hasVersion(UserAccounts.LeoVirtanen.VERSION);
+                    .hasEmailAddress(UserAccounts.LeoVirtanen.getEmailAddress())
+                    .hasGrantMarketingPermission(UserAccounts.LeoVirtanen.isGrantMarketingPermission())
+                    .wasModifiedAt(UserAccounts.LeoVirtanen.getModificationTimeDb())
+                    .hasName(UserAccounts.LeoVirtanen.getName())
+                    .hasPassword(UserAccounts.LeoVirtanen.getPassword())
+                    .hasStatus(UserAccounts.LeoVirtanen.getStatus())
+                    .hasVersion(UserAccounts.LeoVirtanen.getVersion());
         }
 
         /**
@@ -143,7 +143,7 @@ class DeleteUserAccountTest {
         @Test
         @DisplayName("Should delete one user account from the database")
         void shouldDeleteOneUserAccountFromDatabase() {
-            repository.delete(UserAccounts.LeoVirtanen.ID);
+            repository.delete(UserAccounts.LeoVirtanen.getId());
             assertThat(userAccountTable).hasNumberOfRows(UserAccounts.USER_ACCOUNT_ROW_COUNT - 1);
         }
 
@@ -168,16 +168,16 @@ class DeleteUserAccountTest {
             repository.delete(UserAccounts.UNKNOWN_ID);
 
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasId(UserAccounts.AnneOwens.ID)
-                    .wasCreatedAt(UserAccounts.AnneOwens.CREATION_TIME_DB)
-                    .hasDateOfBirth(UserAccounts.AnneOwens.DATE_OF_BIRTH_DB)
-                    .hasEmailAddress(UserAccounts.AnneOwens.EMAIL_ADDRESS)
-                    .hasGrantMarketingPermission(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION)
-                    .wasModifiedAt(UserAccounts.AnneOwens.MODIFICATION_TIME_DB)
-                    .hasName(UserAccounts.AnneOwens.NAME)
-                    .hasPassword(UserAccounts.AnneOwens.PASSWORD)
-                    .hasStatus(UserAccounts.AnneOwens.STATUS_ACTIVE)
-                    .hasVersion(UserAccounts.AnneOwens.VERSION);
+                    .hasId(UserAccounts.AnneOwens.getId())
+                    .wasCreatedAt(UserAccounts.AnneOwens.getCreationTimeDb())
+                    .hasDateOfBirth(UserAccounts.AnneOwens.getDateOfBirthDb())
+                    .hasEmailAddress(UserAccounts.AnneOwens.getEmailAddress())
+                    .hasGrantMarketingPermission(UserAccounts.AnneOwens.isGrantMarketingPermission())
+                    .wasModifiedAt(UserAccounts.AnneOwens.getModificationTimeDb())
+                    .hasName(UserAccounts.AnneOwens.getName())
+                    .hasPassword(UserAccounts.AnneOwens.getPassword())
+                    .hasStatus(UserAccounts.AnneOwens.getStatus())
+                    .hasVersion(UserAccounts.AnneOwens.getVersion());
         }
 
         /**

@@ -29,9 +29,9 @@ import static org.assertj.core.api.SoftAssertions.assertSoftly;
 class CreateTodoItemTest {
 
     private static final CreateTodoItem INPUT = CreateTodoItem.getBuilder()
-            .withCreatorId(TodoItems.ReadAllLessons.CREATED_BY_USER_ID)
-            .withDescription(TodoItems.ReadAllLessons.DESCRIPTION)
-            .withTitle(TodoItems.ReadAllLessons.TITLE)
+            .withCreatorId(TodoItems.ReadAllLessons.getCreatedByUserId())
+            .withDescription(TodoItems.ReadAllLessons.getDescription())
+            .withTitle(TodoItems.ReadAllLessons.getTitle())
             .build();
 
     private final IdColumnReset idColumnReset;
@@ -133,16 +133,16 @@ class CreateTodoItemTest {
                     .isEqualByComparingTo(IdColumnReset.NEXT_ID);
             softAssertions.assertThat(created.getDescription())
                     .as("description")
-                    .isEqualTo(TodoItems.ReadAllLessons.DESCRIPTION);
+                    .isEqualTo(TodoItems.ReadAllLessons.getDescription());
             softAssertions.assertThat(created.getResolution())
                     .as("resolution")
                     .isNull();
             softAssertions.assertThat(created.getStatus())
                     .as("status")
-                    .isEqualTo(TodoItems.ReadAllLessons.STATUS_OPEN);
+                    .isEqualTo(TodoItems.ReadAllLessons.getStatus());
             softAssertions.assertThat(created.getTitle())
                     .as("title")
-                    .isEqualTo(TodoItems.ReadAllLessons.TITLE);
+                    .isEqualTo(TodoItems.ReadAllLessons.getTitle());
         });
     }
 }

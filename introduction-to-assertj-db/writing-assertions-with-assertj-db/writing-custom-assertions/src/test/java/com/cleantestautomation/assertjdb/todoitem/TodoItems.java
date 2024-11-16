@@ -1,7 +1,7 @@
 package com.cleantestautomation.assertjdb.todoitem;
 
-
 import com.cleantestautomation.assertjdb.TestDateTimeBuilder;
+import com.cleantestautomation.assertjdb.common.ConstantDateTimeService;
 import com.cleantestautomation.assertjdb.useraccount.UserAccounts;
 
 /**
@@ -17,39 +17,52 @@ public class TodoItems {
      * Contains the information that should be found from the first row of the <code>todo_item</code>
      * database table.
      */
-    public static class ReadAllLessons {
+    public static final TodoItemRow ReadAllLessons = TodoItemRow.getBuilder()
+            .withId(1L)
+            .withCreatedByUserId(UserAccounts.AnneOwens.getId())
+            .withCreationTimeDb(TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T10:46:00"))
+            .withDescription("Be diligent")
+            .withModificationTimeDb(TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T10:46:00"))
+            .withModifiedByUserId(UserAccounts.AnneOwens.getId())
+            .withResolution(null)
+            .withStatus(TodoItemStatus.OPEN)
+            .withTitle("Read all lessons")
+            .withVersion(0L)
+            .build();
 
-        public static final Long ID = 1L;
-        public static final Long CREATED_BY_USER_ID = UserAccounts.AnneOwens.ID;
-        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T10:46:00");
-        public static final String DESCRIPTION = "Be diligent";
-        public static final String UPDATED_DESCRIPTION = "Finish this todo item before the end of this month";
-        public static final String MODIFICATION_TIME = CREATION_TIME_DB;
-        public static final Long MODIFIED_BY_USER_ID = CREATED_BY_USER_ID;
-        public static final TodoItemResolution NO_RESOLUTION = null;
-        public static final TodoItemStatus STATUS_OPEN = TodoItemStatus.OPEN;
-        public static final String TITLE = "Read all lessons";
-        public static final String UPDATED_TITLE = "Finish the course";
-        public static final Long VERSION = 0L;
-    }
+    /**
+     * Contains the information that should be found from the first row of the <code>todo_item</code>
+     * database table after the information of the todo item has been updated.
+     */
+    public static final TodoItemRow UpdatedReadAllLessons = TodoItemRow.getBuilder()
+            .withId(1L)
+            .withCreatedByUserId(UserAccounts.AnneOwens.getId())
+            .withCreationTimeDb(TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T10:46:00"))
+            .withDescription("Finish this todo item before the end of this month")
+            .withModificationTimeDb(ConstantDateTimeService.CURRENT_LOCAL_DATE_TIME)
+            .withModifiedByUserId(UserAccounts.AnneOwens.getId())
+            .withResolution(null)
+            .withStatus(TodoItemStatus.OPEN)
+            .withTitle("Finish the course")
+            .withVersion(1L)
+            .build();
 
     /**
      * Contains the information that should be found from the second row of the <code>todo_item</code>
      * database table.
      */
-    public static class FinishAllExercises {
-
-        public static final Long ID = 2L;
-        public static final Long CREATED_BY_USER_ID = UserAccounts.AnneOwens.ID;
-        public static final String CREATION_TIME_DB = TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T12:46:00");
-        public static final String DESCRIPTION = "Do not use copy & paste";
-        public static final String MODIFICATION_TIME_DB = CREATION_TIME_DB;
-        public static final Long MODIFIED_BY_USER_ID = CREATED_BY_USER_ID;
-        public static final TodoItemResolution NO_RESOLUTION = null;
-        public static final TodoItemStatus STATUS_OPEN = TodoItemStatus.OPEN;
-        public static final String TITLE = "Finish all exercises";
-        public static final Long VERSION = 0L;
-    }
+    public static final TodoItemRow FinishAllExercises = TodoItemRow.getBuilder()
+            .withId(2L)
+            .withCreatedByUserId(UserAccounts.AnneOwens.getId())
+            .withCreationTimeDb(TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T12:46:00"))
+            .withDescription("Do not use copy & paste")
+            .withModificationTimeDb(TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-07-07T12:46:00"))
+            .withModifiedByUserId(UserAccounts.AnneOwens.getId())
+            .withResolution(null)
+            .withStatus(TodoItemStatus.OPEN)
+            .withTitle("Finish all exercises")
+            .withVersion(0L)
+            .build();
 
     /**
      * Prevents instantiation.

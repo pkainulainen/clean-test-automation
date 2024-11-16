@@ -31,12 +31,12 @@ import static org.assertj.db.api.Assertions.assertThat;
 public class CreateUserAccountTest {
 
     private final CreateUserAccount INPUT = CreateUserAccount.getBuilder()
-            .withDateOfBirth(UserAccounts.AnneOwens.DATE_OF_BIRTH)
-            .withEmailAddress(UserAccounts.AnneOwens.EMAIL_ADDRESS)
-            .withGrantMarketingPermission(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION)
-            .withName(UserAccounts.AnneOwens.NAME)
-            .withPassword(UserAccounts.AnneOwens.PASSWORD)
-            .withStatus(UserAccounts.AnneOwens.STATUS_ACTIVE)
+            .withDateOfBirth(UserAccounts.AnneOwens.getDateOfBirth())
+            .withEmailAddress(UserAccounts.AnneOwens.getEmailAddress())
+            .withGrantMarketingPermission(UserAccounts.AnneOwens.isGrantMarketingPermission())
+            .withName(UserAccounts.AnneOwens.getName())
+            .withPassword(UserAccounts.AnneOwens.getPassword())
+            .withStatus(UserAccounts.AnneOwens.getStatus())
             .build();
 
     private final IdColumnReset idColumnReset;
@@ -85,7 +85,7 @@ public class CreateUserAccountTest {
     void shouldInsertCorrectDateOfBirthIntoDatabase() {
         repository.create(INPUT);
         assertThatUserAccount(userAccountTable, UserAccountTableRow.NEW_USER_ACCOUNT)
-                .hasDateOfBirth(UserAccounts.AnneOwens.DATE_OF_BIRTH_DB);
+                .hasDateOfBirth(UserAccounts.AnneOwens.getDateOfBirthDb());
     }
 
     @Test
@@ -93,7 +93,7 @@ public class CreateUserAccountTest {
     void shouldInsertCorrectEmailAddressIntoDatabase() {
         repository.create(INPUT);
         assertThatUserAccount(userAccountTable, UserAccountTableRow.NEW_USER_ACCOUNT)
-                .hasEmailAddress(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                .hasEmailAddress(UserAccounts.AnneOwens.getEmailAddress());
     }
 
     @Test
@@ -101,7 +101,7 @@ public class CreateUserAccountTest {
     void shouldInsertCorrectGrantMarketingPermissionIntoDatabase() {
         repository.create(INPUT);
         assertThatUserAccount(userAccountTable, UserAccountTableRow.NEW_USER_ACCOUNT)
-                .hasGrantMarketingPermission(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION);
+                .hasGrantMarketingPermission(UserAccounts.AnneOwens.isGrantMarketingPermission());
     }
 
     @Test
@@ -117,7 +117,7 @@ public class CreateUserAccountTest {
     void shouldInsertCorrectNameIntoDatabase() {
         repository.create(INPUT);
         assertThatUserAccount(userAccountTable, UserAccountTableRow.NEW_USER_ACCOUNT)
-                .hasName(UserAccounts.AnneOwens.NAME);
+                .hasName(UserAccounts.AnneOwens.getName());
     }
 
     @Test
@@ -125,7 +125,7 @@ public class CreateUserAccountTest {
     void shouldInsertCorrectPasswordIntoTheDatabase() {
         repository.create(INPUT);
         assertThatUserAccount(userAccountTable, UserAccountTableRow.NEW_USER_ACCOUNT)
-                .hasPassword(UserAccounts.AnneOwens.PASSWORD);
+                .hasPassword(UserAccounts.AnneOwens.getPassword());
     }
 
     @Test
@@ -133,7 +133,7 @@ public class CreateUserAccountTest {
     void shouldInsertCorrectStatusIntoDatabase() {
         repository.create(INPUT);
         assertThatUserAccount(userAccountTable, UserAccountTableRow.NEW_USER_ACCOUNT)
-                .hasStatus(UserAccounts.AnneOwens.STATUS_ACTIVE);
+                .hasStatus(UserAccounts.AnneOwens.getStatus());
     }
 
     @Test
@@ -154,19 +154,19 @@ public class CreateUserAccountTest {
                     .isEqualByComparingTo(IdColumnReset.NEXT_ID);
             softAssertions.assertThat(created.getDateOfBirth())
                     .as("dateOfBirth")
-                    .isEqualTo(UserAccounts.AnneOwens.DATE_OF_BIRTH);
+                    .isEqualTo(UserAccounts.AnneOwens.getDateOfBirth());
             softAssertions.assertThat(created.getEmailAddress())
                     .as("emailAddress")
-                    .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.AnneOwens.getEmailAddress());
             softAssertions.assertThat(created.isGrantMarketingPermission())
                     .as("grantMarketingPermission")
-                    .isEqualTo(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.AnneOwens.isGrantMarketingPermission());
             softAssertions.assertThat(created.getName())
                     .as("name")
-                    .isEqualTo(UserAccounts.AnneOwens.NAME);
+                    .isEqualTo(UserAccounts.AnneOwens.getName());
             softAssertions.assertThat(created.getStatus())
                     .as("status")
-                    .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE);
+                    .isEqualTo(UserAccounts.AnneOwens.getStatus());
         });
     }
 }

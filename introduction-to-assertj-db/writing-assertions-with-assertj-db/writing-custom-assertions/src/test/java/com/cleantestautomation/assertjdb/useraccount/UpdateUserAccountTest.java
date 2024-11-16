@@ -47,9 +47,9 @@ public class UpdateUserAccountTest {
 
         private final UpdateUserAccount INPUT = UpdateUserAccount.getBuilder()
                 .withId(UserAccounts.UNKNOWN_ID)
-                .withDateOfBirth(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH)
-                .withGrantMarketingPermission(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION)
-                .withName(UserAccounts.AnneOwens.UPDATED_NAME)
+                .withDateOfBirth(UserAccounts.UpdatedAnneOwens.getDateOfBirth())
+                .withGrantMarketingPermission(UserAccounts.UpdatedAnneOwens.isGrantMarketingPermission())
+                .withName(UserAccounts.UpdatedAnneOwens.getName())
                 .build();
 
         @Test
@@ -81,16 +81,16 @@ public class UpdateUserAccountTest {
             repository.update(INPUT);
 
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasId(UserAccounts.AnneOwens.ID)
-                    .wasCreatedAt(UserAccounts.AnneOwens.CREATION_TIME_DB)
-                    .hasDateOfBirth(UserAccounts.AnneOwens.DATE_OF_BIRTH_DB)
-                    .hasEmailAddress(UserAccounts.AnneOwens.EMAIL_ADDRESS)
-                    .hasGrantMarketingPermission(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION)
-                    .wasModifiedAt(UserAccounts.AnneOwens.MODIFICATION_TIME_DB)
-                    .hasName(UserAccounts.AnneOwens.NAME)
-                    .hasPassword(UserAccounts.AnneOwens.PASSWORD)
-                    .hasStatus(UserAccounts.AnneOwens.STATUS_ACTIVE)
-                    .hasVersion(UserAccounts.AnneOwens.VERSION);
+                    .hasId(UserAccounts.AnneOwens.getId())
+                    .wasCreatedAt(UserAccounts.AnneOwens.getCreationTimeDb())
+                    .hasDateOfBirth(UserAccounts.AnneOwens.getDateOfBirthDb())
+                    .hasEmailAddress(UserAccounts.AnneOwens.getEmailAddress())
+                    .hasGrantMarketingPermission(UserAccounts.AnneOwens.isGrantMarketingPermission())
+                    .wasModifiedAt(UserAccounts.AnneOwens.getModificationTimeDb())
+                    .hasName(UserAccounts.AnneOwens.getName())
+                    .hasPassword(UserAccounts.AnneOwens.getPassword())
+                    .hasStatus(UserAccounts.AnneOwens.getStatus())
+                    .hasVersion(UserAccounts.AnneOwens.getVersion());
         }
 
         @Test
@@ -99,16 +99,16 @@ public class UpdateUserAccountTest {
             repository.update(INPUT);
 
             assertThatUserAccount(userAccountTable, UserAccountTableRow.LEO_VIRTANEN)
-                    .hasId(UserAccounts.LeoVirtanen.ID)
-                    .wasCreatedAt(UserAccounts.LeoVirtanen.CREATION_TIME_DB)
+                    .hasId(UserAccounts.LeoVirtanen.getId())
+                    .wasCreatedAt(UserAccounts.LeoVirtanen.getCreationTimeDb())
                     .doesNotHaveDateOfBirth()
-                    .hasEmailAddress(UserAccounts.LeoVirtanen.EMAIL_ADDRESS)
-                    .hasGrantMarketingPermission(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION)
-                    .wasModifiedAt(UserAccounts.LeoVirtanen.MODIFICATION_TIME_DB)
-                    .hasName(UserAccounts.LeoVirtanen.NAME)
-                    .hasPassword(UserAccounts.LeoVirtanen.PASSWORD)
-                    .hasStatus(UserAccounts.LeoVirtanen.STATUS_ACTIVE)
-                    .hasVersion(UserAccounts.LeoVirtanen.VERSION);
+                    .hasEmailAddress(UserAccounts.LeoVirtanen.getEmailAddress())
+                    .hasGrantMarketingPermission(UserAccounts.LeoVirtanen.isGrantMarketingPermission())
+                    .wasModifiedAt(UserAccounts.LeoVirtanen.getModificationTimeDb())
+                    .hasName(UserAccounts.LeoVirtanen.getName())
+                    .hasPassword(UserAccounts.LeoVirtanen.getPassword())
+                    .hasStatus(UserAccounts.LeoVirtanen.getStatus())
+                    .hasVersion(UserAccounts.LeoVirtanen.getVersion());
         }
 
         /**
@@ -152,10 +152,10 @@ public class UpdateUserAccountTest {
     class WhenUpdatedUserAccountIsFound {
 
         private final UpdateUserAccount INPUT = UpdateUserAccount.getBuilder()
-                .withId(UserAccounts.AnneOwens.ID)
-                .withDateOfBirth(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH)
-                .withGrantMarketingPermission(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION)
-                .withName(UserAccounts.AnneOwens.UPDATED_NAME)
+                .withId(UserAccounts.UpdatedAnneOwens.getId())
+                .withDateOfBirth(UserAccounts.UpdatedAnneOwens.getDateOfBirth())
+                .withGrantMarketingPermission(UserAccounts.UpdatedAnneOwens.isGrantMarketingPermission())
+                .withName(UserAccounts.UpdatedAnneOwens.getName())
                 .build();
 
         @Test
@@ -170,7 +170,7 @@ public class UpdateUserAccountTest {
         void shouldNotChangeIdOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasId(UserAccounts.AnneOwens.ID);
+                    .hasId(UserAccounts.UpdatedAnneOwens.getId());
         }
 
         @Test
@@ -178,7 +178,7 @@ public class UpdateUserAccountTest {
         void shouldNotUpdateCreationTimeOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .wasCreatedAt(UserAccounts.AnneOwens.CREATION_TIME_DB);
+                    .wasCreatedAt(UserAccounts.UpdatedAnneOwens.getCreationTimeDb());
         }
 
         @Test
@@ -186,7 +186,7 @@ public class UpdateUserAccountTest {
         void shouldUpdateDateOfBirthOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasDateOfBirth(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH_DB);
+                    .hasDateOfBirth(UserAccounts.UpdatedAnneOwens.getDateOfBirthDb());
         }
 
         @Test
@@ -194,7 +194,7 @@ public class UpdateUserAccountTest {
         void shouldNotUpdateEmailAddressOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasEmailAddress(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                    .hasEmailAddress(UserAccounts.UpdatedAnneOwens.getEmailAddress());
         }
 
         @Test
@@ -202,7 +202,7 @@ public class UpdateUserAccountTest {
         void shouldUpdateGrantMarketingPermissionOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasGrantMarketingPermission(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION);
+                    .hasGrantMarketingPermission(UserAccounts.UpdatedAnneOwens.isGrantMarketingPermission());
         }
 
         @Test
@@ -210,7 +210,7 @@ public class UpdateUserAccountTest {
         void shouldUpdateModificationTimeOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .wasModifiedAt(ConstantDateTimeService.CURRENT_LOCAL_DATE_TIME);
+                    .wasModifiedAt(UserAccounts.UpdatedAnneOwens.getModificationTimeDb());
         }
 
         @Test
@@ -218,7 +218,7 @@ public class UpdateUserAccountTest {
         void shouldUpdateNameOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasName(UserAccounts.AnneOwens.UPDATED_NAME);
+                    .hasName(UserAccounts.UpdatedAnneOwens.getName());
         }
 
         @Test
@@ -226,7 +226,7 @@ public class UpdateUserAccountTest {
         void shouldNotUpdatePasswordOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasPassword(UserAccounts.AnneOwens.PASSWORD);
+                    .hasPassword(UserAccounts.UpdatedAnneOwens.getPassword());
         }
 
         @Test
@@ -234,7 +234,7 @@ public class UpdateUserAccountTest {
         void shouldNotChangeStatusOfUpdatedUserAccount() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasStatus(UserAccounts.AnneOwens.STATUS_ACTIVE);
+                    .hasStatus(UserAccounts.UpdatedAnneOwens.getStatus());
         }
 
         @Test
@@ -242,7 +242,7 @@ public class UpdateUserAccountTest {
         void shouldIncreaseVersionOfUpdatedUserAccountByOne() {
             repository.update(INPUT);
             assertThatUserAccount(userAccountTable, UserAccountTableRow.ANNE_OWENS)
-                    .hasVersion(UserAccounts.AnneOwens.VERSION + 1);
+                    .hasVersion(UserAccounts.UpdatedAnneOwens.getVersion());
         }
 
         @Test
@@ -252,22 +252,22 @@ public class UpdateUserAccountTest {
             assertSoftly(softAssertions -> {
                 softAssertions.assertThat(updated.getId())
                         .as("id")
-                        .isEqualByComparingTo(IdColumnReset.NEXT_ID);
+                        .isEqualByComparingTo(UserAccounts.UpdatedAnneOwens.getId());
                 softAssertions.assertThat(updated.getDateOfBirth())
                         .as("dateOfBirth")
-                        .isEqualTo(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH_DB);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.getDateOfBirth());
                 softAssertions.assertThat(updated.getEmailAddress())
                         .as("emailAddress")
-                        .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.getEmailAddress());
                 softAssertions.assertThat(updated.isGrantMarketingPermission())
                         .as("grantMarketingPermission")
-                        .isEqualTo(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.isGrantMarketingPermission());
                 softAssertions.assertThat(updated.getName())
                         .as("name")
-                        .isEqualTo(UserAccounts.AnneOwens.UPDATED_NAME);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.getName());
                 softAssertions.assertThat(updated.getStatus())
                         .as("status")
-                        .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.getStatus());
             });
         }
 
@@ -292,16 +292,16 @@ public class UpdateUserAccountTest {
             repository.update(INPUT);
 
             assertThatUserAccount(userAccountTable, UserAccountTableRow.LEO_VIRTANEN)
-                    .hasId(UserAccounts.LeoVirtanen.ID)
-                    .wasCreatedAt(UserAccounts.LeoVirtanen.CREATION_TIME_DB)
+                    .hasId(UserAccounts.LeoVirtanen.getId())
+                    .wasCreatedAt(UserAccounts.LeoVirtanen.getCreationTimeDb())
                     .doesNotHaveDateOfBirth()
-                    .hasEmailAddress(UserAccounts.LeoVirtanen.EMAIL_ADDRESS)
-                    .hasGrantMarketingPermission(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION)
-                    .wasModifiedAt(UserAccounts.LeoVirtanen.MODIFICATION_TIME_DB)
-                    .hasName(UserAccounts.LeoVirtanen.NAME)
-                    .hasPassword(UserAccounts.LeoVirtanen.PASSWORD)
-                    .hasStatus(UserAccounts.LeoVirtanen.STATUS_ACTIVE)
-                    .hasVersion(UserAccounts.LeoVirtanen.VERSION);
+                    .hasEmailAddress(UserAccounts.LeoVirtanen.getEmailAddress())
+                    .hasGrantMarketingPermission(UserAccounts.LeoVirtanen.isGrantMarketingPermission())
+                    .wasModifiedAt(UserAccounts.LeoVirtanen.getModificationTimeDb())
+                    .hasName(UserAccounts.LeoVirtanen.getName())
+                    .hasPassword(UserAccounts.LeoVirtanen.getPassword())
+                    .hasStatus(UserAccounts.LeoVirtanen.getStatus())
+                    .hasVersion(UserAccounts.LeoVirtanen.getVersion());
         }
 
         /**

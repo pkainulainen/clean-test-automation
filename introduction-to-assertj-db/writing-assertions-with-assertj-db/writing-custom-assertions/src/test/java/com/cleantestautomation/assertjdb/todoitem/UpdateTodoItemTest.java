@@ -43,10 +43,10 @@ class UpdateTodoItemTest {
     class WhenUpdatedTodoItemIsNotFound {
 
         private static final UpdateTodoItem INPUT = UpdateTodoItem.getBuilder()
-                .withDescription(TodoItems.ReadAllLessons.UPDATED_DESCRIPTION)
+                .withDescription(TodoItems.UpdatedReadAllLessons.getDescription())
                 .withId(TodoItems.UNKNOWN_ID)
-                .withModifierId(TodoItems.ReadAllLessons.MODIFIED_BY_USER_ID)
-                .withTitle(TodoItems.ReadAllLessons.UPDATED_TITLE)
+                .withModifierId(TodoItems.UpdatedReadAllLessons.getModifiedByUserId())
+                .withTitle(TodoItems.UpdatedReadAllLessons.getTitle())
                 .build();
 
         @Test
@@ -85,10 +85,10 @@ class UpdateTodoItemTest {
     class WhenUpdatedTodoItemIsFound {
 
         private static final UpdateTodoItem INPUT = UpdateTodoItem.getBuilder()
-                .withDescription(TodoItems.ReadAllLessons.UPDATED_DESCRIPTION)
-                .withId(TodoItems.ReadAllLessons.ID)
-                .withModifierId(TodoItems.ReadAllLessons.MODIFIED_BY_USER_ID)
-                .withTitle(TodoItems.ReadAllLessons.UPDATED_TITLE)
+                .withDescription(TodoItems.UpdatedReadAllLessons.getDescription())
+                .withId(TodoItems.UpdatedReadAllLessons.getId())
+                .withModifierId(TodoItems.UpdatedReadAllLessons.getModifiedByUserId())
+                .withTitle(TodoItems.UpdatedReadAllLessons.getTitle())
                 .build();
 
         @Test
@@ -182,19 +182,19 @@ class UpdateTodoItemTest {
             assertSoftly(softAssertions -> {
                 softAssertions.assertThat(updated.getId())
                         .as("id")
-                        .isEqualByComparingTo(IdColumnReset.NEXT_ID);
+                        .isEqualByComparingTo(TodoItems.UpdatedReadAllLessons.getId());
                 softAssertions.assertThat(updated.getDescription())
                         .as("description")
-                        .isEqualTo(TodoItems.ReadAllLessons.UPDATED_DESCRIPTION);
+                        .isEqualTo(TodoItems.UpdatedReadAllLessons.getDescription());
                 softAssertions.assertThat(updated.getResolution())
                         .as("resolution")
-                        .isEqualTo(TodoItems.ReadAllLessons.NO_RESOLUTION);
+                        .isEqualTo(TodoItems.UpdatedReadAllLessons.getResolution());
                 softAssertions.assertThat(updated.getStatus())
                         .as("status")
-                        .isEqualTo(TodoItems.ReadAllLessons.STATUS_OPEN);
+                        .isEqualTo(TodoItems.UpdatedReadAllLessons.getStatus());
                 softAssertions.assertThat(updated.getTitle())
                         .as("title")
-                        .isEqualTo(TodoItems.ReadAllLessons.UPDATED_TITLE);
+                        .isEqualTo(TodoItems.UpdatedReadAllLessons.getTitle());
             });
         }
 
