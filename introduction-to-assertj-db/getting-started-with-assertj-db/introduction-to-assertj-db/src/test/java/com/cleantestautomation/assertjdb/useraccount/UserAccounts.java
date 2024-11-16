@@ -53,6 +53,7 @@ public class UserAccounts {
     public static UserAccountRow LeoVirtanen = UserAccountRow.getBuilder()
             .withId(2L)
             .withCreationTimeDb(TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-05-10T12:46:00"))
+            .withDateOfBirth(null)
             .withEmailAddress("leo.virtanen@example.com")
             .withGrantMarketingPermission(false)
             .withModificationTimeDb(TestDateTimeBuilder.transformUTCDateTimeToLocalDateTime("2023-05-10T12:46:00"))

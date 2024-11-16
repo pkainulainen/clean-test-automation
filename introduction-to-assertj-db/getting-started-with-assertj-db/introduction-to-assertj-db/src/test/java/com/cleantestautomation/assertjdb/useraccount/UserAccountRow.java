@@ -10,27 +10,29 @@ public class UserAccountRow {
 
     private final Long id;
     private final String creationTimeDb;
-    private final String dateOfBirthDb;
     private final LocalDate dateOfBirth;
+    private final String dateOfBirthDb;
     private final String emailAddress;
     private final boolean grantMarketingPermission;
     private final String modificationTimeDb;
     private final String name;
     private final String password;
-    private final String status;
+    private final UserAccountStatus status;
+    private final String statusDb;
     private final Long version;
 
     private UserAccountRow(Builder builder) {
         this.id = builder.id;
         this.creationTimeDb = builder.creationTimeDb;
-        this.dateOfBirthDb = builder.dateOfBirthDb;
         this.dateOfBirth = builder.dateOfBirth;
+        this.dateOfBirthDb = builder.dateOfBirthDb;
         this.emailAddress = builder.emailAddress;
         this.grantMarketingPermission = builder.grantMarketingPermission;
         this.modificationTimeDb = builder.modificationTimeDb;
         this.name = builder.name;
         this.password = builder.password;
-        this.status = builder.status.name();
+        this.status = builder.status;
+        this.statusDb = builder.status.name();
         this.version = builder.version;
     }
 
@@ -53,18 +55,18 @@ public class UserAccountRow {
     }
 
     /**
-     * Returns the expected value of the <code>date_of_birth</code> column.
-     */
-    public String getDateOfBirthDb() {
-        return dateOfBirthDb;
-    }
-
-    /**
      * Returns date of birth that's used to create test data that's passed
      * to the system under test.
      */
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
+    }
+
+    /**
+     * Returns the expected value of the <code>date_of_birth</code> column.
+     */
+    public String getDateOfBirthDb() {
+        return dateOfBirthDb;
     }
 
     /**
@@ -103,10 +105,18 @@ public class UserAccountRow {
     }
 
     /**
+     * Returns the status of the user account. The returned enum value is
+     * used to create the test data that's passed to the system under test.
+     */
+    public UserAccountStatus getStatus() {
+        return status;
+    }
+
+    /**
      * Returns the expected value of the <code>status</code> column.
      */
-    public String getStatus() {
-        return status;
+    public String getStatusDb() {
+        return statusDb;
     }
 
     /**
@@ -141,7 +151,7 @@ public class UserAccountRow {
 
         Builder withDateOfBirth(String dateOfBirth) {
             this.dateOfBirthDb = dateOfBirth;
-            this.dateOfBirth = LocalDate.parse(dateOfBirth);
+            this.dateOfBirth = dateOfBirth != null ? LocalDate.parse(dateOfBirth) : null;
             return this;
         }
 
