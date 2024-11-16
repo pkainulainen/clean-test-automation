@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 /**
  * This exercise helps you understand how you can write soft assertions for the data
- * that's found from a relational database.
+ * that's found from the specified database table.
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
@@ -62,7 +62,7 @@ class DeleteTodoItemTest {
         @Test
         @DisplayName("Shouldn't make any changes to the information of the Read all lessons todo item")
         void shouldNotMakeAnyChangesToInformationOfReadAllLessonsTodoItem() {
-            repository.delete(TodoItems.FinishAllExercises.ID);
+            repository.delete(TodoItems.FinishAllExercises.getId());
             //TODO: Write the soft assertions which ensure that the repository doesn't make any changes to the
             //information of the first todo item that's found from the todo_item table.
         }

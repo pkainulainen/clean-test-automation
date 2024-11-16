@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 /**
  * This exercise helps you to understand how you can write soft assertions for the
- * data that's found from a relational database.
+ * data that's found from the specified database table.
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
@@ -39,10 +39,10 @@ class UpdateTodoItemTest {
     class WhenUpdatedTodoItemIsNotFound {
 
         private static final UpdateTodoItem INPUT = UpdateTodoItem.getBuilder()
-                .withDescription(TodoItems.ReadAllLessons.UPDATED_DESCRIPTION)
+                .withDescription(TodoItems.UpdatedReadAllLessons.getDescription())
                 .withId(TodoItems.UNKNOWN_ID)
-                .withModifierId(TodoItems.ReadAllLessons.MODIFIED_BY_USER_ID)
-                .withTitle(TodoItems.ReadAllLessons.UPDATED_TITLE)
+                .withModifierId(TodoItems.UpdatedReadAllLessons.getModifiedByUserId())
+                .withTitle(TodoItems.UpdatedReadAllLessons.getTitle())
                 .build();
 
         @Test
@@ -67,10 +67,10 @@ class UpdateTodoItemTest {
     class WhenUpdatedTodoItemIsFound {
 
         private static final UpdateTodoItem INPUT = UpdateTodoItem.getBuilder()
-                .withDescription(TodoItems.ReadAllLessons.UPDATED_DESCRIPTION)
-                .withId(TodoItems.ReadAllLessons.ID)
-                .withModifierId(TodoItems.ReadAllLessons.MODIFIED_BY_USER_ID)
-                .withTitle(TodoItems.ReadAllLessons.UPDATED_TITLE)
+                .withDescription(TodoItems.UpdatedReadAllLessons.getDescription())
+                .withId(TodoItems.UpdatedReadAllLessons.getId())
+                .withModifierId(TodoItems.UpdatedReadAllLessons.getModifiedByUserId())
+                .withTitle(TodoItems.UpdatedReadAllLessons.getTitle())
                 .build();
 
         @Test

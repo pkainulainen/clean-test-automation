@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 
 /**
  * This exercise helps you understand how you can write soft assertions for the data
- * that's found from a relational database.
+ * that's found from the specified database table.
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
@@ -27,9 +27,9 @@ import javax.sql.DataSource;
 class CreateTodoItemTest {
 
     private static final CreateTodoItem INPUT = CreateTodoItem.getBuilder()
-            .withCreatorId(TodoItems.ReadAllLessons.CREATED_BY_USER_ID)
-            .withDescription(TodoItems.ReadAllLessons.DESCRIPTION)
-            .withTitle(TodoItems.ReadAllLessons.TITLE)
+            .withCreatorId(TodoItems.ReadAllLessons.getCreatedByUserId())
+            .withDescription(TodoItems.ReadAllLessons.getDescription())
+            .withTitle(TodoItems.ReadAllLessons.getTitle())
             .build();
 
     private final IdColumnReset idColumnReset;
