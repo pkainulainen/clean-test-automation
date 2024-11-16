@@ -1,7 +1,6 @@
 package com.cleantestautomation.assertjdb.useraccount;
 
 import com.cleantestautomation.assertjdb.IdColumnReset;
-import com.cleantestautomation.assertjdb.common.ConstantDateTimeService;
 import org.assertj.core.api.Assertions;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.DisplayName;
@@ -45,9 +44,9 @@ public class UpdateUserAccountTest {
 
         private final UpdateUserAccount INPUT = UpdateUserAccount.getBuilder()
                 .withId(UserAccounts.UNKNOWN_ID)
-                .withDateOfBirth(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH)
-                .withGrantMarketingPermission(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION)
-                .withName(UserAccounts.AnneOwens.UPDATED_NAME)
+                .withDateOfBirth(UserAccounts.UpdatedAnneOwens.getDateOfBirth())
+                .withGrantMarketingPermission(UserAccounts.UpdatedAnneOwens.isGrantMarketingPermission())
+                .withName(UserAccounts.UpdatedAnneOwens.getName())
                 .build();
 
         @Test
@@ -66,43 +65,43 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_ID)
-                    .isEqualTo(UserAccounts.AnneOwens.ID);
+                    .isEqualTo(UserAccounts.AnneOwens.getId());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_CREATION_TIME)
-                    .isEqualTo(UserAccounts.AnneOwens.CREATION_TIME_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getCreationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                    .isEqualTo(UserAccounts.AnneOwens.DATE_OF_BIRTH_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getDateOfBirthDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                    .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.AnneOwens.getEmailAddress());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                    .isEqualTo(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.AnneOwens.isGrantMarketingPermission());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
-                    .isEqualTo(UserAccounts.AnneOwens.MODIFICATION_TIME_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getModificationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_NAME)
-                    .isEqualTo(UserAccounts.AnneOwens.NAME);
+                    .isEqualTo(UserAccounts.AnneOwens.getName());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                    .isEqualTo(UserAccounts.AnneOwens.PASSWORD);
+                    .isEqualTo(UserAccounts.AnneOwens.getPassword());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_STATUS)
-                    .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE.name());
+                    .isEqualTo(UserAccounts.AnneOwens.getStatusDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_VERSION)
-                    .isEqualTo(UserAccounts.AnneOwens.VERSION);
+                    .isEqualTo(UserAccounts.AnneOwens.getVersion());
         }
 
         @Test
@@ -114,11 +113,11 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_ID)
-                    .isEqualTo(UserAccounts.LeoVirtanen.ID);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getId());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_CREATION_TIME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.CREATION_TIME_DB);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getCreationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
@@ -126,31 +125,31 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                    .isEqualTo(UserAccounts.LeoVirtanen.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getEmailAddress());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                    .isEqualTo(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.LeoVirtanen.isGrantMarketingPermission());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.MODIFICATION_TIME_DB);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getModificationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_NAME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.NAME);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getName());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                    .isEqualTo(UserAccounts.LeoVirtanen.PASSWORD);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getPassword());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_STATUS)
-                    .isEqualTo(UserAccounts.LeoVirtanen.STATUS_ACTIVE.name());
+                    .isEqualTo(UserAccounts.LeoVirtanen.getStatusDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_VERSION)
-                    .isEqualTo(UserAccounts.LeoVirtanen.VERSION);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getVersion());
         }
 
         @Test
@@ -166,10 +165,10 @@ public class UpdateUserAccountTest {
     class WhenUpdatedUserAccountIsFound {
 
         private final UpdateUserAccount INPUT = UpdateUserAccount.getBuilder()
-                .withId(UserAccounts.AnneOwens.ID)
-                .withDateOfBirth(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH)
-                .withGrantMarketingPermission(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION)
-                .withName(UserAccounts.AnneOwens.UPDATED_NAME)
+                .withId(UserAccounts.UpdatedAnneOwens.getId())
+                .withDateOfBirth(UserAccounts.UpdatedAnneOwens.getDateOfBirth())
+                .withGrantMarketingPermission(UserAccounts.UpdatedAnneOwens.isGrantMarketingPermission())
+                .withName(UserAccounts.UpdatedAnneOwens.getName())
                 .build();
 
         @Test
@@ -186,7 +185,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_ID)
-                    .isEqualTo(UserAccounts.AnneOwens.ID);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getId());
         }
 
         @Test
@@ -196,7 +195,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_CREATION_TIME)
-                    .isEqualTo(UserAccounts.AnneOwens.CREATION_TIME_DB);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getCreationTimeDb());
         }
 
         @Test
@@ -206,7 +205,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                    .isEqualTo(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH_DB);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getDateOfBirthDb());
         }
 
         @Test
@@ -216,7 +215,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                    .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getEmailAddress());
         }
 
         @Test
@@ -226,7 +225,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                    .isEqualTo(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.isGrantMarketingPermission());
         }
 
         @Test
@@ -236,7 +235,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
-                    .isEqualTo(ConstantDateTimeService.CURRENT_LOCAL_DATE_TIME);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getModificationTimeDb());
         }
 
         @Test
@@ -246,7 +245,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_NAME)
-                    .isEqualTo(UserAccounts.AnneOwens.UPDATED_NAME);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getName());
         }
 
         @Test
@@ -256,7 +255,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                    .isEqualTo(UserAccounts.AnneOwens.PASSWORD);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getPassword());
         }
 
         @Test
@@ -266,7 +265,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_STATUS)
-                    .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE.name());
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getStatusDb());
         }
 
         @Test
@@ -276,7 +275,7 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(UserAccountTableRow.ANNE_OWENS.getIndex())
                     .value(UserAccountTable.COLUMN_NAME_VERSION)
-                    .isEqualTo(UserAccounts.AnneOwens.VERSION + 1);
+                    .isEqualTo(UserAccounts.UpdatedAnneOwens.getVersion());
         }
 
         @Test
@@ -289,19 +288,19 @@ public class UpdateUserAccountTest {
                         .isEqualByComparingTo(IdColumnReset.NEXT_ID);
                 softAssertions.assertThat(updated.getDateOfBirth())
                         .as("dateOfBirth")
-                        .isEqualTo(UserAccounts.AnneOwens.UPDATED_DATE_OF_BIRTH_DB);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.getDateOfBirth());
                 softAssertions.assertThat(updated.getEmailAddress())
                         .as("emailAddress")
-                        .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.getEmailAddress());
                 softAssertions.assertThat(updated.isGrantMarketingPermission())
                         .as("grantMarketingPermission")
-                        .isEqualTo(UserAccounts.AnneOwens.UPDATED_GRANT_MARKETING_PERMISSION);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.isGrantMarketingPermission());
                 softAssertions.assertThat(updated.getName())
                         .as("name")
-                        .isEqualTo(UserAccounts.AnneOwens.UPDATED_NAME);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.getName());
                 softAssertions.assertThat(updated.getStatus())
                         .as("status")
-                        .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE);
+                        .isEqualTo(UserAccounts.UpdatedAnneOwens.getStatus());
             });
         }
 
@@ -314,11 +313,11 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_ID)
-                    .isEqualTo(UserAccounts.LeoVirtanen.ID);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getId());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_CREATION_TIME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.CREATION_TIME_DB);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getCreationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
@@ -326,31 +325,31 @@ public class UpdateUserAccountTest {
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                    .isEqualTo(UserAccounts.LeoVirtanen.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getEmailAddress());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                    .isEqualTo(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.LeoVirtanen.isGrantMarketingPermission());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.MODIFICATION_TIME_DB);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getModificationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_NAME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.NAME);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getName());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                    .isEqualTo(UserAccounts.LeoVirtanen.PASSWORD);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getPassword());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_STATUS)
-                    .isEqualTo(UserAccounts.LeoVirtanen.STATUS_ACTIVE.name());
+                    .isEqualTo(UserAccounts.LeoVirtanen.getStatusDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_VERSION)
-                    .isEqualTo(UserAccounts.LeoVirtanen.VERSION);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getVersion());
         }
     }
 }

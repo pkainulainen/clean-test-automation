@@ -19,7 +19,7 @@ import static org.assertj.db.api.Assertions.assertThat;
 
 /**
  * This test class demonstrates how you can write assertions which ensure that a new row
- * is inserted into the database.
+ * is inserted into the specified database table.
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
@@ -30,12 +30,12 @@ import static org.assertj.db.api.Assertions.assertThat;
 public class CreateUserAccountTest {
 
     private final CreateUserAccount INPUT = CreateUserAccount.getBuilder()
-            .withDateOfBirth(UserAccounts.AnneOwens.DATE_OF_BIRTH)
-            .withEmailAddress(UserAccounts.AnneOwens.EMAIL_ADDRESS)
-            .withGrantMarketingPermission(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION)
-            .withName(UserAccounts.AnneOwens.NAME)
-            .withPassword(UserAccounts.AnneOwens.PASSWORD)
-            .withStatus(UserAccounts.AnneOwens.STATUS_ACTIVE)
+            .withDateOfBirth(UserAccounts.AnneOwens.getDateOfBirth())
+            .withEmailAddress(UserAccounts.AnneOwens.getEmailAddress())
+            .withGrantMarketingPermission(UserAccounts.AnneOwens.isGrantMarketingPermission())
+            .withName(UserAccounts.AnneOwens.getName())
+            .withPassword(UserAccounts.AnneOwens.getPassword())
+            .withStatus(UserAccounts.AnneOwens.getStatus())
             .build();
 
     private final IdColumnReset idColumnReset;
@@ -90,7 +90,7 @@ public class CreateUserAccountTest {
         assertThat(userAccountTable)
                 .row(UserAccountTableRow.NEW_USER_ACCOUNT.getIndex())
                 .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                .isEqualTo(UserAccounts.AnneOwens.DATE_OF_BIRTH_DB);
+                .isEqualTo(UserAccounts.AnneOwens.getDateOfBirthDb());
     }
 
     @Test
@@ -100,7 +100,7 @@ public class CreateUserAccountTest {
         assertThat(userAccountTable)
                 .row(UserAccountTableRow.NEW_USER_ACCOUNT.getIndex())
                 .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                .isEqualTo(UserAccounts.AnneOwens.getEmailAddress());
     }
 
     @Test
@@ -110,7 +110,7 @@ public class CreateUserAccountTest {
         assertThat(userAccountTable)
                 .row(UserAccountTableRow.NEW_USER_ACCOUNT.getIndex())
                 .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                .isEqualTo(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION);
+                .isEqualTo(UserAccounts.AnneOwens.isGrantMarketingPermission());
     }
 
     @Test
@@ -130,7 +130,7 @@ public class CreateUserAccountTest {
         assertThat(userAccountTable)
                 .row(UserAccountTableRow.NEW_USER_ACCOUNT.getIndex())
                 .value(UserAccountTable.COLUMN_NAME_NAME)
-                .isEqualTo(UserAccounts.AnneOwens.NAME);
+                .isEqualTo(UserAccounts.AnneOwens.getName());
     }
 
     @Test
@@ -140,7 +140,7 @@ public class CreateUserAccountTest {
         assertThat(userAccountTable)
                 .row(UserAccountTableRow.NEW_USER_ACCOUNT.getIndex())
                 .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                .isEqualTo(UserAccounts.AnneOwens.PASSWORD);
+                .isEqualTo(UserAccounts.AnneOwens.getPassword());
     }
 
     @Test
@@ -150,7 +150,7 @@ public class CreateUserAccountTest {
         assertThat(userAccountTable)
                 .row(UserAccountTableRow.NEW_USER_ACCOUNT.getIndex())
                 .value(UserAccountTable.COLUMN_NAME_STATUS)
-                .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE.name());
+                .isEqualTo(UserAccounts.AnneOwens.getStatusDb());
     }
 
     @Test
@@ -173,19 +173,19 @@ public class CreateUserAccountTest {
                     .isEqualByComparingTo(IdColumnReset.NEXT_ID);
             softAssertions.assertThat(created.getDateOfBirth())
                     .as("dateOfBirth")
-                    .isEqualTo(UserAccounts.AnneOwens.DATE_OF_BIRTH);
+                    .isEqualTo(UserAccounts.AnneOwens.getDateOfBirth());
             softAssertions.assertThat(created.getEmailAddress())
                     .as("emailAddress")
-                    .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.AnneOwens.getEmailAddress());
             softAssertions.assertThat(created.isGrantMarketingPermission())
                     .as("grantMarketingPermission")
-                    .isEqualTo(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.AnneOwens.isGrantMarketingPermission());
             softAssertions.assertThat(created.getName())
                     .as("name")
-                    .isEqualTo(UserAccounts.AnneOwens.NAME);
+                    .isEqualTo(UserAccounts.AnneOwens.getName());
             softAssertions.assertThat(created.getStatus())
                     .as("status")
-                    .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE);
+                    .isEqualTo(UserAccounts.AnneOwens.getStatus());
         });
     }
 }

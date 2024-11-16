@@ -17,7 +17,7 @@ import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 /**
  * This exercise helps you understand how you can write assertions which ensure that
- * the correct information is inserted into a relational database.
+ * the correct information is inserted into the specified database table.
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
@@ -29,9 +29,9 @@ import static org.assertj.core.api.SoftAssertions.assertSoftly;
 class CreateTodoItemTest {
 
     private static final CreateTodoItem INPUT = CreateTodoItem.getBuilder()
-            .withCreatorId(TodoItems.ReadAllLessons.CREATED_BY_USER_ID)
-            .withDescription(TodoItems.ReadAllLessons.DESCRIPTION)
-            .withTitle(TodoItems.ReadAllLessons.TITLE)
+            .withCreatorId(TodoItems.ReadAllLessons.getCreatedByUserId())
+            .withDescription(TodoItems.ReadAllLessons.getDescription())
+            .withTitle(TodoItems.ReadAllLessons.getTitle())
             .build();
 
     private final IdColumnReset idColumnReset;
@@ -64,6 +64,7 @@ class CreateTodoItemTest {
     void shouldUseNextFreeIdWhenNewTodoItemIsInsertedIntoDatabase() {
         repository.create(INPUT);
         //TODO: Write the assertion which ensures that the next free id is inserted into the database.
+        //HINT: Check the IdColumnReset class.
     }
 
     @Test
@@ -78,6 +79,7 @@ class CreateTodoItemTest {
     void shouldInsertCorrectCreationTimeIntoDatabase() {
         repository.create(INPUT);
         //TODO: Write the assertion which ensures that the correct creation time is inserted into the database.
+        //HINT: Check the ConstantDateTimeService class
     }
 
     @Test
@@ -92,6 +94,7 @@ class CreateTodoItemTest {
     void shouldInsertCorrectModificationTimeIntoDatabase() {
         repository.create(INPUT);
         //TODO: Write the assertion which ensures that the correct modification time is inserted into the database.
+        //HINT: Check the ConstantDateTimeService class.
     }
 
     @Test
@@ -113,7 +116,7 @@ class CreateTodoItemTest {
     @DisplayName("Should insert the correct title into the database")
     void shouldInsertCorrectTitleIntoDatabase() {
         repository.create(INPUT);
-        //TODO: Write the assertions which ensure that the correct title is inserted into the database.
+        //TODO: Write the assertion which ensure that the correct title is inserted into the database.
     }
 
     @Test
@@ -133,16 +136,16 @@ class CreateTodoItemTest {
                     .isEqualByComparingTo(IdColumnReset.NEXT_ID);
             softAssertions.assertThat(created.getDescription())
                     .as("description")
-                    .isEqualTo(TodoItems.ReadAllLessons.DESCRIPTION);
+                    .isEqualTo(TodoItems.ReadAllLessons.getDescription());
             softAssertions.assertThat(created.getResolution())
                     .as("resolution")
                     .isNull();
             softAssertions.assertThat(created.getStatus())
                     .as("status")
-                    .isEqualTo(TodoItems.ReadAllLessons.STATUS_OPEN);
+                    .isEqualTo(TodoItems.ReadAllLessons.getStatus());
             softAssertions.assertThat(created.getTitle())
                     .as("title")
-                    .isEqualTo(TodoItems.ReadAllLessons.TITLE);
+                    .isEqualTo(TodoItems.ReadAllLessons.getTitle());
         });
     }
 }

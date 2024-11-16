@@ -17,7 +17,7 @@ import static org.assertj.db.api.Assertions.assertThat;
 
 /**
  * This test demonstrates how you can write assertions which ensure that
- * the correct user account was deleted from the database.
+ * the correct user account was deleted from the specified database table.
  */
 @SpringBootTest
 @ActiveProfiles("integrationTest")
@@ -57,43 +57,43 @@ class DeleteUserAccountTest {
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_ID)
-                    .isEqualTo(UserAccounts.AnneOwens.ID);
+                    .isEqualTo(UserAccounts.AnneOwens.getId());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_CREATION_TIME)
-                    .isEqualTo(UserAccounts.AnneOwens.CREATION_TIME_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getCreationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                    .isEqualTo(UserAccounts.AnneOwens.DATE_OF_BIRTH_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getDateOfBirthDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                    .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.AnneOwens.getEmailAddress());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                    .isEqualTo(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.AnneOwens.isGrantMarketingPermission());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
-                    .isEqualTo(UserAccounts.AnneOwens.MODIFICATION_TIME_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getModificationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_NAME)
-                    .isEqualTo(UserAccounts.AnneOwens.NAME);
+                    .isEqualTo(UserAccounts.AnneOwens.getName());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                    .isEqualTo(UserAccounts.AnneOwens.PASSWORD);
+                    .isEqualTo(UserAccounts.AnneOwens.getPassword());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_STATUS)
-                    .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE.name());
+                    .isEqualTo(UserAccounts.AnneOwens.getStatusDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_VERSION)
-                    .isEqualTo(UserAccounts.AnneOwens.VERSION);
+                    .isEqualTo(UserAccounts.AnneOwens.getVersion());
         }
 
         @Test
@@ -105,11 +105,11 @@ class DeleteUserAccountTest {
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_ID)
-                    .isEqualTo(UserAccounts.LeoVirtanen.ID);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getId());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_CREATION_TIME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.CREATION_TIME_DB);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getCreationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
@@ -117,31 +117,31 @@ class DeleteUserAccountTest {
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                    .isEqualTo(UserAccounts.LeoVirtanen.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getEmailAddress());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                    .isEqualTo(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.LeoVirtanen.isGrantMarketingPermission());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.MODIFICATION_TIME_DB);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getModificationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_NAME)
-                    .isEqualTo(UserAccounts.LeoVirtanen.NAME);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getName());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                    .isEqualTo(UserAccounts.LeoVirtanen.PASSWORD);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getPassword());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_STATUS)
-                    .isEqualTo(UserAccounts.LeoVirtanen.STATUS_ACTIVE.name());
+                    .isEqualTo(UserAccounts.LeoVirtanen.getStatusDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_VERSION)
-                    .isEqualTo(UserAccounts.LeoVirtanen.VERSION);
+                    .isEqualTo(UserAccounts.LeoVirtanen.getVersion());
         }
 
         @Test
@@ -159,81 +159,81 @@ class DeleteUserAccountTest {
         @Test
         @DisplayName("Should delete one user account from the database")
         void shouldDeleteOneUserAccountFromDatabase() {
-            repository.delete(UserAccounts.LeoVirtanen.ID);
+            repository.delete(UserAccounts.LeoVirtanen.getId());
             assertThat(userAccountTable).hasNumberOfRows(UserAccounts.USER_ACCOUNT_ROW_COUNT - 1);
         }
 
         @Test
         @DisplayName("Shouldn't make any changes to the information of Anne Owens")
         void shouldNotMakeAnyChangesToInformationOfAnneOwens() {
-            repository.delete(UserAccounts.LeoVirtanen.ID);
+            repository.delete(UserAccounts.LeoVirtanen.getId());
 
             var rowIndex = UserAccountTableRow.ANNE_OWENS.getIndex();
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_ID)
-                    .isEqualTo(UserAccounts.AnneOwens.ID);
+                    .isEqualTo(UserAccounts.AnneOwens.getId());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_CREATION_TIME)
-                    .isEqualTo(UserAccounts.AnneOwens.CREATION_TIME_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getCreationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                    .isEqualTo(UserAccounts.AnneOwens.DATE_OF_BIRTH_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getDateOfBirthDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                    .isEqualTo(UserAccounts.AnneOwens.EMAIL_ADDRESS);
+                    .isEqualTo(UserAccounts.AnneOwens.getEmailAddress());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                    .isEqualTo(UserAccounts.AnneOwens.GRANT_MARKETING_PERMISSION);
+                    .isEqualTo(UserAccounts.AnneOwens.isGrantMarketingPermission());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
-                    .isEqualTo(UserAccounts.AnneOwens.MODIFICATION_TIME_DB);
+                    .isEqualTo(UserAccounts.AnneOwens.getModificationTimeDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_NAME)
-                    .isEqualTo(UserAccounts.AnneOwens.NAME);
+                    .isEqualTo(UserAccounts.AnneOwens.getName());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                    .isEqualTo(UserAccounts.AnneOwens.PASSWORD);
+                    .isEqualTo(UserAccounts.AnneOwens.getPassword());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_STATUS)
-                    .isEqualTo(UserAccounts.AnneOwens.STATUS_ACTIVE.name());
+                    .isEqualTo(UserAccounts.AnneOwens.getStatusDb());
             assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_VERSION)
-                    .isEqualTo(UserAccounts.AnneOwens.VERSION);
+                    .isEqualTo(UserAccounts.AnneOwens.getVersion());
         }
 
         @Test
         @DisplayName("Should return the information of the deleted user account")
         void shouldReturnInformationOfDeletedUserAccount() {
-            var deleted = repository.delete(UserAccounts.LeoVirtanen.ID);
+            var deleted = repository.delete(UserAccounts.LeoVirtanen.getId());
             assertSoftly(softAssertions -> {
                 softAssertions.assertThat(deleted.getId())
                         .as("id")
-                        .isEqualByComparingTo(UserAccounts.LeoVirtanen.ID);
+                        .isEqualByComparingTo(UserAccounts.LeoVirtanen.getId());
                 softAssertions.assertThat(deleted.getDateOfBirth())
                         .as("dateOfBirth")
                         .isNull();
                 softAssertions.assertThat(deleted.getEmailAddress())
                         .as("emailAddress")
-                        .isEqualTo(UserAccounts.LeoVirtanen.EMAIL_ADDRESS);
+                        .isEqualTo(UserAccounts.LeoVirtanen.getEmailAddress());
                 softAssertions.assertThat(deleted.isGrantMarketingPermission())
                         .as("grantMarketingPermission")
-                        .isEqualTo(UserAccounts.LeoVirtanen.GRANT_MARKETING_PERMISSION);
+                        .isEqualTo(UserAccounts.LeoVirtanen.isGrantMarketingPermission());
                 softAssertions.assertThat(deleted.getName())
                         .as("name")
-                        .isEqualTo(UserAccounts.LeoVirtanen.NAME);
+                        .isEqualTo(UserAccounts.LeoVirtanen.getName());
                 softAssertions.assertThat(deleted.getStatus())
                         .as("status")
-                        .isEqualTo(UserAccounts.LeoVirtanen.STATUS_ACTIVE);
+                        .isEqualTo(UserAccounts.LeoVirtanen.getStatus());
             });
         }
     }
