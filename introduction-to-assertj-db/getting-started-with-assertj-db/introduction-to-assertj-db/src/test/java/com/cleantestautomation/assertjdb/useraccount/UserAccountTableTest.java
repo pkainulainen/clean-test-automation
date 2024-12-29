@@ -1,5 +1,6 @@
 package com.cleantestautomation.assertjdb.useraccount;
 
+import org.assertj.db.type.AssertDbConnectionFactory;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,10 @@ class UserAccountTableTest {
 
     @Autowired
     UserAccountTableTest(DataSource dataSource) {
-        this.userAccountTable = new Table(dataSource, "user_account");
+        this.userAccountTable = AssertDbConnectionFactory.of(dataSource)
+                .create()
+                .table("user_account")
+                .build();
     }
 
     @Test
