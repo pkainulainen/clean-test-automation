@@ -1,5 +1,6 @@
 package com.cleantestautomation.assertjdb.todoitem;
 
+import org.assertj.db.type.AssertDbConnectionFactory;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -31,7 +32,10 @@ class DeleteTodoItemTest {
     @Autowired
     DeleteTodoItemTest(DataSource dataSource, TodoItemRepository repository) {
         this.repository = repository;
-        this.todoItemTable = new Table(dataSource, TodoItemTable.NAME);
+        this.todoItemTable = AssertDbConnectionFactory.of(dataSource)
+                .create()
+                .table(TodoItemTable.NAME)
+                .build();
     }
 
     @Nested

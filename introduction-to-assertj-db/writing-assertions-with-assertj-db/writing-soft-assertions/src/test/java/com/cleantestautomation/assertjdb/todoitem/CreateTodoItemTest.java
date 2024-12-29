@@ -1,6 +1,7 @@
 package com.cleantestautomation.assertjdb.todoitem;
 
 import com.cleantestautomation.assertjdb.IdColumnReset;
+import org.assertj.db.type.AssertDbConnectionFactory;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -42,7 +43,10 @@ class CreateTodoItemTest {
                        TodoItemRepository repository) {
         this.idColumnReset = new IdColumnReset(jdbcTemplate);
         this.repository = repository;
-        this.todoItemTable = new Table(dataSource, TodoItemTable.NAME);
+        this.todoItemTable = AssertDbConnectionFactory.of(dataSource)
+                .create()
+                .table(TodoItemTable.NAME)
+                .build();
     }
 
     @BeforeEach

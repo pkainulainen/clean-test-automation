@@ -4,6 +4,7 @@ import com.cleantestautomation.assertjdb.IdColumnReset;
 import com.cleantestautomation.assertjdb.common.ConstantDateTimeService;
 import org.assertj.core.api.Assertions;
 import org.assertj.db.api.SoftAssertions;
+import org.assertj.db.type.AssertDbConnectionFactory;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -37,7 +38,10 @@ public class UpdateUserAccountTest {
     @Autowired
     UpdateUserAccountTest(DataSource dataSource, UserAccountRepository repository) {
         this.repository = repository;
-        this.userAccountTable = new Table(dataSource, UserAccountTable.NAME);
+        this.userAccountTable = AssertDbConnectionFactory.of(dataSource)
+                .create()
+                .table(UserAccountTable.NAME)
+                .build();
     }
 
     @Nested
