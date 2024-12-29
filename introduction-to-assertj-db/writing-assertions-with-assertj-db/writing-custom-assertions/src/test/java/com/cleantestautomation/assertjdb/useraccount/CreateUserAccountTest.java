@@ -2,6 +2,7 @@ package com.cleantestautomation.assertjdb.useraccount;
 
 import com.cleantestautomation.assertjdb.IdColumnReset;
 import com.cleantestautomation.assertjdb.common.ConstantDateTimeService;
+import org.assertj.db.type.AssertDbConnectionFactory;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -49,7 +50,10 @@ public class CreateUserAccountTest {
                           UserAccountRepository repository) {
         this.idColumnReset = new IdColumnReset(jdbcTemplate);
         this.repository = repository;
-        this.userAccountTable = new Table(dataSource, UserAccountTable.NAME);
+        this.userAccountTable = AssertDbConnectionFactory.of(dataSource)
+                .create()
+                .table(UserAccountTable.NAME)
+                .build();
     }
 
     @BeforeEach
