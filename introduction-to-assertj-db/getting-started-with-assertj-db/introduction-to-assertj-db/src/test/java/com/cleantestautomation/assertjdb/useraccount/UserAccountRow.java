@@ -36,7 +36,7 @@ public class UserAccountRow {
         this.version = builder.version;
     }
 
-    static Builder getBuilder() {
+    public static Builder getBuilder() {
         return new Builder();
     }
 
@@ -126,7 +126,8 @@ public class UserAccountRow {
         return version;
     }
 
-    static class Builder {
+    public static class Builder {
+
         private Long id;
         private String creationTimeDb;
         private String dateOfBirthDb;
