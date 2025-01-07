@@ -34,7 +34,7 @@ public class TodoItemRow {
         this.version = builder.version;
     }
 
-    public static Builder getBuilder() {
+    static Builder getBuilder() {
         return new Builder();
     }
 
@@ -125,7 +125,7 @@ public class TodoItemRow {
         return version;
     }
 
-    public static class Builder {
+    static class Builder {
 
         private Long id;
         private Long createdByUserId;
