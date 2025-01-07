@@ -32,7 +32,7 @@ public class UserAccountRow {
         this.name = builder.name;
         this.password = builder.password;
         this.status = builder.status;
-        this.statusDb = builder.status.name();
+        this.statusDb = builder.statusDb;
         this.version = builder.version;
     }
 
@@ -138,6 +138,7 @@ public class UserAccountRow {
         private String name;
         private String password;
         private UserAccountStatus status;
+        private String statusDb;
         private Long version;
 
         Builder withId(Long id) {
@@ -183,6 +184,7 @@ public class UserAccountRow {
 
         Builder withStatus(UserAccountStatus status) {
             this.status = status;
+            this.statusDb = status.name();
             return this;
         }
 
