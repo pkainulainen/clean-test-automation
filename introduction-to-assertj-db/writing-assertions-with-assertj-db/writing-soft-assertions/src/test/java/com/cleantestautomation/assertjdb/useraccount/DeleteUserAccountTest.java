@@ -1,6 +1,5 @@
 package com.cleantestautomation.assertjdb.useraccount;
 
-import com.cleantestautomation.assertjdb.IdColumnReset;
 import org.assertj.core.api.Assertions;
 import org.assertj.db.api.SoftAssertions;
 import org.assertj.db.type.AssertDbConnectionFactory;
