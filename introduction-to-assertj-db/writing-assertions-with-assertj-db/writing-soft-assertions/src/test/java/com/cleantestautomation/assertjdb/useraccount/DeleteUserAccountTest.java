@@ -202,52 +202,52 @@ class DeleteUserAccountTest {
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_ID)
-                    .as("id")
+                    .as(UserAccountTable.COLUMN_NAME_ID)
                     .isEqualTo(UserAccounts.AnneOwens.getId());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_CREATION_TIME)
-                    .as("creation_time")
+                    .as(UserAccountTable.COLUMN_NAME_CREATION_TIME)
                     .isEqualTo(UserAccounts.AnneOwens.getCreationTimeDb());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                    .as("date_of_birth")
+                    .as(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
                     .isEqualTo(UserAccounts.AnneOwens.getDateOfBirthDb());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
-                    .as("email_address")
+                    .as(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
                     .isEqualTo(UserAccounts.AnneOwens.getEmailAddress());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
-                    .as("grant_marketing_permission")
+                    .as(UserAccountTable.COLUMN_NAME_GRANT_MARKETING_PERMISSION)
                     .isEqualTo(UserAccounts.AnneOwens.isGrantMarketingPermission());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
-                    .as("modification_time")
+                    .as(UserAccountTable.COLUMN_NAME_MODIFICATION_TIME)
                     .isEqualTo(UserAccounts.AnneOwens.getModificationTimeDb());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_NAME)
-                    .as("name")
+                    .as(UserAccountTable.COLUMN_NAME_NAME)
                     .isEqualTo(UserAccounts.AnneOwens.getName());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_PASSWORD)
-                    .as("password")
+                    .as(UserAccountTable.COLUMN_NAME_PASSWORD)
                     .isEqualTo(UserAccounts.AnneOwens.getPassword());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_STATUS)
-                    .as("status")
+                    .as(UserAccountTable.COLUMN_NAME_STATUS)
                     .isEqualTo(UserAccounts.AnneOwens.getStatusDb());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_VERSION)
-                    .as("version")
+                    .as(UserAccountTable.COLUMN_NAME_VERSION)
                     .isEqualTo(UserAccounts.AnneOwens.getVersion());
             softAssertions.assertAll();
         }
