@@ -143,7 +143,7 @@ public class UpdateUserAccountTest {
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
                     .as(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                    .isNull();
+                    .isEqualTo(UserAccounts.LeoVirtanen.getDateOfBirthDb());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
@@ -355,7 +355,7 @@ public class UpdateUserAccountTest {
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
                     .as(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                    .isNull();
+                    .isEqualTo(UserAccounts.LeoVirtanen.getDateOfBirthDb());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)

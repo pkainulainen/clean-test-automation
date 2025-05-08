@@ -135,7 +135,7 @@ class DeleteUserAccountTest {
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
                     .as(UserAccountTable.COLUMN_NAME_DATE_OF_BIRTH)
-                    .isNull();
+                    .isEqualTo(UserAccounts.LeoVirtanen.getDateOfBirthDb());
             softAssertions.assertThat(userAccountTable)
                     .row(rowIndex)
                     .value(UserAccountTable.COLUMN_NAME_EMAIL_ADDRESS)
@@ -263,7 +263,7 @@ class DeleteUserAccountTest {
                         .isEqualByComparingTo(UserAccounts.LeoVirtanen.getId());
                 softAssertions.assertThat(deleted.getDateOfBirth())
                         .as("dateOfBirth")
-                        .isNull();
+                        .isEqualTo(UserAccounts.LeoVirtanen.getDateOfBirth());
                 softAssertions.assertThat(deleted.getEmailAddress())
                         .as("emailAddress")
                         .isEqualTo(UserAccounts.LeoVirtanen.getEmailAddress());
